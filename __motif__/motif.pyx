@@ -6,7 +6,7 @@
 import numpy as np
 cimport numpy as cnp
 from cython cimport boundscheck, wraparound, nonecheck
-from cython.parallel import prange
+from cython.parallel import prange, threadid
 
 cnp.import_array()
 
@@ -60,6 +60,29 @@ cdef compute_edge_distances(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix):
     return node_distances, edge_distances
 
 from time import time
+cimport openmp
+
+@boundscheck(False)
+@wraparound(False)
+@nonecheck(False)
+def xmotif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, cnp.ndarray[DTYPE_int_t, ndim=2] motifs, float alpha, int beta):
+    cdef:
+        long[:] node_degrees
+        double[:, :] node_distances, edge_distances
+        int num_nodes = incidence_matrix.shape[0]
+        int num_motifs = motifs.shape[0]
+        int motif_size = motifs.shape[1]
+        int i
+        # For multithreading
+        int num_threads = openmp.omp_get_max_threads()
+        int _threadid
+
+    node_degrees = incidence_matrix.sum(axis=1)
+    node_distances, edge_distances = compute_edge_distances(incidence_matrix)
+
+    for i in prange(num_motifs, nogil=True):
+        _threadid = threadid()
+        motif_size += 1
 
 @boundscheck(False)
 @wraparound(False)
@@ -75,7 +98,8 @@ def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, c
         cnp.ndarray[DTYPE_int_t, ndim=1] new_motif
         cnp.ndarray[DTYPE_t, ndim=2] y_e, y_m
         list new_motifs = [], new_edges = []
-        int edge_i, num_nodes
+        int edge_i, num_nodes, num_motifs
+        int m_i, b
     node_degrees = incidence_matrix.sum(axis=1)
     node_distances, edge_distances = compute_edge_distances(incidence_matrix)
     edge_i = incidence_matrix.shape[1] - 1
@@ -149,10 +173,6 @@ def expected_degree_hypergraph(node_degrees, edge_degrees, num_interactions):
     incidence_matrix[n, e] = 1
     incidence_matrix = incidence_matrix[:, incidence_matrix.sum(axis=0) != 0]
     return incidence_matrix
-
-cimport openmp
-from cython.parallel import threadid
-from time import time
 
 @boundscheck(False)
 @wraparound(False)
