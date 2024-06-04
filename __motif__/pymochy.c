@@ -4,11 +4,11 @@
 {
     "distutils": {
         "depends": [
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/arrayobject.h",
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/arrayscalars.h",
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ndarrayobject.h",
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ndarraytypes.h",
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ufuncobject.h"
+            "/usr/local/lib/python3.10/dist-packages/numpy/core/include/numpy/arrayobject.h",
+            "/usr/local/lib/python3.10/dist-packages/numpy/core/include/numpy/arrayscalars.h",
+            "/usr/local/lib/python3.10/dist-packages/numpy/core/include/numpy/ndarrayobject.h",
+            "/usr/local/lib/python3.10/dist-packages/numpy/core/include/numpy/ndarraytypes.h",
+            "/usr/local/lib/python3.10/dist-packages/numpy/core/include/numpy/ufuncobject.h"
         ],
         "extra_compile_args": [
             "-O3",
@@ -20,7 +20,7 @@
             "-fopenmp"
         ],
         "include_dirs": [
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include"
+            "/usr/local/lib/python3.10/dist-packages/numpy/core/include"
         ],
         "name": "pymochy",
         "sources": [
@@ -1505,8 +1505,8 @@ static const char *__pyx_filename;
 static const char *__pyx_f[] = {
   "__motif__/pymochy.pyx",
   "<stringsource>",
-  ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd",
-  ".conda/lib/python3.10/site-packages/Cython/Includes/cpython/type.pxd",
+  "__init__.cython-30.pxd",
+  "type.pxd",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* ForceInitThreads.proto */
@@ -1652,7 +1652,7 @@ typedef struct {
 
 /* #### Code section: numeric_typedefs ### */
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":730
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":730
  * # in Cython to enable them only on the right systems.
  * 
  * ctypedef npy_int8       int8_t             # <<<<<<<<<<<<<<
@@ -1661,7 +1661,7 @@ typedef struct {
  */
 typedef npy_int8 __pyx_t_5numpy_int8_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":731
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":731
  * 
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t             # <<<<<<<<<<<<<<
@@ -1670,7 +1670,7 @@ typedef npy_int8 __pyx_t_5numpy_int8_t;
  */
 typedef npy_int16 __pyx_t_5numpy_int16_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":732
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":732
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t             # <<<<<<<<<<<<<<
@@ -1679,7 +1679,7 @@ typedef npy_int16 __pyx_t_5numpy_int16_t;
  */
 typedef npy_int32 __pyx_t_5numpy_int32_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":733
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":733
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
  * ctypedef npy_int64      int64_t             # <<<<<<<<<<<<<<
@@ -1688,7 +1688,7 @@ typedef npy_int32 __pyx_t_5numpy_int32_t;
  */
 typedef npy_int64 __pyx_t_5numpy_int64_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":737
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":737
  * #ctypedef npy_int128     int128_t
  * 
  * ctypedef npy_uint8      uint8_t             # <<<<<<<<<<<<<<
@@ -1697,7 +1697,7 @@ typedef npy_int64 __pyx_t_5numpy_int64_t;
  */
 typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":738
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":738
  * 
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t             # <<<<<<<<<<<<<<
@@ -1706,7 +1706,7 @@ typedef npy_uint8 __pyx_t_5numpy_uint8_t;
  */
 typedef npy_uint16 __pyx_t_5numpy_uint16_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":739
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":739
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t             # <<<<<<<<<<<<<<
@@ -1715,7 +1715,7 @@ typedef npy_uint16 __pyx_t_5numpy_uint16_t;
  */
 typedef npy_uint32 __pyx_t_5numpy_uint32_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":740
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":740
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
  * ctypedef npy_uint64     uint64_t             # <<<<<<<<<<<<<<
@@ -1724,7 +1724,7 @@ typedef npy_uint32 __pyx_t_5numpy_uint32_t;
  */
 typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":744
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":744
  * #ctypedef npy_uint128    uint128_t
  * 
  * ctypedef npy_float32    float32_t             # <<<<<<<<<<<<<<
@@ -1733,7 +1733,7 @@ typedef npy_uint64 __pyx_t_5numpy_uint64_t;
  */
 typedef npy_float32 __pyx_t_5numpy_float32_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":745
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":745
  * 
  * ctypedef npy_float32    float32_t
  * ctypedef npy_float64    float64_t             # <<<<<<<<<<<<<<
@@ -1742,7 +1742,7 @@ typedef npy_float32 __pyx_t_5numpy_float32_t;
  */
 typedef npy_float64 __pyx_t_5numpy_float64_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":754
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":754
  * # The int types are mapped a bit surprising --
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t             # <<<<<<<<<<<<<<
@@ -1751,7 +1751,7 @@ typedef npy_float64 __pyx_t_5numpy_float64_t;
  */
 typedef npy_long __pyx_t_5numpy_int_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":755
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":755
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   longlong_t             # <<<<<<<<<<<<<<
@@ -1760,7 +1760,7 @@ typedef npy_long __pyx_t_5numpy_int_t;
  */
 typedef npy_longlong __pyx_t_5numpy_longlong_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":757
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":757
  * ctypedef npy_longlong   longlong_t
  * 
  * ctypedef npy_ulong      uint_t             # <<<<<<<<<<<<<<
@@ -1769,7 +1769,7 @@ typedef npy_longlong __pyx_t_5numpy_longlong_t;
  */
 typedef npy_ulong __pyx_t_5numpy_uint_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":758
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":758
  * 
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulonglong_t             # <<<<<<<<<<<<<<
@@ -1778,7 +1778,7 @@ typedef npy_ulong __pyx_t_5numpy_uint_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":760
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":760
  * ctypedef npy_ulonglong  ulonglong_t
  * 
  * ctypedef npy_intp       intp_t             # <<<<<<<<<<<<<<
@@ -1787,7 +1787,7 @@ typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
  */
 typedef npy_intp __pyx_t_5numpy_intp_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":761
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":761
  * 
  * ctypedef npy_intp       intp_t
  * ctypedef npy_uintp      uintp_t             # <<<<<<<<<<<<<<
@@ -1796,7 +1796,7 @@ typedef npy_intp __pyx_t_5numpy_intp_t;
  */
 typedef npy_uintp __pyx_t_5numpy_uintp_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":763
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":763
  * ctypedef npy_uintp      uintp_t
  * 
  * ctypedef npy_double     float_t             # <<<<<<<<<<<<<<
@@ -1805,7 +1805,7 @@ typedef npy_uintp __pyx_t_5numpy_uintp_t;
  */
 typedef npy_double __pyx_t_5numpy_float_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":764
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":764
  * 
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t             # <<<<<<<<<<<<<<
@@ -1814,7 +1814,7 @@ typedef npy_double __pyx_t_5numpy_float_t;
  */
 typedef npy_double __pyx_t_5numpy_double_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":765
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":765
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t             # <<<<<<<<<<<<<<
@@ -1857,7 +1857,7 @@ struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
 struct __pyx_memoryviewslice_obj;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":767
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":767
  * ctypedef npy_longdouble longdouble_t
  * 
  * ctypedef npy_cfloat      cfloat_t             # <<<<<<<<<<<<<<
@@ -1866,7 +1866,7 @@ struct __pyx_memoryviewslice_obj;
  */
 typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":768
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":768
  * 
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t             # <<<<<<<<<<<<<<
@@ -1875,7 +1875,7 @@ typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":769
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":769
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t
  * ctypedef npy_clongdouble clongdouble_t             # <<<<<<<<<<<<<<
@@ -1884,7 +1884,7 @@ typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
  */
 typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":771
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":771
  * ctypedef npy_clongdouble clongdouble_t
  * 
  * ctypedef npy_cdouble     complex_t             # <<<<<<<<<<<<<<
@@ -1895,7 +1895,7 @@ typedef npy_cdouble __pyx_t_5numpy_complex_t;
 struct __pyx_t_7pymochy_Node;
 struct __pyx_opt_args_7pymochy_5Mochy_sample;
 
-/* "pymochy.pyx":115
+/* "pymochy.pyx":128
  * # =============================================================================
  * 
  * cdef struct Node:             # <<<<<<<<<<<<<<
@@ -1911,7 +1911,7 @@ struct __pyx_t_7pymochy_Node {
   struct __pyx_t_7pymochy_Node *next;
 };
 
-/* "pymochy.pyx":153
+/* "pymochy.pyx":166
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int32_t, ndim=2] sample(self, int h = -1, int limit = -1):             # <<<<<<<<<<<<<<
@@ -1924,7 +1924,7 @@ struct __pyx_opt_args_7pymochy_5Mochy_sample {
   int limit;
 };
 
-/* "pymochy.pyx":55
+/* "pymochy.pyx":44
  *     return (a > 0) + ((b > 0) << 1) + ((c > 0) << 2) + ((d > 0) << 3) + ((e > 0) << 4) + ((f > 0) << 5) + ((g > 0) << 6)
  * 
  * cdef class CommonNeighbors:             # <<<<<<<<<<<<<<
@@ -1941,7 +1941,7 @@ struct __pyx_obj_7pymochy_CommonNeighbors {
 };
 
 
-/* "pymochy.pyx":120
+/* "pymochy.pyx":133
  *     Node *next
  * 
  * cdef class Mochy:             # <<<<<<<<<<<<<<
@@ -2039,7 +2039,7 @@ struct __pyx_memoryviewslice_obj {
 
 
 
-/* "pymochy.pyx":55
+/* "pymochy.pyx":44
  *     return (a > 0) + ((b > 0) << 1) + ((c > 0) << 2) + ((d > 0) << 3) + ((e > 0) << 4) + ((f > 0) << 5) + ((g > 0) << 6)
  * 
  * cdef class CommonNeighbors:             # <<<<<<<<<<<<<<
@@ -2055,7 +2055,7 @@ static struct __pyx_vtabstruct_7pymochy_CommonNeighbors *__pyx_vtabptr_7pymochy_
 static CYTHON_INLINE long __pyx_f_7pymochy_15CommonNeighbors_get(struct __pyx_obj_7pymochy_CommonNeighbors *, int, int);
 
 
-/* "pymochy.pyx":120
+/* "pymochy.pyx":133
  *     Node *next
  * 
  * cdef class Mochy:             # <<<<<<<<<<<<<<
@@ -3014,16 +3014,16 @@ static int __Pyx_ValidateAndInit_memviewslice(
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_short(PyObject *, int writable_flag);
 
+/* MemviewDtypeToObject.proto */
+static CYTHON_INLINE PyObject *__pyx_memview_get_short(const char *itemp);
+static CYTHON_INLINE int __pyx_memview_set_short(const char *itemp, PyObject *obj);
+
 /* ObjectToMemviewSlice.proto */
 static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_int(PyObject *, int writable_flag);
 
 /* MemviewDtypeToObject.proto */
 static CYTHON_INLINE PyObject *__pyx_memview_get_int(const char *itemp);
 static CYTHON_INLINE int __pyx_memview_set_int(const char *itemp, PyObject *obj);
-
-/* MemviewDtypeToObject.proto */
-static CYTHON_INLINE PyObject *__pyx_memview_get_short(const char *itemp);
-static CYTHON_INLINE int __pyx_memview_set_short(const char *itemp, PyObject *obj);
 
 /* RealImag.proto */
 #if CYTHON_CCOMPLEX
@@ -3162,13 +3162,13 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 
 /* CIntToPy.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
-
-/* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_short(short value);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE short __Pyx_PyInt_As_short(PyObject *);
+
+/* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE size_t __Pyx_PyInt_As_size_t(PyObject *);
@@ -3257,8 +3257,8 @@ static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
 static CYTHON_INLINE int __pyx_f_7pymochy_min(int, int); /*proto*/
 static CYTHON_INLINE int __pyx_f_7pymochy_max(int, int); /*proto*/
-static CYTHON_INLINE long __pyx_f_7pymochy_get_common_neighbor(long *, int, int, int); /*proto*/
 static int __pyx_f_7pymochy_get_motif_id(int, int, int, int, int, int, int); /*proto*/
+static CYTHON_INLINE long __pyx_f_7pymochy_get_common_neighbor(struct __pyx_obj_7pymochy_CommonNeighbors *, int, int, int); /*proto*/
 static CYTHON_INLINE PyObject *__Pyx_carray_to_py_long(long *, Py_ssize_t); /*proto*/
 static CYTHON_INLINE PyObject *__Pyx_carray_to_tuple_long(long *, Py_ssize_t); /*proto*/
 static int __pyx_array_allocate_buffer(struct __pyx_array_obj *); /*proto*/
@@ -18354,7 +18354,7 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":245
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":245
  * 
  *         @property
  *         cdef inline PyObject* base(self) nogil:             # <<<<<<<<<<<<<<
@@ -18365,7 +18365,7 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base_base(PyArrayObject *__pyx_v_self) {
   PyObject *__pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":248
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":248
  *             """Returns a borrowed reference to the object owning the data/memory.
  *             """
  *             return PyArray_BASE(self)             # <<<<<<<<<<<<<<
@@ -18375,7 +18375,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base_base(PyArrayObject 
   __pyx_r = PyArray_BASE(__pyx_v_self);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":245
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":245
  * 
  *         @property
  *         cdef inline PyObject* base(self) nogil:             # <<<<<<<<<<<<<<
@@ -18388,7 +18388,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base_base(PyArrayObject 
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":251
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":251
  * 
  *         @property
  *         cdef inline dtype descr(self):             # <<<<<<<<<<<<<<
@@ -18402,7 +18402,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr_descr(PyArray
   PyArray_Descr *__pyx_t_1;
   __Pyx_RefNannySetupContext("descr", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":254
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":254
  *             """Returns an owned reference to the dtype of the array.
  *             """
  *             return <dtype>PyArray_DESCR(self)             # <<<<<<<<<<<<<<
@@ -18415,7 +18415,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr_descr(PyArray
   __pyx_r = ((PyArray_Descr *)__pyx_t_1);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":251
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":251
  * 
  *         @property
  *         cdef inline dtype descr(self):             # <<<<<<<<<<<<<<
@@ -18430,7 +18430,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr_descr(PyArray
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":257
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":257
  * 
  *         @property
  *         cdef inline int ndim(self) nogil:             # <<<<<<<<<<<<<<
@@ -18441,7 +18441,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr_descr(PyArray
 static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim_ndim(PyArrayObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":260
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":260
  *             """Returns the number of dimensions in the array.
  *             """
  *             return PyArray_NDIM(self)             # <<<<<<<<<<<<<<
@@ -18451,7 +18451,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim_ndim(PyArrayObject *__pyx
   __pyx_r = PyArray_NDIM(__pyx_v_self);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":257
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":257
  * 
  *         @property
  *         cdef inline int ndim(self) nogil:             # <<<<<<<<<<<<<<
@@ -18464,7 +18464,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim_ndim(PyArrayObject *__pyx
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":263
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":263
  * 
  *         @property
  *         cdef inline npy_intp *shape(self) nogil:             # <<<<<<<<<<<<<<
@@ -18475,7 +18475,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim_ndim(PyArrayObject *__pyx
 static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape_shape(PyArrayObject *__pyx_v_self) {
   npy_intp *__pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":268
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":268
  *             Can return NULL for 0-dimensional arrays.
  *             """
  *             return PyArray_DIMS(self)             # <<<<<<<<<<<<<<
@@ -18485,7 +18485,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape_shape(PyArrayObjec
   __pyx_r = PyArray_DIMS(__pyx_v_self);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":263
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":263
  * 
  *         @property
  *         cdef inline npy_intp *shape(self) nogil:             # <<<<<<<<<<<<<<
@@ -18498,7 +18498,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape_shape(PyArrayObjec
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":271
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":271
  * 
  *         @property
  *         cdef inline npy_intp *strides(self) nogil:             # <<<<<<<<<<<<<<
@@ -18509,7 +18509,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape_shape(PyArrayObjec
 static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides_strides(PyArrayObject *__pyx_v_self) {
   npy_intp *__pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":275
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":275
  *             The number of elements matches the number of dimensions of the array (ndim).
  *             """
  *             return PyArray_STRIDES(self)             # <<<<<<<<<<<<<<
@@ -18519,7 +18519,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides_strides(PyArrayO
   __pyx_r = PyArray_STRIDES(__pyx_v_self);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":271
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":271
  * 
  *         @property
  *         cdef inline npy_intp *strides(self) nogil:             # <<<<<<<<<<<<<<
@@ -18532,7 +18532,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides_strides(PyArrayO
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":278
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":278
  * 
  *         @property
  *         cdef inline npy_intp size(self) nogil:             # <<<<<<<<<<<<<<
@@ -18543,7 +18543,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides_strides(PyArrayO
 static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size_size(PyArrayObject *__pyx_v_self) {
   npy_intp __pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":281
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":281
  *             """Returns the total size (in number of elements) of the array.
  *             """
  *             return PyArray_SIZE(self)             # <<<<<<<<<<<<<<
@@ -18553,7 +18553,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size_size(PyArrayObject *
   __pyx_r = PyArray_SIZE(__pyx_v_self);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":278
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":278
  * 
  *         @property
  *         cdef inline npy_intp size(self) nogil:             # <<<<<<<<<<<<<<
@@ -18566,7 +18566,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size_size(PyArrayObject *
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":284
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":284
  * 
  *         @property
  *         cdef inline char* data(self) nogil:             # <<<<<<<<<<<<<<
@@ -18577,7 +18577,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size_size(PyArrayObject *
 static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__pyx_v_self) {
   char *__pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":290
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":290
  *             of `PyArray_DATA()` instead, which returns a 'void*'.
  *             """
  *             return PyArray_BYTES(self)             # <<<<<<<<<<<<<<
@@ -18587,7 +18587,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__p
   __pyx_r = PyArray_BYTES(__pyx_v_self);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":284
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":284
  * 
  *         @property
  *         cdef inline char* data(self) nogil:             # <<<<<<<<<<<<<<
@@ -18600,7 +18600,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__p
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":773
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":773
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -18617,7 +18617,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew1", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":774
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":774
  * 
  * cdef inline object PyArray_MultiIterNew1(a):
  *     return PyArray_MultiIterNew(1, <void*>a)             # <<<<<<<<<<<<<<
@@ -18631,7 +18631,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":773
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":773
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -18650,7 +18650,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":776
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":776
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -18667,7 +18667,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew2", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":777
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":777
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)             # <<<<<<<<<<<<<<
@@ -18681,7 +18681,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":776
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":776
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -18700,7 +18700,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":779
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":779
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -18717,7 +18717,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew3", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":780
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":780
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)             # <<<<<<<<<<<<<<
@@ -18731,7 +18731,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":779
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":779
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -18750,7 +18750,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":782
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":782
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -18767,7 +18767,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew4", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":783
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":783
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)             # <<<<<<<<<<<<<<
@@ -18781,7 +18781,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":782
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":782
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -18800,7 +18800,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":785
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":785
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -18817,7 +18817,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew5", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":786
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":786
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)             # <<<<<<<<<<<<<<
@@ -18831,7 +18831,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":785
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":785
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -18850,7 +18850,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":788
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":788
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -18864,7 +18864,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("PyDataType_SHAPE", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":789
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":789
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -18874,7 +18874,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   __pyx_t_1 = PyDataType_HASSUBARRAY(__pyx_v_d);
   if (__pyx_t_1) {
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":790
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":790
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape             # <<<<<<<<<<<<<<
@@ -18886,7 +18886,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     __pyx_r = ((PyObject*)__pyx_v_d->subarray->shape);
     goto __pyx_L0;
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":789
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":789
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -18895,7 +18895,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
  */
   }
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":792
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":792
  *         return <tuple>d.subarray.shape
  *     else:
  *         return ()             # <<<<<<<<<<<<<<
@@ -18909,7 +18909,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     goto __pyx_L0;
   }
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":788
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":788
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -18924,7 +18924,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":968
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":968
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -18938,7 +18938,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":969
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":969
  * 
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!             # <<<<<<<<<<<<<<
@@ -18947,7 +18947,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   Py_INCREF(__pyx_v_base);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":970
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":970
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)             # <<<<<<<<<<<<<<
@@ -18956,7 +18956,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   __pyx_t_1 = PyArray_SetBaseObject(__pyx_v_arr, __pyx_v_base); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(2, 970, __pyx_L1_error)
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":968
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":968
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -18971,7 +18971,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __pyx_L0:;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":972
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":972
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -18986,7 +18986,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("get_array_base", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":973
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":973
  * 
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)             # <<<<<<<<<<<<<<
@@ -18995,7 +18995,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   __pyx_v_base = PyArray_BASE(__pyx_v_arr);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":974
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":974
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -19005,7 +19005,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_t_1 = (__pyx_v_base == NULL);
   if (__pyx_t_1) {
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":975
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":975
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
  *         return None             # <<<<<<<<<<<<<<
@@ -19016,7 +19016,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":974
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":974
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -19025,7 +19025,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   }
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":976
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":976
  *     if base is NULL:
  *         return None
  *     return <object>base             # <<<<<<<<<<<<<<
@@ -19037,7 +19037,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_r = ((PyObject *)__pyx_v_base);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":972
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":972
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -19052,7 +19052,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":980
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":980
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -19076,7 +19076,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_array", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":981
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":981
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19092,7 +19092,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":982
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":982
  * cdef inline int import_array() except -1:
  *     try:
  *         __pyx_import_array()             # <<<<<<<<<<<<<<
@@ -19101,7 +19101,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
  */
       __pyx_t_4 = _import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(2, 982, __pyx_L3_error)
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":981
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":981
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19115,7 +19115,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":983
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":983
  *     try:
  *         __pyx_import_array()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -19130,7 +19130,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":984
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":984
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
@@ -19145,7 +19145,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":981
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":981
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19161,7 +19161,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __pyx_L8_try_end:;
   }
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":980
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":980
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -19184,7 +19184,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":986
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":986
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -19208,7 +19208,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_umath", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":987
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":987
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19224,7 +19224,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":988
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":988
  * cdef inline int import_umath() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
@@ -19233,7 +19233,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
  */
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(2, 988, __pyx_L3_error)
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":987
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":987
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19247,7 +19247,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":989
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":989
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -19262,7 +19262,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":990
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":990
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -19277,7 +19277,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":987
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":987
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19293,7 +19293,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __pyx_L8_try_end:;
   }
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":986
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":986
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -19316,7 +19316,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":992
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":992
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -19340,7 +19340,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_ufunc", 1);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":993
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":993
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19356,7 +19356,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":994
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":994
  * cdef inline int import_ufunc() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
@@ -19365,7 +19365,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
  */
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(2, 994, __pyx_L3_error)
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":993
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":993
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19379,7 +19379,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":995
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":995
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -19394,7 +19394,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":996
+      /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":996
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -19409,7 +19409,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":993
+    /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":993
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -19425,7 +19425,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __pyx_L8_try_end:;
   }
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":992
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":992
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -19448,7 +19448,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":999
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":999
  * 
  * 
  * cdef inline bint is_timedelta64_object(object obj):             # <<<<<<<<<<<<<<
@@ -19459,7 +19459,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
 static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_obj) {
   int __pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1011
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1011
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyTimedeltaArrType_Type)             # <<<<<<<<<<<<<<
@@ -19469,7 +19469,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   __pyx_r = PyObject_TypeCheck(__pyx_v_obj, (&PyTimedeltaArrType_Type));
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":999
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":999
  * 
  * 
  * cdef inline bint is_timedelta64_object(object obj):             # <<<<<<<<<<<<<<
@@ -19482,7 +19482,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1014
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1014
  * 
  * 
  * cdef inline bint is_datetime64_object(object obj):             # <<<<<<<<<<<<<<
@@ -19493,7 +19493,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
 static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_obj) {
   int __pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1026
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1026
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyDatetimeArrType_Type)             # <<<<<<<<<<<<<<
@@ -19503,7 +19503,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   __pyx_r = PyObject_TypeCheck(__pyx_v_obj, (&PyDatetimeArrType_Type));
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1014
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1014
  * 
  * 
  * cdef inline bint is_datetime64_object(object obj):             # <<<<<<<<<<<<<<
@@ -19516,7 +19516,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1029
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1029
  * 
  * 
  * cdef inline npy_datetime get_datetime64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -19527,7 +19527,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
 static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *__pyx_v_obj) {
   npy_datetime __pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1036
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1036
  *     also needed.  That can be found using `get_datetime64_unit`.
  *     """
  *     return (<PyDatetimeScalarObject*>obj).obval             # <<<<<<<<<<<<<<
@@ -19537,7 +19537,7 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   __pyx_r = ((PyDatetimeScalarObject *)__pyx_v_obj)->obval;
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1029
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1029
  * 
  * 
  * cdef inline npy_datetime get_datetime64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -19550,7 +19550,7 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1039
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1039
  * 
  * 
  * cdef inline npy_timedelta get_timedelta64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -19561,7 +19561,7 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
 static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject *__pyx_v_obj) {
   npy_timedelta __pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1043
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1043
  *     returns the int64 value underlying scalar numpy timedelta64 object
  *     """
  *     return (<PyTimedeltaScalarObject*>obj).obval             # <<<<<<<<<<<<<<
@@ -19571,7 +19571,7 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   __pyx_r = ((PyTimedeltaScalarObject *)__pyx_v_obj)->obval;
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1039
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1039
  * 
  * 
  * cdef inline npy_timedelta get_timedelta64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -19584,7 +19584,7 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   return __pyx_r;
 }
 
-/* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1046
+/* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1046
  * 
  * 
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -19595,7 +19595,7 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
 static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObject *__pyx_v_obj) {
   NPY_DATETIMEUNIT __pyx_r;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1050
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1050
  *     returns the unit part of the dtype for a numpy datetime64 object.
  *     """
  *     return <NPY_DATETIMEUNIT>(<PyDatetimeScalarObject*>obj).obmeta.base             # <<<<<<<<<<<<<<
@@ -19603,7 +19603,7 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   __pyx_r = ((NPY_DATETIMEUNIT)((PyDatetimeScalarObject *)__pyx_v_obj)->obmeta.base);
   goto __pyx_L0;
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1046
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":1046
  * 
  * 
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -19747,78 +19747,6 @@ static CYTHON_INLINE int __pyx_f_7pymochy_max(int __pyx_v_a, int __pyx_v_b) {
 /* "pymochy.pyx":32
  * @cdivision(True)
  * @nonecheck(False)
- * cdef inline long get_common_neighbor(long* common_neighbors, int num_edges, int i, int j) noexcept nogil:             # <<<<<<<<<<<<<<
- *     cdef:
- *         int m, M
- */
-
-static CYTHON_INLINE long __pyx_f_7pymochy_get_common_neighbor(long *__pyx_v_common_neighbors, int __pyx_v_num_edges, int __pyx_v_i, int __pyx_v_j) {
-  int __pyx_v_m;
-  int __pyx_v_M;
-  long __pyx_r;
-  int __pyx_t_1;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  #ifdef WITH_THREAD
-  PyGILState_STATE __pyx_gilstate_save;
-  #endif
-
-  /* "pymochy.pyx":35
- *     cdef:
- *         int m, M
- *     m = min(i, j)             # <<<<<<<<<<<<<<
- *     M = max(i, j)
- *     return common_neighbors[m * num_edges + M - ((m * (m + 1))//2)]
- */
-  __pyx_t_1 = __pyx_f_7pymochy_min(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_1 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 35, __pyx_L1_error)
-  __pyx_v_m = __pyx_t_1;
-
-  /* "pymochy.pyx":36
- *         int m, M
- *     m = min(i, j)
- *     M = max(i, j)             # <<<<<<<<<<<<<<
- *     return common_neighbors[m * num_edges + M - ((m * (m + 1))//2)]
- * 
- */
-  __pyx_t_1 = __pyx_f_7pymochy_max(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_1 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_v_M = __pyx_t_1;
-
-  /* "pymochy.pyx":37
- *     m = min(i, j)
- *     M = max(i, j)
- *     return common_neighbors[m * num_edges + M - ((m * (m + 1))//2)]             # <<<<<<<<<<<<<<
- * 
- * @boundscheck(False)
- */
-  __pyx_r = (__pyx_v_common_neighbors[(((__pyx_v_m * __pyx_v_num_edges) + __pyx_v_M) - ((__pyx_v_m * (__pyx_v_m + 1)) / 2))]);
-  goto __pyx_L0;
-
-  /* "pymochy.pyx":32
- * @cdivision(True)
- * @nonecheck(False)
- * cdef inline long get_common_neighbor(long* common_neighbors, int num_edges, int i, int j) noexcept nogil:             # <<<<<<<<<<<<<<
- *     cdef:
- *         int m, M
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  #ifdef WITH_THREAD
-  __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
-  #endif
-  __Pyx_WriteUnraisable("pymochy.get_common_neighbor", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
-  __pyx_r = 0;
-  #ifdef WITH_THREAD
-  __Pyx_PyGILState_Release(__pyx_gilstate_save);
-  #endif
-  __pyx_L0:;
-  return __pyx_r;
-}
-
-/* "pymochy.pyx":43
- * @cdivision(True)
- * @nonecheck(False)
  * cdef int get_motif_id(int deg_i, int deg_j, int deg_k, int c_ij, int c_ik, int c_jk, int g_ijk) nogil:             # <<<<<<<<<<<<<<
  *     cdef:
  *         int a, b, c, d, e, f, g
@@ -19834,7 +19762,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
   int __pyx_v_g;
   int __pyx_r;
 
-  /* "pymochy.pyx":46
+  /* "pymochy.pyx":35
  *     cdef:
  *         int a, b, c, d, e, f, g
  *     a = deg_i - (c_ij + c_ik)   + g_ijk             # <<<<<<<<<<<<<<
@@ -19843,7 +19771,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
  */
   __pyx_v_a = ((__pyx_v_deg_i - (__pyx_v_c_ij + __pyx_v_c_ik)) + __pyx_v_g_ijk);
 
-  /* "pymochy.pyx":47
+  /* "pymochy.pyx":36
  *         int a, b, c, d, e, f, g
  *     a = deg_i - (c_ij + c_ik)   + g_ijk
  *     b = deg_j - (c_jk + c_ij) + g_ijk             # <<<<<<<<<<<<<<
@@ -19852,7 +19780,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
  */
   __pyx_v_b = ((__pyx_v_deg_j - (__pyx_v_c_jk + __pyx_v_c_ij)) + __pyx_v_g_ijk);
 
-  /* "pymochy.pyx":48
+  /* "pymochy.pyx":37
  *     a = deg_i - (c_ij + c_ik)   + g_ijk
  *     b = deg_j - (c_jk + c_ij) + g_ijk
  *     c = deg_k - (c_ik + c_jk) + g_ijk             # <<<<<<<<<<<<<<
@@ -19861,7 +19789,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
  */
   __pyx_v_c = ((__pyx_v_deg_k - (__pyx_v_c_ik + __pyx_v_c_jk)) + __pyx_v_g_ijk);
 
-  /* "pymochy.pyx":49
+  /* "pymochy.pyx":38
  *     b = deg_j - (c_jk + c_ij) + g_ijk
  *     c = deg_k - (c_ik + c_jk) + g_ijk
  *     d = c_ij - g_ijk             # <<<<<<<<<<<<<<
@@ -19870,7 +19798,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
  */
   __pyx_v_d = (__pyx_v_c_ij - __pyx_v_g_ijk);
 
-  /* "pymochy.pyx":50
+  /* "pymochy.pyx":39
  *     c = deg_k - (c_ik + c_jk) + g_ijk
  *     d = c_ij - g_ijk
  *     e = c_jk - g_ijk             # <<<<<<<<<<<<<<
@@ -19879,7 +19807,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
  */
   __pyx_v_e = (__pyx_v_c_jk - __pyx_v_g_ijk);
 
-  /* "pymochy.pyx":51
+  /* "pymochy.pyx":40
  *     d = c_ij - g_ijk
  *     e = c_jk - g_ijk
  *     f = c_ik - g_ijk             # <<<<<<<<<<<<<<
@@ -19888,7 +19816,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
  */
   __pyx_v_f = (__pyx_v_c_ik - __pyx_v_g_ijk);
 
-  /* "pymochy.pyx":52
+  /* "pymochy.pyx":41
  *     e = c_jk - g_ijk
  *     f = c_ik - g_ijk
  *     g = g_ijk             # <<<<<<<<<<<<<<
@@ -19897,7 +19825,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
  */
   __pyx_v_g = __pyx_v_g_ijk;
 
-  /* "pymochy.pyx":53
+  /* "pymochy.pyx":42
  *     f = c_ik - g_ijk
  *     g = g_ijk
  *     return (a > 0) + ((b > 0) << 1) + ((c > 0) << 2) + ((d > 0) << 3) + ((e > 0) << 4) + ((f > 0) << 5) + ((g > 0) << 6)             # <<<<<<<<<<<<<<
@@ -19907,7 +19835,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
   __pyx_r = (((((((__pyx_v_a > 0) + ((__pyx_v_b > 0) << 1)) + ((__pyx_v_c > 0) << 2)) + ((__pyx_v_d > 0) << 3)) + ((__pyx_v_e > 0) << 4)) + ((__pyx_v_f > 0) << 5)) + ((__pyx_v_g > 0) << 6));
   goto __pyx_L0;
 
-  /* "pymochy.pyx":43
+  /* "pymochy.pyx":32
  * @cdivision(True)
  * @nonecheck(False)
  * cdef int get_motif_id(int deg_i, int deg_j, int deg_k, int c_ij, int c_ik, int c_jk, int g_ijk) nogil:             # <<<<<<<<<<<<<<
@@ -19920,7 +19848,7 @@ static int __pyx_f_7pymochy_get_motif_id(int __pyx_v_deg_i, int __pyx_v_deg_j, i
   return __pyx_r;
 }
 
-/* "pymochy.pyx":62
+/* "pymochy.pyx":51
  *     cdef int optimized
  * 
  *     @boundscheck(False)             # <<<<<<<<<<<<<<
@@ -19970,7 +19898,7 @@ static int __pyx_pw_7pymochy_15CommonNeighbors_1__cinit__(PyObject *__pyx_v_self
           (void)__Pyx_Arg_NewRef_VARARGS(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -19978,9 +19906,9 @@ static int __pyx_pw_7pymochy_15CommonNeighbors_1__cinit__(PyObject *__pyx_v_self
           (void)__Pyx_Arg_NewRef_VARARGS(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 3, 3, 1); __PYX_ERR(0, 62, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 3, 3, 1); __PYX_ERR(0, 51, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -19988,14 +19916,14 @@ static int __pyx_pw_7pymochy_15CommonNeighbors_1__cinit__(PyObject *__pyx_v_self
           (void)__Pyx_Arg_NewRef_VARARGS(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 3, 3, 2); __PYX_ERR(0, 62, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 3, 3, 2); __PYX_ERR(0, 51, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 62, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 51, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -20004,13 +19932,13 @@ static int __pyx_pw_7pymochy_15CommonNeighbors_1__cinit__(PyObject *__pyx_v_self
       values[1] = __Pyx_Arg_VARARGS(__pyx_args, 1);
       values[2] = __Pyx_Arg_VARARGS(__pyx_args, 2);
     }
-    __pyx_v_incidence_matrix = __Pyx_PyObject_to_MemoryviewSlice_dsds_short(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_incidence_matrix.memview)) __PYX_ERR(0, 66, __pyx_L3_error)
-    __pyx_v_num_edges = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_num_edges == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 66, __pyx_L3_error)
-    __pyx_v_optimized = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_optimized == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 66, __pyx_L3_error)
+    __pyx_v_incidence_matrix = __Pyx_PyObject_to_MemoryviewSlice_dsds_short(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_incidence_matrix.memview)) __PYX_ERR(0, 55, __pyx_L3_error)
+    __pyx_v_num_edges = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_num_edges == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 55, __pyx_L3_error)
+    __pyx_v_optimized = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_optimized == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 55, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 62, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 51, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -20047,7 +19975,7 @@ static int __pyx_pf_7pymochy_15CommonNeighbors___cinit__(struct __pyx_obj_7pymoc
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "pymochy.pyx":67
+  /* "pymochy.pyx":56
  *     @nonecheck(False)
  *     def __cinit__(self, short[:, :] incidence_matrix, int num_edges, int optimized):
  *         self.incidence_matrix = incidence_matrix             # <<<<<<<<<<<<<<
@@ -20058,7 +19986,7 @@ static int __pyx_pf_7pymochy_15CommonNeighbors___cinit__(struct __pyx_obj_7pymoc
   __PYX_INC_MEMVIEW(&__pyx_v_incidence_matrix, 1);
   __pyx_v_self->incidence_matrix = __pyx_v_incidence_matrix;
 
-  /* "pymochy.pyx":68
+  /* "pymochy.pyx":57
  *     def __cinit__(self, short[:, :] incidence_matrix, int num_edges, int optimized):
  *         self.incidence_matrix = incidence_matrix
  *         self.num_edges = num_edges             # <<<<<<<<<<<<<<
@@ -20067,7 +19995,7 @@ static int __pyx_pf_7pymochy_15CommonNeighbors___cinit__(struct __pyx_obj_7pymoc
  */
   __pyx_v_self->num_edges = __pyx_v_num_edges;
 
-  /* "pymochy.pyx":69
+  /* "pymochy.pyx":58
  *         self.incidence_matrix = incidence_matrix
  *         self.num_edges = num_edges
  *         self.optimized = optimized             # <<<<<<<<<<<<<<
@@ -20076,7 +20004,7 @@ static int __pyx_pf_7pymochy_15CommonNeighbors___cinit__(struct __pyx_obj_7pymoc
  */
   __pyx_v_self->optimized = __pyx_v_optimized;
 
-  /* "pymochy.pyx":70
+  /* "pymochy.pyx":59
  *         self.num_edges = num_edges
  *         self.optimized = optimized
  *         if self.optimized == 1:             # <<<<<<<<<<<<<<
@@ -20086,17 +20014,17 @@ static int __pyx_pf_7pymochy_15CommonNeighbors___cinit__(struct __pyx_obj_7pymoc
   __pyx_t_1 = (__pyx_v_self->optimized == 1);
   if (__pyx_t_1) {
 
-    /* "pymochy.pyx":71
+    /* "pymochy.pyx":60
  *         self.optimized = optimized
  *         if self.optimized == 1:
  *             self.common_neighbors = CommonNeighbors.common_neighbors_matrix(incidence_matrix)             # <<<<<<<<<<<<<<
  * 
  *     @boundscheck(False)
  */
-    __pyx_t_2 = __pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__pyx_v_incidence_matrix); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__pyx_v_incidence_matrix); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 60, __pyx_L1_error)
     __pyx_v_self->common_neighbors = __pyx_t_2;
 
-    /* "pymochy.pyx":70
+    /* "pymochy.pyx":59
  *         self.num_edges = num_edges
  *         self.optimized = optimized
  *         if self.optimized == 1:             # <<<<<<<<<<<<<<
@@ -20105,7 +20033,7 @@ static int __pyx_pf_7pymochy_15CommonNeighbors___cinit__(struct __pyx_obj_7pymoc
  */
   }
 
-  /* "pymochy.pyx":62
+  /* "pymochy.pyx":51
  *     cdef int optimized
  * 
  *     @boundscheck(False)             # <<<<<<<<<<<<<<
@@ -20123,7 +20051,7 @@ static int __pyx_pf_7pymochy_15CommonNeighbors___cinit__(struct __pyx_obj_7pymoc
   return __pyx_r;
 }
 
-/* "pymochy.pyx":77
+/* "pymochy.pyx":66
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cdef inline long get(self, int i, int j) nogil:             # <<<<<<<<<<<<<<
@@ -20134,9 +20062,17 @@ static int __pyx_pf_7pymochy_15CommonNeighbors___cinit__(struct __pyx_obj_7pymoc
 static CYTHON_INLINE long __pyx_f_7pymochy_15CommonNeighbors_get(struct __pyx_obj_7pymochy_CommonNeighbors *__pyx_v_self, int __pyx_v_i, int __pyx_v_j) {
   int __pyx_v_m;
   int __pyx_v_M;
-  CYTHON_UNUSED int __pyx_v_c;
+  int __pyx_v_k;
+  int __pyx_v_c;
   long __pyx_r;
   int __pyx_t_1;
+  int __pyx_t_2;
+  Py_ssize_t __pyx_t_3;
+  Py_ssize_t __pyx_t_4;
+  Py_ssize_t __pyx_t_5;
+  Py_ssize_t __pyx_t_6;
+  Py_ssize_t __pyx_t_7;
+  Py_ssize_t __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -20144,7 +20080,7 @@ static CYTHON_INLINE long __pyx_f_7pymochy_15CommonNeighbors_get(struct __pyx_ob
   PyGILState_STATE __pyx_gilstate_save;
   #endif
 
-  /* "pymochy.pyx":81
+  /* "pymochy.pyx":70
  *             int m, M
  *             int k
  *             int c = 0             # <<<<<<<<<<<<<<
@@ -20153,37 +20089,97 @@ static CYTHON_INLINE long __pyx_f_7pymochy_15CommonNeighbors_get(struct __pyx_ob
  */
   __pyx_v_c = 0;
 
-  /* "pymochy.pyx":82
+  /* "pymochy.pyx":71
  *             int k
  *             int c = 0
  *         m = min(i, j)             # <<<<<<<<<<<<<<
  *         M = max(i, j)
- *         return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]
+ *         if self.optimized == 1:
  */
-  __pyx_t_1 = __pyx_f_7pymochy_min(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_1 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7pymochy_min(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_1 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 71, __pyx_L1_error)
   __pyx_v_m = __pyx_t_1;
 
-  /* "pymochy.pyx":83
+  /* "pymochy.pyx":72
  *             int c = 0
  *         m = min(i, j)
  *         M = max(i, j)             # <<<<<<<<<<<<<<
- *         return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]
- * 
+ *         if self.optimized == 1:
+ *             return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]
  */
-  __pyx_t_1 = __pyx_f_7pymochy_max(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_1 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7pymochy_max(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_1 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 72, __pyx_L1_error)
   __pyx_v_M = __pyx_t_1;
 
-  /* "pymochy.pyx":84
+  /* "pymochy.pyx":73
  *         m = min(i, j)
  *         M = max(i, j)
- *         return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]             # <<<<<<<<<<<<<<
+ *         if self.optimized == 1:             # <<<<<<<<<<<<<<
+ *             return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]
+ *         else:
+ */
+  __pyx_t_2 = (__pyx_v_self->optimized == 1);
+  if (__pyx_t_2) {
+
+    /* "pymochy.pyx":74
+ *         M = max(i, j)
+ *         if self.optimized == 1:
+ *             return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]             # <<<<<<<<<<<<<<
+ *         else:
+ *             for k in range(self.incidence_matrix.shape[0]):
+ */
+    __pyx_r = (__pyx_v_self->common_neighbors[(((__pyx_v_m * __pyx_v_self->num_edges) + __pyx_v_M) - ((__pyx_v_m * (__pyx_v_m + 1)) / 2))]);
+    goto __pyx_L0;
+
+    /* "pymochy.pyx":73
+ *         m = min(i, j)
+ *         M = max(i, j)
+ *         if self.optimized == 1:             # <<<<<<<<<<<<<<
+ *             return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]
+ *         else:
+ */
+  }
+
+  /* "pymochy.pyx":76
+ *             return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]
+ *         else:
+ *             for k in range(self.incidence_matrix.shape[0]):             # <<<<<<<<<<<<<<
+ *                 c = c + self.incidence_matrix[k][i] * self.incidence_matrix[k][j]
+ *             return c
+ */
+  /*else*/ {
+    if (unlikely(!__pyx_v_self->incidence_matrix.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 76, __pyx_L1_error)}
+    __pyx_t_3 = (__pyx_v_self->incidence_matrix.shape[0]);
+    __pyx_t_4 = __pyx_t_3;
+    for (__pyx_t_1 = 0; __pyx_t_1 < __pyx_t_4; __pyx_t_1+=1) {
+      __pyx_v_k = __pyx_t_1;
+
+      /* "pymochy.pyx":77
+ *         else:
+ *             for k in range(self.incidence_matrix.shape[0]):
+ *                 c = c + self.incidence_matrix[k][i] * self.incidence_matrix[k][j]             # <<<<<<<<<<<<<<
+ *             return c
+ * 
+ */
+      if (unlikely(!__pyx_v_self->incidence_matrix.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 77, __pyx_L1_error)}
+      __pyx_t_5 = __pyx_v_k;
+      __pyx_t_6 = __pyx_v_i;
+      if (unlikely(!__pyx_v_self->incidence_matrix.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 77, __pyx_L1_error)}
+      __pyx_t_7 = __pyx_v_k;
+      __pyx_t_8 = __pyx_v_j;
+      __pyx_v_c = (__pyx_v_c + ((*((short *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->incidence_matrix.data + __pyx_t_5 * __pyx_v_self->incidence_matrix.strides[0]) ) + __pyx_t_6 * __pyx_v_self->incidence_matrix.strides[1]) ))) * (*((short *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->incidence_matrix.data + __pyx_t_7 * __pyx_v_self->incidence_matrix.strides[0]) ) + __pyx_t_8 * __pyx_v_self->incidence_matrix.strides[1]) )))));
+    }
+
+    /* "pymochy.pyx":78
+ *             for k in range(self.incidence_matrix.shape[0]):
+ *                 c = c + self.incidence_matrix[k][i] * self.incidence_matrix[k][j]
+ *             return c             # <<<<<<<<<<<<<<
  * 
  *     @boundscheck(False)
  */
-  __pyx_r = (__pyx_v_self->common_neighbors[(((__pyx_v_m * __pyx_v_self->num_edges) + __pyx_v_M) - ((__pyx_v_m * (__pyx_v_m + 1)) / 2))]);
-  goto __pyx_L0;
+    __pyx_r = __pyx_v_c;
+    goto __pyx_L0;
+  }
 
-  /* "pymochy.pyx":77
+  /* "pymochy.pyx":66
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cdef inline long get(self, int i, int j) nogil:             # <<<<<<<<<<<<<<
@@ -20205,7 +20201,7 @@ static CYTHON_INLINE long __pyx_f_7pymochy_15CommonNeighbors_get(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "pymochy.pyx":91
+/* "pymochy.pyx":85
  *     @nonecheck(False)
  *     @staticmethod
  *     cdef long* common_neighbors_matrix(short[:, :] incidence_matrix) nogil:             # <<<<<<<<<<<<<<
@@ -20246,7 +20242,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
   #endif
   __Pyx_RefNannySetupContext("common_neighbors_matrix", 1);
 
-  /* "pymochy.pyx":99
+  /* "pymochy.pyx":93
  *             int num_nodes, num_edges
  * 
  *         num_nodes = incidence_matrix.shape[0]             # <<<<<<<<<<<<<<
@@ -20255,7 +20251,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
  */
   __pyx_v_num_nodes = (__pyx_v_incidence_matrix.shape[0]);
 
-  /* "pymochy.pyx":100
+  /* "pymochy.pyx":94
  * 
  *         num_nodes = incidence_matrix.shape[0]
  *         num_edges = incidence_matrix.shape[1]             # <<<<<<<<<<<<<<
@@ -20264,7 +20260,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
  */
   __pyx_v_num_edges = (__pyx_v_incidence_matrix.shape[1]);
 
-  /* "pymochy.pyx":102
+  /* "pymochy.pyx":96
  *         num_edges = incidence_matrix.shape[1]
  * 
  *         common_neighbors = <long*> malloc((((num_edges) * (num_edges + 1)) / 2) * sizeof(long))             # <<<<<<<<<<<<<<
@@ -20273,7 +20269,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
  */
   __pyx_v_common_neighbors = ((long *)malloc((((__pyx_v_num_edges * (__pyx_v_num_edges + 1)) / 2) * (sizeof(long)))));
 
-  /* "pymochy.pyx":103
+  /* "pymochy.pyx":97
  * 
  *         common_neighbors = <long*> malloc((((num_edges) * (num_edges + 1)) / 2) * sizeof(long))
  *         for i in prange(num_edges):             # <<<<<<<<<<<<<<
@@ -20335,7 +20331,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
                             __pyx_v_k = ((int)0xbad0bad0);
                             __pyx_v_m = ((int)0xbad0bad0);
 
-                            /* "pymochy.pyx":104
+                            /* "pymochy.pyx":98
  *         common_neighbors = <long*> malloc((((num_edges) * (num_edges + 1)) / 2) * sizeof(long))
  *         for i in prange(num_edges):
  *             for j in range(i, num_edges):             # <<<<<<<<<<<<<<
@@ -20347,7 +20343,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
                             for (__pyx_t_6 = __pyx_v_i; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
                               __pyx_v_j = __pyx_t_6;
 
-                              /* "pymochy.pyx":105
+                              /* "pymochy.pyx":99
  *         for i in prange(num_edges):
  *             for j in range(i, num_edges):
  *                 c = 0             # <<<<<<<<<<<<<<
@@ -20356,27 +20352,27 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
  */
                               __pyx_v_c = 0;
 
-                              /* "pymochy.pyx":106
+                              /* "pymochy.pyx":100
  *             for j in range(i, num_edges):
  *                 c = 0
  *                 m = min(i, j)             # <<<<<<<<<<<<<<
  *                 M = max(i, j)
  *                 for k in range(num_nodes):
  */
-                              __pyx_t_7 = __pyx_f_7pymochy_min(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_7 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 106, __pyx_L8_error)
+                              __pyx_t_7 = __pyx_f_7pymochy_min(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_7 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 100, __pyx_L8_error)
                               __pyx_v_m = __pyx_t_7;
 
-                              /* "pymochy.pyx":107
+                              /* "pymochy.pyx":101
  *                 c = 0
  *                 m = min(i, j)
  *                 M = max(i, j)             # <<<<<<<<<<<<<<
  *                 for k in range(num_nodes):
  *                     c = c + incidence_matrix[k][i] * incidence_matrix[k][j]
  */
-                              __pyx_t_7 = __pyx_f_7pymochy_max(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_7 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 107, __pyx_L8_error)
+                              __pyx_t_7 = __pyx_f_7pymochy_max(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_7 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 101, __pyx_L8_error)
                               __pyx_v_M = __pyx_t_7;
 
-                              /* "pymochy.pyx":108
+                              /* "pymochy.pyx":102
  *                 m = min(i, j)
  *                 M = max(i, j)
  *                 for k in range(num_nodes):             # <<<<<<<<<<<<<<
@@ -20388,7 +20384,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
                               for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
                                 __pyx_v_k = __pyx_t_9;
 
-                                /* "pymochy.pyx":109
+                                /* "pymochy.pyx":103
  *                 M = max(i, j)
  *                 for k in range(num_nodes):
  *                     c = c + incidence_matrix[k][i] * incidence_matrix[k][j]             # <<<<<<<<<<<<<<
@@ -20402,7 +20398,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
                                 __pyx_v_c = (__pyx_v_c + ((*((short *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_incidence_matrix.data + __pyx_t_10 * __pyx_v_incidence_matrix.strides[0]) ) + __pyx_t_11 * __pyx_v_incidence_matrix.strides[1]) ))) * (*((short *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_incidence_matrix.data + __pyx_t_12 * __pyx_v_incidence_matrix.strides[0]) ) + __pyx_t_13 * __pyx_v_incidence_matrix.strides[1]) )))));
                               }
 
-                              /* "pymochy.pyx":110
+                              /* "pymochy.pyx":104
  *                 for k in range(num_nodes):
  *                     c = c + incidence_matrix[k][i] * incidence_matrix[k][j]
  *                 common_neighbors[m * num_edges + M - ((m * (m + 1))/2)] = c             # <<<<<<<<<<<<<<
@@ -20502,7 +20498,7 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
         #endif
       }
 
-      /* "pymochy.pyx":103
+      /* "pymochy.pyx":97
  * 
  *         common_neighbors = <long*> malloc((((num_edges) * (num_edges + 1)) / 2) * sizeof(long))
  *         for i in prange(num_edges):             # <<<<<<<<<<<<<<
@@ -20532,17 +20528,17 @@ static long *__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix(__Pyx_me
       }
   }
 
-  /* "pymochy.pyx":111
+  /* "pymochy.pyx":105
  *                     c = c + incidence_matrix[k][i] * incidence_matrix[k][j]
  *                 common_neighbors[m * num_edges + M - ((m * (m + 1))/2)] = c
  *         return common_neighbors             # <<<<<<<<<<<<<<
  * 
- * # =============================================================================
+ * @boundscheck(False)
  */
   __pyx_r = __pyx_v_common_neighbors;
   goto __pyx_L0;
 
-  /* "pymochy.pyx":91
+  /* "pymochy.pyx":85
  *     @nonecheck(False)
  *     @staticmethod
  *     cdef long* common_neighbors_matrix(short[:, :] incidence_matrix) nogil:             # <<<<<<<<<<<<<<
@@ -20779,7 +20775,169 @@ static PyObject *__pyx_pf_7pymochy_15CommonNeighbors_4__setstate_cython__(CYTHON
   return __pyx_r;
 }
 
-/* "pymochy.pyx":131
+/* "pymochy.pyx":111
+ * @cdivision(True)
+ * @nonecheck(False)
+ * cdef inline long get_common_neighbor(CommonNeighbors common_neighbors, int num_edges, int i, int j) noexcept nogil:             # <<<<<<<<<<<<<<
+ *     cdef:
+ *         int m, M
+ */
+
+static CYTHON_INLINE long __pyx_f_7pymochy_get_common_neighbor(struct __pyx_obj_7pymochy_CommonNeighbors *__pyx_v_common_neighbors, int __pyx_v_num_edges, int __pyx_v_i, int __pyx_v_j) {
+  int __pyx_v_m;
+  int __pyx_v_M;
+  int __pyx_v_k;
+  int __pyx_v_c;
+  long *__pyx_v_cn;
+  long __pyx_r;
+  long *__pyx_t_1;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  Py_ssize_t __pyx_t_4;
+  Py_ssize_t __pyx_t_5;
+  Py_ssize_t __pyx_t_6;
+  Py_ssize_t __pyx_t_7;
+  Py_ssize_t __pyx_t_8;
+  Py_ssize_t __pyx_t_9;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  #ifdef WITH_THREAD
+  PyGILState_STATE __pyx_gilstate_save;
+  #endif
+
+  /* "pymochy.pyx":115
+ *         int m, M
+ *         int k
+ *         int c = 0             # <<<<<<<<<<<<<<
+ *         long* cn = common_neighbors.common_neighbors
+ *     m = min(i, j)
+ */
+  __pyx_v_c = 0;
+
+  /* "pymochy.pyx":116
+ *         int k
+ *         int c = 0
+ *         long* cn = common_neighbors.common_neighbors             # <<<<<<<<<<<<<<
+ *     m = min(i, j)
+ *     M = max(i, j)
+ */
+  __pyx_t_1 = __pyx_v_common_neighbors->common_neighbors;
+  __pyx_v_cn = __pyx_t_1;
+
+  /* "pymochy.pyx":117
+ *         int c = 0
+ *         long* cn = common_neighbors.common_neighbors
+ *     m = min(i, j)             # <<<<<<<<<<<<<<
+ *     M = max(i, j)
+ *     if common_neighbors.optimized == 1:
+ */
+  __pyx_t_2 = __pyx_f_7pymochy_min(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_2 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_v_m = __pyx_t_2;
+
+  /* "pymochy.pyx":118
+ *         long* cn = common_neighbors.common_neighbors
+ *     m = min(i, j)
+ *     M = max(i, j)             # <<<<<<<<<<<<<<
+ *     if common_neighbors.optimized == 1:
+ *         return cn[m * num_edges + M - ((m * (m + 1))//2)]
+ */
+  __pyx_t_2 = __pyx_f_7pymochy_max(__pyx_v_i, __pyx_v_j); if (unlikely(__pyx_t_2 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_v_M = __pyx_t_2;
+
+  /* "pymochy.pyx":119
+ *     m = min(i, j)
+ *     M = max(i, j)
+ *     if common_neighbors.optimized == 1:             # <<<<<<<<<<<<<<
+ *         return cn[m * num_edges + M - ((m * (m + 1))//2)]
+ *     else:
+ */
+  __pyx_t_3 = (__pyx_v_common_neighbors->optimized == 1);
+  if (__pyx_t_3) {
+
+    /* "pymochy.pyx":120
+ *     M = max(i, j)
+ *     if common_neighbors.optimized == 1:
+ *         return cn[m * num_edges + M - ((m * (m + 1))//2)]             # <<<<<<<<<<<<<<
+ *     else:
+ *         for k in range(common_neighbors.incidence_matrix.shape[0]):
+ */
+    __pyx_r = (__pyx_v_cn[(((__pyx_v_m * __pyx_v_num_edges) + __pyx_v_M) - ((__pyx_v_m * (__pyx_v_m + 1)) / 2))]);
+    goto __pyx_L0;
+
+    /* "pymochy.pyx":119
+ *     m = min(i, j)
+ *     M = max(i, j)
+ *     if common_neighbors.optimized == 1:             # <<<<<<<<<<<<<<
+ *         return cn[m * num_edges + M - ((m * (m + 1))//2)]
+ *     else:
+ */
+  }
+
+  /* "pymochy.pyx":122
+ *         return cn[m * num_edges + M - ((m * (m + 1))//2)]
+ *     else:
+ *         for k in range(common_neighbors.incidence_matrix.shape[0]):             # <<<<<<<<<<<<<<
+ *             c = c + common_neighbors.incidence_matrix[k][i] * common_neighbors.incidence_matrix[k][j]
+ *         return c
+ */
+  /*else*/ {
+    if (unlikely(!__pyx_v_common_neighbors->incidence_matrix.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 122, __pyx_L1_error)}
+    __pyx_t_4 = (__pyx_v_common_neighbors->incidence_matrix.shape[0]);
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_5; __pyx_t_2+=1) {
+      __pyx_v_k = __pyx_t_2;
+
+      /* "pymochy.pyx":123
+ *     else:
+ *         for k in range(common_neighbors.incidence_matrix.shape[0]):
+ *             c = c + common_neighbors.incidence_matrix[k][i] * common_neighbors.incidence_matrix[k][j]             # <<<<<<<<<<<<<<
+ *         return c
+ * 
+ */
+      if (unlikely(!__pyx_v_common_neighbors->incidence_matrix.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 123, __pyx_L1_error)}
+      __pyx_t_6 = __pyx_v_k;
+      __pyx_t_7 = __pyx_v_i;
+      if (unlikely(!__pyx_v_common_neighbors->incidence_matrix.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 123, __pyx_L1_error)}
+      __pyx_t_8 = __pyx_v_k;
+      __pyx_t_9 = __pyx_v_j;
+      __pyx_v_c = (__pyx_v_c + ((*((short *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_common_neighbors->incidence_matrix.data + __pyx_t_6 * __pyx_v_common_neighbors->incidence_matrix.strides[0]) ) + __pyx_t_7 * __pyx_v_common_neighbors->incidence_matrix.strides[1]) ))) * (*((short *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_common_neighbors->incidence_matrix.data + __pyx_t_8 * __pyx_v_common_neighbors->incidence_matrix.strides[0]) ) + __pyx_t_9 * __pyx_v_common_neighbors->incidence_matrix.strides[1]) )))));
+    }
+
+    /* "pymochy.pyx":124
+ *         for k in range(common_neighbors.incidence_matrix.shape[0]):
+ *             c = c + common_neighbors.incidence_matrix[k][i] * common_neighbors.incidence_matrix[k][j]
+ *         return c             # <<<<<<<<<<<<<<
+ * 
+ * # =============================================================================
+ */
+    __pyx_r = __pyx_v_c;
+    goto __pyx_L0;
+  }
+
+  /* "pymochy.pyx":111
+ * @cdivision(True)
+ * @nonecheck(False)
+ * cdef inline long get_common_neighbor(CommonNeighbors common_neighbors, int num_edges, int i, int j) noexcept nogil:             # <<<<<<<<<<<<<<
+ *     cdef:
+ *         int m, M
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  #ifdef WITH_THREAD
+  __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+  #endif
+  __Pyx_WriteUnraisable("pymochy.get_common_neighbor", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __pyx_r = 0;
+  #ifdef WITH_THREAD
+  __Pyx_PyGILState_Release(__pyx_gilstate_save);
+  #endif
+  __pyx_L0:;
+  return __pyx_r;
+}
+
+/* "pymochy.pyx":144
  *     cdef int counted
  * 
  *     @boundscheck(False)             # <<<<<<<<<<<<<<
@@ -20826,19 +20984,19 @@ static int __pyx_pw_7pymochy_5Mochy_1__cinit__(PyObject *__pyx_v_self, PyObject 
           (void)__Pyx_Arg_NewRef_VARARGS(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 131, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 144, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_optimized);
           if (value) { values[1] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 131, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 144, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 131, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 144, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -20849,16 +21007,16 @@ static int __pyx_pw_7pymochy_5Mochy_1__cinit__(PyObject *__pyx_v_self, PyObject 
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_incidence_matrix = __Pyx_PyObject_to_MemoryviewSlice_dsds_short(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_incidence_matrix.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
+    __pyx_v_incidence_matrix = __Pyx_PyObject_to_MemoryviewSlice_dsds_short(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_incidence_matrix.memview)) __PYX_ERR(0, 148, __pyx_L3_error)
     if (values[1]) {
-      __pyx_v_optimized = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_optimized == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 135, __pyx_L3_error)
+      __pyx_v_optimized = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_optimized == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L3_error)
     } else {
       __pyx_v_optimized = ((int)1);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 131, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 144, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -20892,49 +21050,43 @@ static int __pyx_pf_7pymochy_5Mochy___cinit__(struct __pyx_obj_7pymochy_Mochy *_
   int __pyx_v_j;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
-  Py_ssize_t __pyx_t_1;
-  Py_ssize_t __pyx_t_2;
-  int __pyx_t_3;
-  Py_ssize_t __pyx_t_4;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
   Py_ssize_t __pyx_t_5;
-  int __pyx_t_6;
-  Py_ssize_t __pyx_t_7;
+  Py_ssize_t __pyx_t_6;
+  int __pyx_t_7;
   Py_ssize_t __pyx_t_8;
+  Py_ssize_t __pyx_t_9;
+  int __pyx_t_10;
+  Py_ssize_t __pyx_t_11;
+  Py_ssize_t __pyx_t_12;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 1);
 
-  /* "pymochy.pyx":138
+  /* "pymochy.pyx":151
  *         cdef:
  *             int i, j, k
  *         self.optimized = optimized             # <<<<<<<<<<<<<<
- *         self.common_neighbors = None
- *         self.num_nodes = incidence_matrix.shape[0]
- */
-  __pyx_v_self->optimized = __pyx_v_optimized;
-
-  /* "pymochy.pyx":139
- *             int i, j, k
- *         self.optimized = optimized
- *         self.common_neighbors = None             # <<<<<<<<<<<<<<
  *         self.num_nodes = incidence_matrix.shape[0]
  *         self.num_edges = incidence_matrix.shape[1]
  */
-  __Pyx_INCREF(Py_None);
-  __Pyx_GIVEREF(Py_None);
-  __Pyx_GOTREF((PyObject *)__pyx_v_self->common_neighbors);
-  __Pyx_DECREF((PyObject *)__pyx_v_self->common_neighbors);
-  __pyx_v_self->common_neighbors = ((struct __pyx_obj_7pymochy_CommonNeighbors *)Py_None);
+  __pyx_v_self->optimized = __pyx_v_optimized;
 
-  /* "pymochy.pyx":140
+  /* "pymochy.pyx":152
+ *             int i, j, k
  *         self.optimized = optimized
- *         self.common_neighbors = None
  *         self.num_nodes = incidence_matrix.shape[0]             # <<<<<<<<<<<<<<
  *         self.num_edges = incidence_matrix.shape[1]
  *         self.counted = 0
  */
   __pyx_v_self->num_nodes = (__pyx_v_incidence_matrix.shape[0]);
 
-  /* "pymochy.pyx":141
- *         self.common_neighbors = None
+  /* "pymochy.pyx":153
+ *         self.optimized = optimized
  *         self.num_nodes = incidence_matrix.shape[0]
  *         self.num_edges = incidence_matrix.shape[1]             # <<<<<<<<<<<<<<
  *         self.counted = 0
@@ -20942,7 +21094,7 @@ static int __pyx_pf_7pymochy_5Mochy___cinit__(struct __pyx_obj_7pymochy_Mochy *_
  */
   __pyx_v_self->num_edges = (__pyx_v_incidence_matrix.shape[1]);
 
-  /* "pymochy.pyx":142
+  /* "pymochy.pyx":154
  *         self.num_nodes = incidence_matrix.shape[0]
  *         self.num_edges = incidence_matrix.shape[1]
  *         self.counted = 0             # <<<<<<<<<<<<<<
@@ -20951,64 +21103,98 @@ static int __pyx_pf_7pymochy_5Mochy___cinit__(struct __pyx_obj_7pymochy_Mochy *_
  */
   __pyx_v_self->counted = 0;
 
-  /* "pymochy.pyx":143
+  /* "pymochy.pyx":155
  *         self.num_edges = incidence_matrix.shape[1]
  *         self.counted = 0
  *         self.incidence_matrix = incidence_matrix             # <<<<<<<<<<<<<<
  *         self.incidence_matrix_ = <short*> malloc(incidence_matrix.shape[0] * incidence_matrix.shape[1] * sizeof(short))
- *         for i in range(incidence_matrix.shape[0]):
+ *         self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
  */
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_self->incidence_matrix, 0);
   __PYX_INC_MEMVIEW(&__pyx_v_incidence_matrix, 1);
   __pyx_v_self->incidence_matrix = __pyx_v_incidence_matrix;
 
-  /* "pymochy.pyx":144
+  /* "pymochy.pyx":156
  *         self.counted = 0
  *         self.incidence_matrix = incidence_matrix
  *         self.incidence_matrix_ = <short*> malloc(incidence_matrix.shape[0] * incidence_matrix.shape[1] * sizeof(short))             # <<<<<<<<<<<<<<
+ *         self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
  *         for i in range(incidence_matrix.shape[0]):
- *             for j in range(incidence_matrix.shape[1]):
  */
   __pyx_v_self->incidence_matrix_ = ((short *)malloc((((__pyx_v_incidence_matrix.shape[0]) * (__pyx_v_incidence_matrix.shape[1])) * (sizeof(short)))));
 
-  /* "pymochy.pyx":145
+  /* "pymochy.pyx":157
  *         self.incidence_matrix = incidence_matrix
  *         self.incidence_matrix_ = <short*> malloc(incidence_matrix.shape[0] * incidence_matrix.shape[1] * sizeof(short))
+ *         self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)             # <<<<<<<<<<<<<<
+ *         for i in range(incidence_matrix.shape[0]):
+ *             for j in range(incidence_matrix.shape[1]):
+ */
+  if (unlikely(!__pyx_v_self->incidence_matrix.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 157, __pyx_L1_error)}
+  __pyx_t_1 = __pyx_memoryview_fromslice(__pyx_v_self->incidence_matrix, 2, (PyObject *(*)(char *)) __pyx_memview_get_short, (int (*)(char *, PyObject *)) __pyx_memview_set_short, 0);; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_edges); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->optimized); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_1);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error);
+  __Pyx_GIVEREF(__pyx_t_2);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2)) __PYX_ERR(0, 157, __pyx_L1_error);
+  __Pyx_GIVEREF(__pyx_t_3);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error);
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7pymochy_CommonNeighbors), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_GIVEREF(__pyx_t_3);
+  __Pyx_GOTREF((PyObject *)__pyx_v_self->common_neighbors);
+  __Pyx_DECREF((PyObject *)__pyx_v_self->common_neighbors);
+  __pyx_v_self->common_neighbors = ((struct __pyx_obj_7pymochy_CommonNeighbors *)__pyx_t_3);
+  __pyx_t_3 = 0;
+
+  /* "pymochy.pyx":158
+ *         self.incidence_matrix_ = <short*> malloc(incidence_matrix.shape[0] * incidence_matrix.shape[1] * sizeof(short))
+ *         self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
  *         for i in range(incidence_matrix.shape[0]):             # <<<<<<<<<<<<<<
  *             for j in range(incidence_matrix.shape[1]):
  *                 self.incidence_matrix_[i * self.num_edges + j] = incidence_matrix[i][j]
  */
-  __pyx_t_1 = (__pyx_v_incidence_matrix.shape[0]);
-  __pyx_t_2 = __pyx_t_1;
-  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
-    __pyx_v_i = __pyx_t_3;
+  __pyx_t_5 = (__pyx_v_incidence_matrix.shape[0]);
+  __pyx_t_6 = __pyx_t_5;
+  for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
+    __pyx_v_i = __pyx_t_7;
 
-    /* "pymochy.pyx":146
- *         self.incidence_matrix_ = <short*> malloc(incidence_matrix.shape[0] * incidence_matrix.shape[1] * sizeof(short))
+    /* "pymochy.pyx":159
+ *         self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
  *         for i in range(incidence_matrix.shape[0]):
  *             for j in range(incidence_matrix.shape[1]):             # <<<<<<<<<<<<<<
  *                 self.incidence_matrix_[i * self.num_edges + j] = incidence_matrix[i][j]
  * 
  */
-    __pyx_t_4 = (__pyx_v_incidence_matrix.shape[1]);
-    __pyx_t_5 = __pyx_t_4;
-    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
-      __pyx_v_j = __pyx_t_6;
+    __pyx_t_8 = (__pyx_v_incidence_matrix.shape[1]);
+    __pyx_t_9 = __pyx_t_8;
+    for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
+      __pyx_v_j = __pyx_t_10;
 
-      /* "pymochy.pyx":147
+      /* "pymochy.pyx":160
  *         for i in range(incidence_matrix.shape[0]):
  *             for j in range(incidence_matrix.shape[1]):
  *                 self.incidence_matrix_[i * self.num_edges + j] = incidence_matrix[i][j]             # <<<<<<<<<<<<<<
  * 
  *     @boundscheck(False)
  */
-      __pyx_t_7 = __pyx_v_i;
-      __pyx_t_8 = __pyx_v_j;
-      (__pyx_v_self->incidence_matrix_[((__pyx_v_i * __pyx_v_self->num_edges) + __pyx_v_j)]) = (*((short *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_incidence_matrix.data + __pyx_t_7 * __pyx_v_incidence_matrix.strides[0]) ) + __pyx_t_8 * __pyx_v_incidence_matrix.strides[1]) )));
+      __pyx_t_11 = __pyx_v_i;
+      __pyx_t_12 = __pyx_v_j;
+      (__pyx_v_self->incidence_matrix_[((__pyx_v_i * __pyx_v_self->num_edges) + __pyx_v_j)]) = (*((short *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_incidence_matrix.data + __pyx_t_11 * __pyx_v_incidence_matrix.strides[0]) ) + __pyx_t_12 * __pyx_v_incidence_matrix.strides[1]) )));
     }
   }
 
-  /* "pymochy.pyx":131
+  /* "pymochy.pyx":144
  *     cdef int counted
  * 
  *     @boundscheck(False)             # <<<<<<<<<<<<<<
@@ -21018,11 +21204,20 @@ static int __pyx_pf_7pymochy_5Mochy___cinit__(struct __pyx_obj_7pymochy_Mochy *_
 
   /* function exit code */
   __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("pymochy.Mochy.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymochy.pyx":153
+/* "pymochy.pyx":166
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int32_t, ndim=2] sample(self, int h = -1, int limit = -1):             # <<<<<<<<<<<<<<
@@ -21116,13 +21311,13 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_sample); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_sample); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!__Pyx_IsSameCFunction(__pyx_t_1, (void*) __pyx_pw_7pymochy_5Mochy_3sample)) {
         __Pyx_XDECREF((PyObject *)__pyx_r);
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_h); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_h); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 166, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_limit); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_limit); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -21145,11 +21340,11 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 166, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         }
-        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 153, __pyx_L1_error)
+        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 166, __pyx_L1_error)
         __pyx_r = ((PyArrayObject *)__pyx_t_2);
         __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -21168,7 +21363,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     #endif
   }
 
-  /* "pymochy.pyx":163
+  /* "pymochy.pyx":176
  *             int motif_id, motif_index
  *             int[128] id_to_index
  *             Node **head = NULL             # <<<<<<<<<<<<<<
@@ -21177,7 +21372,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
   __pyx_v_head = NULL;
 
-  /* "pymochy.pyx":164
+  /* "pymochy.pyx":177
  *             int[128] id_to_index
  *             Node **head = NULL
  *             Node **tail = NULL             # <<<<<<<<<<<<<<
@@ -21186,7 +21381,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
   __pyx_v_tail = NULL;
 
-  /* "pymochy.pyx":169
+  /* "pymochy.pyx":182
  *             double[30] sample_probabilities
  *             int[:, :] motifs
  *             int motifsloc = 0             # <<<<<<<<<<<<<<
@@ -21195,7 +21390,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
   __pyx_v_motifsloc = 0;
 
-  /* "pymochy.pyx":170
+  /* "pymochy.pyx":183
  *             int[:, :] motifs
  *             int motifsloc = 0
  *         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]             # <<<<<<<<<<<<<<
@@ -21332,11 +21527,11 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
   __pyx_t_8[127] = 20;
   if (unlikely((0x80) != (128))) {
     PyErr_Format(PyExc_ValueError, "Assignment to slice of wrong length, expected %" CYTHON_FORMAT_SSIZE_T "d, got %" CYTHON_FORMAT_SSIZE_T "d", (Py_ssize_t)(128), (Py_ssize_t)(0x80));
-    __PYX_ERR(0, 170, __pyx_L1_error)
+    __PYX_ERR(0, 183, __pyx_L1_error)
   }
   memcpy(&(__pyx_v_id_to_index[0]), __pyx_t_8, sizeof(__pyx_v_id_to_index[0]) * (128));
 
-  /* "pymochy.pyx":171
+  /* "pymochy.pyx":184
  *             int motifsloc = 0
  *         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]
  *         num_threads = openmp.omp_get_max_threads()             # <<<<<<<<<<<<<<
@@ -21345,7 +21540,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
   __pyx_v_num_threads = omp_get_max_threads();
 
-  /* "pymochy.pyx":172
+  /* "pymochy.pyx":185
  *         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]
  *         num_threads = openmp.omp_get_max_threads()
  *         head = <Node **> malloc(sizeof(Node*) * num_threads)             # <<<<<<<<<<<<<<
@@ -21354,7 +21549,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
   __pyx_v_head = ((struct __pyx_t_7pymochy_Node **)malloc(((sizeof(struct __pyx_t_7pymochy_Node *)) * __pyx_v_num_threads)));
 
-  /* "pymochy.pyx":173
+  /* "pymochy.pyx":186
  *         num_threads = openmp.omp_get_max_threads()
  *         head = <Node **> malloc(sizeof(Node*) * num_threads)
  *         tail = <Node **> malloc(sizeof(Node*) * num_threads)             # <<<<<<<<<<<<<<
@@ -21363,7 +21558,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
   __pyx_v_tail = ((struct __pyx_t_7pymochy_Node **)malloc(((sizeof(struct __pyx_t_7pymochy_Node *)) * __pyx_v_num_threads)));
 
-  /* "pymochy.pyx":177
+  /* "pymochy.pyx":190
  *         # Initialize head and tail pointers
  *         # Some compilers do no initialize pointers to NULL by default
  *         for i in range(num_threads):             # <<<<<<<<<<<<<<
@@ -21375,7 +21570,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_i = __pyx_t_10;
 
-    /* "pymochy.pyx":178
+    /* "pymochy.pyx":191
  *         # Some compilers do no initialize pointers to NULL by default
  *         for i in range(num_threads):
  *             head[i] = NULL             # <<<<<<<<<<<<<<
@@ -21384,7 +21579,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
     (__pyx_v_head[__pyx_v_i]) = NULL;
 
-    /* "pymochy.pyx":179
+    /* "pymochy.pyx":192
  *         for i in range(num_threads):
  *             head[i] = NULL
  *             tail[i] = NULL             # <<<<<<<<<<<<<<
@@ -21394,7 +21589,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     (__pyx_v_tail[__pyx_v_i]) = NULL;
   }
 
-  /* "pymochy.pyx":181
+  /* "pymochy.pyx":194
  *             tail[i] = NULL
  * 
  *         if self.counted == 0:             # <<<<<<<<<<<<<<
@@ -21404,18 +21599,18 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
   __pyx_t_11 = (__pyx_v_self->counted == 0);
   if (__pyx_t_11) {
 
-    /* "pymochy.pyx":182
+    /* "pymochy.pyx":195
  * 
  *         if self.counted == 0:
  *             self.count()             # <<<<<<<<<<<<<<
  * 
  *         for i in range(30):
  */
-    __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_7pymochy_Mochy *)__pyx_v_self->__pyx_vtab)->count(__pyx_v_self, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_7pymochy_Mochy *)__pyx_v_self->__pyx_vtab)->count(__pyx_v_self, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pymochy.pyx":181
+    /* "pymochy.pyx":194
  *             tail[i] = NULL
  * 
  *         if self.counted == 0:             # <<<<<<<<<<<<<<
@@ -21424,7 +21619,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
   }
 
-  /* "pymochy.pyx":184
+  /* "pymochy.pyx":197
  *             self.count()
  * 
  *         for i in range(30):             # <<<<<<<<<<<<<<
@@ -21434,7 +21629,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
   for (__pyx_t_7 = 0; __pyx_t_7 < 30; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "pymochy.pyx":185
+    /* "pymochy.pyx":198
  * 
  *         for i in range(30):
  *             c = self.motif_counts[i]             # <<<<<<<<<<<<<<
@@ -21443,7 +21638,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
     __pyx_v_c = (__pyx_v_self->motif_counts[__pyx_v_i]);
 
-    /* "pymochy.pyx":186
+    /* "pymochy.pyx":199
  *         for i in range(30):
  *             c = self.motif_counts[i]
  *             if c == 0:             # <<<<<<<<<<<<<<
@@ -21453,7 +21648,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_11 = (__pyx_v_c == 0);
     if (__pyx_t_11) {
 
-      /* "pymochy.pyx":187
+      /* "pymochy.pyx":200
  *             c = self.motif_counts[i]
  *             if c == 0:
  *                 sample_probabilities[i] = 0             # <<<<<<<<<<<<<<
@@ -21462,7 +21657,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
       (__pyx_v_sample_probabilities[__pyx_v_i]) = 0.0;
 
-      /* "pymochy.pyx":186
+      /* "pymochy.pyx":199
  *         for i in range(30):
  *             c = self.motif_counts[i]
  *             if c == 0:             # <<<<<<<<<<<<<<
@@ -21472,7 +21667,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
       goto __pyx_L8;
     }
 
-    /* "pymochy.pyx":188
+    /* "pymochy.pyx":201
  *             if c == 0:
  *                 sample_probabilities[i] = 0
  *             elif limit == -1:             # <<<<<<<<<<<<<<
@@ -21482,7 +21677,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_11 = (__pyx_v_limit == -1L);
     if (__pyx_t_11) {
 
-      /* "pymochy.pyx":189
+      /* "pymochy.pyx":202
  *                 sample_probabilities[i] = 0
  *             elif limit == -1:
  *                 sample_probabilities[i] = 1             # <<<<<<<<<<<<<<
@@ -21491,7 +21686,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
       (__pyx_v_sample_probabilities[__pyx_v_i]) = 1.0;
 
-      /* "pymochy.pyx":188
+      /* "pymochy.pyx":201
  *             if c == 0:
  *                 sample_probabilities[i] = 0
  *             elif limit == -1:             # <<<<<<<<<<<<<<
@@ -21501,7 +21696,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
       goto __pyx_L8;
     }
 
-    /* "pymochy.pyx":191
+    /* "pymochy.pyx":204
  *                 sample_probabilities[i] = 1
  *             else:
  *                 p = <float>limit / c             # <<<<<<<<<<<<<<
@@ -21511,7 +21706,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     /*else*/ {
       __pyx_v_p = (((float)__pyx_v_limit) / ((float)__pyx_v_c));
 
-      /* "pymochy.pyx":192
+      /* "pymochy.pyx":205
  *             else:
  *                 p = <float>limit / c
  *                 if p > 1:             # <<<<<<<<<<<<<<
@@ -21521,7 +21716,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
       __pyx_t_11 = (__pyx_v_p > 1.0);
       if (__pyx_t_11) {
 
-        /* "pymochy.pyx":193
+        /* "pymochy.pyx":206
  *                 p = <float>limit / c
  *                 if p > 1:
  *                     sample_probabilities[i] = 1             # <<<<<<<<<<<<<<
@@ -21530,7 +21725,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
         (__pyx_v_sample_probabilities[__pyx_v_i]) = 1.0;
 
-        /* "pymochy.pyx":192
+        /* "pymochy.pyx":205
  *             else:
  *                 p = <float>limit / c
  *                 if p > 1:             # <<<<<<<<<<<<<<
@@ -21540,7 +21735,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
         goto __pyx_L9;
       }
 
-      /* "pymochy.pyx":195
+      /* "pymochy.pyx":208
  *                     sample_probabilities[i] = 1
  *                 else:
  *                     sample_probabilities[i] = p             # <<<<<<<<<<<<<<
@@ -21555,12 +21750,12 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_L8:;
   }
 
-  /* "pymochy.pyx":197
+  /* "pymochy.pyx":210
  *                     sample_probabilities[i] = p
  * 
  *         for i in prange(self.num_edges, nogil=True):             # <<<<<<<<<<<<<<
  *             thread_id = threadid()
- *             deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+ *             deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  */
   {
       #ifdef WITH_THREAD
@@ -21635,11 +21830,11 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                             __pyx_v_random = ((double)__PYX_NAN());
                             __pyx_v_thread_id = ((int)0xbad0bad0);
 
-                            /* "pymochy.pyx":198
+                            /* "pymochy.pyx":211
  * 
  *         for i in prange(self.num_edges, nogil=True):
  *             thread_id = threadid()             # <<<<<<<<<<<<<<
- *             deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+ *             deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  *             for j in range(self.num_edges):
  */
                             #ifdef _OPENMP
@@ -21649,49 +21844,49 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                             #endif
                             __pyx_v_thread_id = __pyx_t_12;
 
-                            /* "pymochy.pyx":199
+                            /* "pymochy.pyx":212
  *         for i in prange(self.num_edges, nogil=True):
  *             thread_id = threadid()
- *             deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)             # <<<<<<<<<<<<<<
+ *             deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)             # <<<<<<<<<<<<<<
  *             for j in range(self.num_edges):
  *                 if i != j:
  */
-                            __pyx_v_deg_i = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_i);
+                            __pyx_v_deg_i = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_i);
 
-                            /* "pymochy.pyx":200
+                            /* "pymochy.pyx":213
  *             thread_id = threadid()
- *             deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+ *             deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  *             for j in range(self.num_edges):             # <<<<<<<<<<<<<<
  *                 if i != j:
- *                     c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                     c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  */
                             __pyx_t_12 = __pyx_v_self->num_edges;
                             __pyx_t_13 = __pyx_t_12;
                             for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
                               __pyx_v_j = __pyx_t_14;
 
-                              /* "pymochy.pyx":201
- *             deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+                              /* "pymochy.pyx":214
+ *             deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  *             for j in range(self.num_edges):
  *                 if i != j:             # <<<<<<<<<<<<<<
- *                     c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                     c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                     if c_ij > 0:
  */
                               __pyx_t_11 = (__pyx_v_i != __pyx_v_j);
                               if (__pyx_t_11) {
 
-                                /* "pymochy.pyx":202
+                                /* "pymochy.pyx":215
  *             for j in range(self.num_edges):
  *                 if i != j:
- *                     c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)             # <<<<<<<<<<<<<<
+ *                     c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)             # <<<<<<<<<<<<<<
  *                     if c_ij > 0:
  *                         for k in range(j + 1, self.num_edges):
  */
-                                __pyx_v_c_ij = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_j);
+                                __pyx_v_c_ij = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_j);
 
-                                /* "pymochy.pyx":203
+                                /* "pymochy.pyx":216
  *                 if i != j:
- *                     c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                     c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                     if c_ij > 0:             # <<<<<<<<<<<<<<
  *                         for k in range(j + 1, self.num_edges):
  *                             if i != k:
@@ -21699,42 +21894,42 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                 __pyx_t_11 = (__pyx_v_c_ij > 0);
                                 if (__pyx_t_11) {
 
-                                  /* "pymochy.pyx":204
- *                     c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+                                  /* "pymochy.pyx":217
+ *                     c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                     if c_ij > 0:
  *                         for k in range(j + 1, self.num_edges):             # <<<<<<<<<<<<<<
  *                             if i != k:
- *                                 c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                 c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  */
                                   __pyx_t_15 = __pyx_v_self->num_edges;
                                   __pyx_t_16 = __pyx_t_15;
                                   for (__pyx_t_17 = (__pyx_v_j + 1); __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
                                     __pyx_v_k = __pyx_t_17;
 
-                                    /* "pymochy.pyx":205
+                                    /* "pymochy.pyx":218
  *                     if c_ij > 0:
  *                         for k in range(j + 1, self.num_edges):
  *                             if i != k:             # <<<<<<<<<<<<<<
- *                                 c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                 c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                 if i < j or c_jk == 0:
  */
                                     __pyx_t_11 = (__pyx_v_i != __pyx_v_k);
                                     if (__pyx_t_11) {
 
-                                      /* "pymochy.pyx":206
+                                      /* "pymochy.pyx":219
  *                         for k in range(j + 1, self.num_edges):
  *                             if i != k:
- *                                 c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)             # <<<<<<<<<<<<<<
+ *                                 c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)             # <<<<<<<<<<<<<<
  *                                 if i < j or c_jk == 0:
- *                                     c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                     c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  */
-                                      __pyx_v_c_jk = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_j, __pyx_v_k);
+                                      __pyx_v_c_jk = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_j, __pyx_v_k);
 
-                                      /* "pymochy.pyx":207
+                                      /* "pymochy.pyx":220
  *                             if i != k:
- *                                 c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                 c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                 if i < j or c_jk == 0:             # <<<<<<<<<<<<<<
- *                                     c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                     c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                     if c_ik > 0:
  */
                                       __pyx_t_18 = (__pyx_v_i < __pyx_v_j);
@@ -21748,54 +21943,54 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                       __pyx_L25_bool_binop_done:;
                                       if (__pyx_t_11) {
 
-                                        /* "pymochy.pyx":208
- *                                 c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+                                        /* "pymochy.pyx":221
+ *                                 c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                 if i < j or c_jk == 0:
- *                                     c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)             # <<<<<<<<<<<<<<
+ *                                     c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)             # <<<<<<<<<<<<<<
  *                                     if c_ik > 0:
- *                                         deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
+ *                                         deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
  */
-                                        __pyx_v_c_ik = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_k);
+                                        __pyx_v_c_ik = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_k);
 
-                                        /* "pymochy.pyx":209
+                                        /* "pymochy.pyx":222
  *                                 if i < j or c_jk == 0:
- *                                     c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                     c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                     if c_ik > 0:             # <<<<<<<<<<<<<<
- *                                         deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
- *                                         deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+ *                                         deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+ *                                         deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  */
                                         __pyx_t_11 = (__pyx_v_c_ik > 0);
                                         if (__pyx_t_11) {
 
-                                          /* "pymochy.pyx":210
- *                                     c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+                                          /* "pymochy.pyx":223
+ *                                     c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                     if c_ik > 0:
- *                                         deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)             # <<<<<<<<<<<<<<
- *                                         deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+ *                                         deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)             # <<<<<<<<<<<<<<
+ *                                         deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  *                                         g_ijk = 0
  */
-                                          __pyx_v_deg_j = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_j, __pyx_v_j);
+                                          __pyx_v_deg_j = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_j, __pyx_v_j);
 
-                                          /* "pymochy.pyx":211
+                                          /* "pymochy.pyx":224
  *                                     if c_ik > 0:
- *                                         deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
- *                                         deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)             # <<<<<<<<<<<<<<
+ *                                         deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+ *                                         deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)             # <<<<<<<<<<<<<<
  *                                         g_ijk = 0
  *                                         for e in range(self.num_nodes):
  */
-                                          __pyx_v_deg_k = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_k, __pyx_v_k);
+                                          __pyx_v_deg_k = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_k, __pyx_v_k);
 
-                                          /* "pymochy.pyx":212
- *                                         deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
- *                                         deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+                                          /* "pymochy.pyx":225
+ *                                         deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+ *                                         deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  *                                         g_ijk = 0             # <<<<<<<<<<<<<<
  *                                         for e in range(self.num_nodes):
  *                                             if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
  */
                                           __pyx_v_g_ijk = 0;
 
-                                          /* "pymochy.pyx":213
- *                                         deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+                                          /* "pymochy.pyx":226
+ *                                         deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  *                                         g_ijk = 0
  *                                         for e in range(self.num_nodes):             # <<<<<<<<<<<<<<
  *                                             if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
@@ -21806,7 +22001,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                           for (__pyx_t_21 = 0; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
                                             __pyx_v_e = __pyx_t_21;
 
-                                            /* "pymochy.pyx":214
+                                            /* "pymochy.pyx":227
  *                                         g_ijk = 0
  *                                         for e in range(self.num_nodes):
  *                                             if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:             # <<<<<<<<<<<<<<
@@ -21830,7 +22025,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                             __pyx_L31_bool_binop_done:;
                                             if (__pyx_t_11) {
 
-                                              /* "pymochy.pyx":215
+                                              /* "pymochy.pyx":228
  *                                         for e in range(self.num_nodes):
  *                                             if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
  *                                                 g_ijk = g_ijk + 1             # <<<<<<<<<<<<<<
@@ -21839,7 +22034,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                               __pyx_v_g_ijk = (__pyx_v_g_ijk + 1);
 
-                                              /* "pymochy.pyx":214
+                                              /* "pymochy.pyx":227
  *                                         g_ijk = 0
  *                                         for e in range(self.num_nodes):
  *                                             if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:             # <<<<<<<<<<<<<<
@@ -21849,17 +22044,17 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                             }
                                           }
 
-                                          /* "pymochy.pyx":216
+                                          /* "pymochy.pyx":229
  *                                             if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
  *                                                 g_ijk = g_ijk + 1
  *                                         motif_id = get_motif_id(deg_i, deg_j, deg_k, c_ij, c_ik, c_jk, g_ijk)             # <<<<<<<<<<<<<<
  *                                         motif_index = id_to_index[motif_id] - 1
  *                                         if h < 1 or motif_index == h:
  */
-                                          __pyx_t_19 = __pyx_f_7pymochy_get_motif_id(__pyx_v_deg_i, __pyx_v_deg_j, __pyx_v_deg_k, __pyx_v_c_ij, __pyx_v_c_ik, __pyx_v_c_jk, __pyx_v_g_ijk); if (unlikely(__pyx_t_19 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 216, __pyx_L15_error)
+                                          __pyx_t_19 = __pyx_f_7pymochy_get_motif_id(__pyx_v_deg_i, __pyx_v_deg_j, __pyx_v_deg_k, __pyx_v_c_ij, __pyx_v_c_ik, __pyx_v_c_jk, __pyx_v_g_ijk); if (unlikely(__pyx_t_19 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 229, __pyx_L15_error)
                                           __pyx_v_motif_id = __pyx_t_19;
 
-                                          /* "pymochy.pyx":217
+                                          /* "pymochy.pyx":230
  *                                                 g_ijk = g_ijk + 1
  *                                         motif_id = get_motif_id(deg_i, deg_j, deg_k, c_ij, c_ik, c_jk, g_ijk)
  *                                         motif_index = id_to_index[motif_id] - 1             # <<<<<<<<<<<<<<
@@ -21868,7 +22063,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                           __pyx_v_motif_index = ((__pyx_v_id_to_index[__pyx_v_motif_id]) - 1);
 
-                                          /* "pymochy.pyx":218
+                                          /* "pymochy.pyx":231
  *                                         motif_id = get_motif_id(deg_i, deg_j, deg_k, c_ij, c_ik, c_jk, g_ijk)
  *                                         motif_index = id_to_index[motif_id] - 1
  *                                         if h < 1 or motif_index == h:             # <<<<<<<<<<<<<<
@@ -21886,7 +22081,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                           __pyx_L35_bool_binop_done:;
                                           if (__pyx_t_11) {
 
-                                            /* "pymochy.pyx":219
+                                            /* "pymochy.pyx":232
  *                                         motif_index = id_to_index[motif_id] - 1
  *                                         if h < 1 or motif_index == h:
  *                                             random = <double>rand() / RAND_MAX             # <<<<<<<<<<<<<<
@@ -21895,7 +22090,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                             __pyx_v_random = (((double)rand()) / ((double)RAND_MAX));
 
-                                            /* "pymochy.pyx":220
+                                            /* "pymochy.pyx":233
  *                                         if h < 1 or motif_index == h:
  *                                             random = <double>rand() / RAND_MAX
  *                                             if random < sample_probabilities[motif_index]:             # <<<<<<<<<<<<<<
@@ -21905,7 +22100,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                             __pyx_t_11 = (__pyx_v_random < (__pyx_v_sample_probabilities[__pyx_v_motif_index]));
                                             if (__pyx_t_11) {
 
-                                              /* "pymochy.pyx":221
+                                              /* "pymochy.pyx":234
  *                                             random = <double>rand() / RAND_MAX
  *                                             if random < sample_probabilities[motif_index]:
  *                                                 node = <Node *> malloc(sizeof(Node))             # <<<<<<<<<<<<<<
@@ -21914,7 +22109,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                               __pyx_v_node = ((struct __pyx_t_7pymochy_Node *)malloc((sizeof(struct __pyx_t_7pymochy_Node))));
 
-                                              /* "pymochy.pyx":222
+                                              /* "pymochy.pyx":235
  *                                             if random < sample_probabilities[motif_index]:
  *                                                 node = <Node *> malloc(sizeof(Node))
  *                                                 node._id = motif_index             # <<<<<<<<<<<<<<
@@ -21923,7 +22118,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                               __pyx_v_node->_id = __pyx_v_motif_index;
 
-                                              /* "pymochy.pyx":223
+                                              /* "pymochy.pyx":236
  *                                                 node = <Node *> malloc(sizeof(Node))
  *                                                 node._id = motif_index
  *                                                 node.i = i             # <<<<<<<<<<<<<<
@@ -21932,7 +22127,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                               __pyx_v_node->i = __pyx_v_i;
 
-                                              /* "pymochy.pyx":224
+                                              /* "pymochy.pyx":237
  *                                                 node._id = motif_index
  *                                                 node.i = i
  *                                                 node.j = j             # <<<<<<<<<<<<<<
@@ -21941,7 +22136,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                               __pyx_v_node->j = __pyx_v_j;
 
-                                              /* "pymochy.pyx":225
+                                              /* "pymochy.pyx":238
  *                                                 node.i = i
  *                                                 node.j = j
  *                                                 node.k = k             # <<<<<<<<<<<<<<
@@ -21950,7 +22145,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                               __pyx_v_node->k = __pyx_v_k;
 
-                                              /* "pymochy.pyx":226
+                                              /* "pymochy.pyx":239
  *                                                 node.j = j
  *                                                 node.k = k
  *                                                 if head[thread_id] is NULL:             # <<<<<<<<<<<<<<
@@ -21960,7 +22155,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                               __pyx_t_11 = ((__pyx_v_head[__pyx_v_thread_id]) == NULL);
                                               if (__pyx_t_11) {
 
-                                                /* "pymochy.pyx":227
+                                                /* "pymochy.pyx":240
  *                                                 node.k = k
  *                                                 if head[thread_id] is NULL:
  *                                                     node.index = 0             # <<<<<<<<<<<<<<
@@ -21969,7 +22164,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                                 __pyx_v_node->index = 0;
 
-                                                /* "pymochy.pyx":228
+                                                /* "pymochy.pyx":241
  *                                                 if head[thread_id] is NULL:
  *                                                     node.index = 0
  *                                                     tail[thread_id] = node             # <<<<<<<<<<<<<<
@@ -21978,7 +22173,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                                 (__pyx_v_tail[__pyx_v_thread_id]) = __pyx_v_node;
 
-                                                /* "pymochy.pyx":226
+                                                /* "pymochy.pyx":239
  *                                                 node.j = j
  *                                                 node.k = k
  *                                                 if head[thread_id] is NULL:             # <<<<<<<<<<<<<<
@@ -21988,7 +22183,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                                 goto __pyx_L38;
                                               }
 
-                                              /* "pymochy.pyx":230
+                                              /* "pymochy.pyx":243
  *                                                     tail[thread_id] = node
  *                                                 else:
  *                                                     node.index = head[thread_id].index + 1             # <<<<<<<<<<<<<<
@@ -22000,7 +22195,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
                                               }
                                               __pyx_L38:;
 
-                                              /* "pymochy.pyx":231
+                                              /* "pymochy.pyx":244
  *                                                 else:
  *                                                     node.index = head[thread_id].index + 1
  *                                                 node.next = head[thread_id]             # <<<<<<<<<<<<<<
@@ -22009,7 +22204,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                               __pyx_v_node->next = (__pyx_v_head[__pyx_v_thread_id]);
 
-                                              /* "pymochy.pyx":232
+                                              /* "pymochy.pyx":245
  *                                                     node.index = head[thread_id].index + 1
  *                                                 node.next = head[thread_id]
  *                                                 head[thread_id] = node             # <<<<<<<<<<<<<<
@@ -22018,7 +22213,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                               (__pyx_v_head[__pyx_v_thread_id]) = __pyx_v_node;
 
-                                              /* "pymochy.pyx":220
+                                              /* "pymochy.pyx":233
  *                                         if h < 1 or motif_index == h:
  *                                             random = <double>rand() / RAND_MAX
  *                                             if random < sample_probabilities[motif_index]:             # <<<<<<<<<<<<<<
@@ -22027,7 +22222,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                             }
 
-                                            /* "pymochy.pyx":218
+                                            /* "pymochy.pyx":231
  *                                         motif_id = get_motif_id(deg_i, deg_j, deg_k, c_ij, c_ik, c_jk, g_ijk)
  *                                         motif_index = id_to_index[motif_id] - 1
  *                                         if h < 1 or motif_index == h:             # <<<<<<<<<<<<<<
@@ -22036,48 +22231,48 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
                                           }
 
-                                          /* "pymochy.pyx":209
+                                          /* "pymochy.pyx":222
  *                                 if i < j or c_jk == 0:
- *                                     c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                     c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                     if c_ik > 0:             # <<<<<<<<<<<<<<
- *                                         deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
- *                                         deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+ *                                         deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+ *                                         deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  */
                                         }
 
-                                        /* "pymochy.pyx":207
+                                        /* "pymochy.pyx":220
  *                             if i != k:
- *                                 c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                 c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                 if i < j or c_jk == 0:             # <<<<<<<<<<<<<<
- *                                     c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                     c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                     if c_ik > 0:
  */
                                       }
 
-                                      /* "pymochy.pyx":205
+                                      /* "pymochy.pyx":218
  *                     if c_ij > 0:
  *                         for k in range(j + 1, self.num_edges):
  *                             if i != k:             # <<<<<<<<<<<<<<
- *                                 c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                 c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                 if i < j or c_jk == 0:
  */
                                     }
                                   }
 
-                                  /* "pymochy.pyx":203
+                                  /* "pymochy.pyx":216
  *                 if i != j:
- *                     c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                     c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                     if c_ij > 0:             # <<<<<<<<<<<<<<
  *                         for k in range(j + 1, self.num_edges):
  *                             if i != k:
  */
                                 }
 
-                                /* "pymochy.pyx":201
- *             deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+                                /* "pymochy.pyx":214
+ *             deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  *             for j in range(self.num_edges):
  *                 if i != j:             # <<<<<<<<<<<<<<
- *                     c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                     c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                     if c_ij > 0:
  */
                               }
@@ -22193,12 +22388,12 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
         #endif
       }
 
-      /* "pymochy.pyx":197
+      /* "pymochy.pyx":210
  *                     sample_probabilities[i] = p
  * 
  *         for i in prange(self.num_edges, nogil=True):             # <<<<<<<<<<<<<<
  *             thread_id = threadid()
- *             deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+ *             deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  */
       /*finally:*/ {
         /*normal exit:*/{
@@ -22219,7 +22414,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
       }
   }
 
-  /* "pymochy.pyx":234
+  /* "pymochy.pyx":247
  *                                                 head[thread_id] = node
  * 
  *         node = NULL             # <<<<<<<<<<<<<<
@@ -22228,7 +22423,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
   __pyx_v_node = NULL;
 
-  /* "pymochy.pyx":236
+  /* "pymochy.pyx":249
  *         node = NULL
  * 
  *         for i in range(num_threads - 1):             # <<<<<<<<<<<<<<
@@ -22240,7 +22435,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_23; __pyx_t_10+=1) {
     __pyx_v_i = __pyx_t_10;
 
-    /* "pymochy.pyx":237
+    /* "pymochy.pyx":250
  * 
  *         for i in range(num_threads - 1):
  *             if head[i] is NULL:             # <<<<<<<<<<<<<<
@@ -22250,7 +22445,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_11 = ((__pyx_v_head[__pyx_v_i]) == NULL);
     if (__pyx_t_11) {
 
-      /* "pymochy.pyx":238
+      /* "pymochy.pyx":251
  *         for i in range(num_threads - 1):
  *             if head[i] is NULL:
  *                 continue             # <<<<<<<<<<<<<<
@@ -22259,7 +22454,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
       goto __pyx_L41_continue;
 
-      /* "pymochy.pyx":237
+      /* "pymochy.pyx":250
  * 
  *         for i in range(num_threads - 1):
  *             if head[i] is NULL:             # <<<<<<<<<<<<<<
@@ -22268,7 +22463,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
     }
 
-    /* "pymochy.pyx":239
+    /* "pymochy.pyx":252
  *             if head[i] is NULL:
  *                 continue
  *             j = i + 1             # <<<<<<<<<<<<<<
@@ -22277,7 +22472,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
     __pyx_v_j = (__pyx_v_i + 1);
 
-    /* "pymochy.pyx":240
+    /* "pymochy.pyx":253
  *                 continue
  *             j = i + 1
  *             while tail[j] is NULL:             # <<<<<<<<<<<<<<
@@ -22288,7 +22483,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
       __pyx_t_11 = ((__pyx_v_tail[__pyx_v_j]) == NULL);
       if (!__pyx_t_11) break;
 
-      /* "pymochy.pyx":241
+      /* "pymochy.pyx":254
  *             j = i + 1
  *             while tail[j] is NULL:
  *                 if j == num_threads - 1:             # <<<<<<<<<<<<<<
@@ -22298,7 +22493,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
       __pyx_t_11 = (__pyx_v_j == (__pyx_v_num_threads - 1));
       if (__pyx_t_11) {
 
-        /* "pymochy.pyx":242
+        /* "pymochy.pyx":255
  *             while tail[j] is NULL:
  *                 if j == num_threads - 1:
  *                     break             # <<<<<<<<<<<<<<
@@ -22307,7 +22502,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
         goto __pyx_L45_break;
 
-        /* "pymochy.pyx":241
+        /* "pymochy.pyx":254
  *             j = i + 1
  *             while tail[j] is NULL:
  *                 if j == num_threads - 1:             # <<<<<<<<<<<<<<
@@ -22316,7 +22511,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
       }
 
-      /* "pymochy.pyx":243
+      /* "pymochy.pyx":256
  *                 if j == num_threads - 1:
  *                     break
  *                 j += 1             # <<<<<<<<<<<<<<
@@ -22327,7 +22522,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     }
     __pyx_L45_break:;
 
-    /* "pymochy.pyx":244
+    /* "pymochy.pyx":257
  *                     break
  *                 j += 1
  *             if tail[j] is NULL:             # <<<<<<<<<<<<<<
@@ -22337,7 +22532,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_11 = ((__pyx_v_tail[__pyx_v_j]) == NULL);
     if (__pyx_t_11) {
 
-      /* "pymochy.pyx":245
+      /* "pymochy.pyx":258
  *                 j += 1
  *             if tail[j] is NULL:
  *                 continue             # <<<<<<<<<<<<<<
@@ -22346,7 +22541,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
       goto __pyx_L41_continue;
 
-      /* "pymochy.pyx":244
+      /* "pymochy.pyx":257
  *                     break
  *                 j += 1
  *             if tail[j] is NULL:             # <<<<<<<<<<<<<<
@@ -22355,7 +22550,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
     }
 
-    /* "pymochy.pyx":246
+    /* "pymochy.pyx":259
  *             if tail[j] is NULL:
  *                 continue
  *             tail[j].next = head[i]             # <<<<<<<<<<<<<<
@@ -22364,7 +22559,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
     (__pyx_v_tail[__pyx_v_j])->next = (__pyx_v_head[__pyx_v_i]);
 
-    /* "pymochy.pyx":247
+    /* "pymochy.pyx":260
  *                 continue
  *             tail[j].next = head[i]
  *             head[j].index += head[i].index + 1             # <<<<<<<<<<<<<<
@@ -22374,7 +22569,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_9 = __pyx_v_j;
     (__pyx_v_head[__pyx_t_9])->index = ((__pyx_v_head[__pyx_t_9])->index + ((__pyx_v_head[__pyx_v_i])->index + 1));
 
-    /* "pymochy.pyx":248
+    /* "pymochy.pyx":261
  *             tail[j].next = head[i]
  *             head[j].index += head[i].index + 1
  *             node = head[j]             # <<<<<<<<<<<<<<
@@ -22385,7 +22580,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_L41_continue:;
   }
 
-  /* "pymochy.pyx":250
+  /* "pymochy.pyx":263
  *             node = head[j]
  * 
  *         if node is NULL:             # <<<<<<<<<<<<<<
@@ -22395,38 +22590,38 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
   __pyx_t_11 = (__pyx_v_node == NULL);
   if (__pyx_t_11) {
 
-    /* "pymochy.pyx":251
+    /* "pymochy.pyx":264
  * 
  *         if node is NULL:
  *             motifs = np.empty((0, 4), dtype=np.int32)             # <<<<<<<<<<<<<<
  *         else:
  *             motifs = np.empty((node.index + 1, 4), dtype=np.int32)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_int32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_int32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 251, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__12, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__12, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_24 = __Pyx_PyObject_to_MemoryviewSlice_dsds_int(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_24.memview)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_24 = __Pyx_PyObject_to_MemoryviewSlice_dsds_int(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_24.memview)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_motifs = __pyx_t_24;
     __pyx_t_24.memview = NULL;
     __pyx_t_24.data = NULL;
 
-    /* "pymochy.pyx":250
+    /* "pymochy.pyx":263
  *             node = head[j]
  * 
  *         if node is NULL:             # <<<<<<<<<<<<<<
@@ -22436,7 +22631,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     goto __pyx_L48;
   }
 
-  /* "pymochy.pyx":253
+  /* "pymochy.pyx":266
  *             motifs = np.empty((0, 4), dtype=np.int32)
  *         else:
  *             motifs = np.empty((node.index + 1, 4), dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -22444,41 +22639,41 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  *         while node is not NULL:
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_node->index + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_node->index + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_4);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4)) __PYX_ERR(0, 253, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error);
     __Pyx_INCREF(__pyx_int_4);
     __Pyx_GIVEREF(__pyx_int_4);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_int_4)) __PYX_ERR(0, 253, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_int_4)) __PYX_ERR(0, 266, __pyx_L1_error);
     __pyx_t_4 = 0;
-    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error);
     __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_int32); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_int32); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_24 = __Pyx_PyObject_to_MemoryviewSlice_dsds_int(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_24.memview)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_24 = __Pyx_PyObject_to_MemoryviewSlice_dsds_int(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_24.memview)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_motifs = __pyx_t_24;
     __pyx_t_24.memview = NULL;
@@ -22486,7 +22681,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
   }
   __pyx_L48:;
 
-  /* "pymochy.pyx":255
+  /* "pymochy.pyx":268
  *             motifs = np.empty((node.index + 1, 4), dtype=np.int32)
  * 
  *         while node is not NULL:             # <<<<<<<<<<<<<<
@@ -22497,7 +22692,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_11 = (__pyx_v_node != NULL);
     if (!__pyx_t_11) break;
 
-    /* "pymochy.pyx":256
+    /* "pymochy.pyx":269
  * 
  *         while node is not NULL:
  *             motifs[motifsloc][0] = node._id             # <<<<<<<<<<<<<<
@@ -22509,7 +22704,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_26 = 0;
     *((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motifs.data + __pyx_t_25 * __pyx_v_motifs.strides[0]) ) + __pyx_t_26 * __pyx_v_motifs.strides[1]) )) = __pyx_t_10;
 
-    /* "pymochy.pyx":257
+    /* "pymochy.pyx":270
  *         while node is not NULL:
  *             motifs[motifsloc][0] = node._id
  *             motifs[motifsloc][1] = node.i             # <<<<<<<<<<<<<<
@@ -22521,7 +22716,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_25 = 1;
     *((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motifs.data + __pyx_t_26 * __pyx_v_motifs.strides[0]) ) + __pyx_t_25 * __pyx_v_motifs.strides[1]) )) = __pyx_t_10;
 
-    /* "pymochy.pyx":258
+    /* "pymochy.pyx":271
  *             motifs[motifsloc][0] = node._id
  *             motifs[motifsloc][1] = node.i
  *             motifs[motifsloc][2] = node.j             # <<<<<<<<<<<<<<
@@ -22533,7 +22728,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_26 = 2;
     *((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motifs.data + __pyx_t_25 * __pyx_v_motifs.strides[0]) ) + __pyx_t_26 * __pyx_v_motifs.strides[1]) )) = __pyx_t_10;
 
-    /* "pymochy.pyx":259
+    /* "pymochy.pyx":272
  *             motifs[motifsloc][1] = node.i
  *             motifs[motifsloc][2] = node.j
  *             motifs[motifsloc][3] = node.k             # <<<<<<<<<<<<<<
@@ -22545,7 +22740,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_25 = 3;
     *((int *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motifs.data + __pyx_t_26 * __pyx_v_motifs.strides[0]) ) + __pyx_t_25 * __pyx_v_motifs.strides[1]) )) = __pyx_t_10;
 
-    /* "pymochy.pyx":260
+    /* "pymochy.pyx":273
  *             motifs[motifsloc][2] = node.j
  *             motifs[motifsloc][3] = node.k
  *             motifsloc += 1             # <<<<<<<<<<<<<<
@@ -22554,7 +22749,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
     __pyx_v_motifsloc = (__pyx_v_motifsloc + 1);
 
-    /* "pymochy.pyx":261
+    /* "pymochy.pyx":274
  *             motifs[motifsloc][3] = node.k
  *             motifsloc += 1
  *             temp_node = node             # <<<<<<<<<<<<<<
@@ -22563,7 +22758,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  */
     __pyx_v_temp_node = __pyx_v_node;
 
-    /* "pymochy.pyx":262
+    /* "pymochy.pyx":275
  *             motifsloc += 1
  *             temp_node = node
  *             node = node.next             # <<<<<<<<<<<<<<
@@ -22573,7 +22768,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_27 = __pyx_v_node->next;
     __pyx_v_node = __pyx_t_27;
 
-    /* "pymochy.pyx":263
+    /* "pymochy.pyx":276
  *             temp_node = node
  *             node = node.next
  *             free(temp_node)             # <<<<<<<<<<<<<<
@@ -22583,7 +22778,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     free(__pyx_v_temp_node);
   }
 
-  /* "pymochy.pyx":265
+  /* "pymochy.pyx":278
  *             free(temp_node)
  * 
  *         return np.array(motifs)             # <<<<<<<<<<<<<<
@@ -22591,12 +22786,12 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
  *     @boundscheck(False)
  */
   __Pyx_XDECREF((PyObject *)__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_motifs, 2, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_motifs, 2, (PyObject *(*)(char *)) __pyx_memview_get_int, (int (*)(char *, PyObject *)) __pyx_memview_set_int, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = NULL;
   __pyx_t_10 = 0;
@@ -22617,16 +22812,16 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_sample(struct __pyx_obj_7pymochy_M
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_10, 1+__pyx_t_10);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 265, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 278, __pyx_L1_error)
   __pyx_r = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pymochy.pyx":153
+  /* "pymochy.pyx":166
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int32_t, ndim=2] sample(self, int h = -1, int limit = -1):             # <<<<<<<<<<<<<<
@@ -22707,19 +22902,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_h);
           if (value) { values[0] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  1:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_limit);
           if (value) { values[1] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "sample") < 0)) __PYX_ERR(0, 153, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "sample") < 0)) __PYX_ERR(0, 166, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -22732,19 +22927,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
     }
     if (values[0]) {
-      __pyx_v_h = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_h == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+      __pyx_v_h = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_h == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L3_error)
     } else {
       __pyx_v_h = ((int)-1);
     }
     if (values[1]) {
-      __pyx_v_limit = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_limit == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+      __pyx_v_limit = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_limit == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L3_error)
     } else {
       __pyx_v_limit = ((int)-1);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sample", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 153, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sample", 0, 0, 2, __pyx_nargs); __PYX_ERR(0, 166, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -22784,7 +22979,7 @@ static PyObject *__pyx_pf_7pymochy_5Mochy_2sample(struct __pyx_obj_7pymochy_Moch
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.h = __pyx_v_h;
   __pyx_t_2.limit = __pyx_v_limit;
-  __pyx_t_1 = ((PyObject *)__pyx_vtabptr_7pymochy_Mochy->sample(__pyx_v_self, 1, &__pyx_t_2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_vtabptr_7pymochy_Mochy->sample(__pyx_v_self, 1, &__pyx_t_2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -22801,7 +22996,7 @@ static PyObject *__pyx_pf_7pymochy_5Mochy_2sample(struct __pyx_obj_7pymochy_Moch
   return __pyx_r;
 }
 
-/* "pymochy.pyx":271
+/* "pymochy.pyx":284
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int64_t, ndim=1] count(self):             # <<<<<<<<<<<<<<
@@ -22866,7 +23061,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!__Pyx_IsSameCFunction(__pyx_t_1, (void*) __pyx_pw_7pymochy_5Mochy_5count)) {
         __Pyx_XDECREF((PyObject *)__pyx_r);
@@ -22889,11 +23084,11 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
           PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
           __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 0+__pyx_t_5);
           __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         }
-        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 271, __pyx_L1_error)
+        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 284, __pyx_L1_error)
         __pyx_r = ((PyArrayObject *)__pyx_t_2);
         __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -22912,12 +23107,12 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
     #endif
   }
 
-  /* "pymochy.pyx":280
+  /* "pymochy.pyx":293
  *             long* local_motif_counts
  *             int[128] id_to_index
  *         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]             # <<<<<<<<<<<<<<
  *         if self.counted == 0:
- *             self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
+ *             for i in prange(self.num_edges, nogil=True):
  */
   __pyx_t_6[0] = 0;
   __pyx_t_6[1] = 0;
@@ -23049,57 +23244,23 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
   __pyx_t_6[127] = 20;
   if (unlikely((0x80) != (128))) {
     PyErr_Format(PyExc_ValueError, "Assignment to slice of wrong length, expected %" CYTHON_FORMAT_SSIZE_T "d, got %" CYTHON_FORMAT_SSIZE_T "d", (Py_ssize_t)(128), (Py_ssize_t)(0x80));
-    __PYX_ERR(0, 280, __pyx_L1_error)
+    __PYX_ERR(0, 293, __pyx_L1_error)
   }
   memcpy(&(__pyx_v_id_to_index[0]), __pyx_t_6, sizeof(__pyx_v_id_to_index[0]) * (128));
 
-  /* "pymochy.pyx":281
+  /* "pymochy.pyx":294
  *             int[128] id_to_index
  *         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]
  *         if self.counted == 0:             # <<<<<<<<<<<<<<
- *             self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
  *             for i in prange(self.num_edges, nogil=True):
+ *                 local_motif_counts = <long*> malloc(30 * sizeof(long))
  */
   __pyx_t_7 = (__pyx_v_self->counted == 0);
   if (__pyx_t_7) {
 
-    /* "pymochy.pyx":282
+    /* "pymochy.pyx":295
  *         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]
  *         if self.counted == 0:
- *             self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)             # <<<<<<<<<<<<<<
- *             for i in prange(self.num_edges, nogil=True):
- *                 local_motif_counts = <long*> malloc(30 * sizeof(long))
- */
-    if (unlikely(!__pyx_v_self->incidence_matrix.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 282, __pyx_L1_error)}
-    __pyx_t_1 = __pyx_memoryview_fromslice(__pyx_v_self->incidence_matrix, 2, (PyObject *(*)(char *)) __pyx_memview_get_short, (int (*)(char *, PyObject *)) __pyx_memview_set_short, 0);; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->num_edges); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->optimized); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 282, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 282, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_1);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error);
-    __Pyx_GIVEREF(__pyx_t_2);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error);
-    __Pyx_GIVEREF(__pyx_t_3);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3)) __PYX_ERR(0, 282, __pyx_L1_error);
-    __pyx_t_1 = 0;
-    __pyx_t_2 = 0;
-    __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7pymochy_CommonNeighbors), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 282, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GIVEREF(__pyx_t_3);
-    __Pyx_GOTREF((PyObject *)__pyx_v_self->common_neighbors);
-    __Pyx_DECREF((PyObject *)__pyx_v_self->common_neighbors);
-    __pyx_v_self->common_neighbors = ((struct __pyx_obj_7pymochy_CommonNeighbors *)__pyx_t_3);
-    __pyx_t_3 = 0;
-
-    /* "pymochy.pyx":283
- *         if self.counted == 0:
- *             self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
  *             for i in prange(self.num_edges, nogil=True):             # <<<<<<<<<<<<<<
  *                 local_motif_counts = <long*> malloc(30 * sizeof(long))
  *                 for j in range(30):
@@ -23173,8 +23334,8 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
                               __pyx_v_motif_id = ((int)0xbad0bad0);
                               __pyx_v_motif_index = ((int)0xbad0bad0);
 
-                              /* "pymochy.pyx":284
- *             self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
+                              /* "pymochy.pyx":296
+ *         if self.counted == 0:
  *             for i in prange(self.num_edges, nogil=True):
  *                 local_motif_counts = <long*> malloc(30 * sizeof(long))             # <<<<<<<<<<<<<<
  *                 for j in range(30):
@@ -23182,69 +23343,69 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
  */
                               __pyx_v_local_motif_counts = ((long *)malloc((30 * (sizeof(long)))));
 
-                              /* "pymochy.pyx":285
+                              /* "pymochy.pyx":297
  *             for i in prange(self.num_edges, nogil=True):
  *                 local_motif_counts = <long*> malloc(30 * sizeof(long))
  *                 for j in range(30):             # <<<<<<<<<<<<<<
  *                     local_motif_counts[j] = 0
- *                 deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+ *                 deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  */
                               for (__pyx_t_10 = 0; __pyx_t_10 < 30; __pyx_t_10+=1) {
                                 __pyx_v_j = __pyx_t_10;
 
-                                /* "pymochy.pyx":286
+                                /* "pymochy.pyx":298
  *                 local_motif_counts = <long*> malloc(30 * sizeof(long))
  *                 for j in range(30):
  *                     local_motif_counts[j] = 0             # <<<<<<<<<<<<<<
- *                 deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+ *                 deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  *                 for j in range(self.num_edges):
  */
                                 (__pyx_v_local_motif_counts[__pyx_v_j]) = 0;
                               }
 
-                              /* "pymochy.pyx":287
+                              /* "pymochy.pyx":299
  *                 for j in range(30):
  *                     local_motif_counts[j] = 0
- *                 deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)             # <<<<<<<<<<<<<<
+ *                 deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)             # <<<<<<<<<<<<<<
  *                 for j in range(self.num_edges):
  *                     if i != j:
  */
-                              __pyx_v_deg_i = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_i);
+                              __pyx_v_deg_i = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_i);
 
-                              /* "pymochy.pyx":288
+                              /* "pymochy.pyx":300
  *                     local_motif_counts[j] = 0
- *                 deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+ *                 deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  *                 for j in range(self.num_edges):             # <<<<<<<<<<<<<<
  *                     if i != j:
- *                         c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                         c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  */
                               __pyx_t_10 = __pyx_v_self->num_edges;
                               __pyx_t_11 = __pyx_t_10;
                               for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
                                 __pyx_v_j = __pyx_t_12;
 
-                                /* "pymochy.pyx":289
- *                 deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+                                /* "pymochy.pyx":301
+ *                 deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  *                 for j in range(self.num_edges):
  *                     if i != j:             # <<<<<<<<<<<<<<
- *                         c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                         c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                         if c_ij > 0:
  */
                                 __pyx_t_7 = (__pyx_v_i != __pyx_v_j);
                                 if (__pyx_t_7) {
 
-                                  /* "pymochy.pyx":290
+                                  /* "pymochy.pyx":302
  *                 for j in range(self.num_edges):
  *                     if i != j:
- *                         c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)             # <<<<<<<<<<<<<<
+ *                         c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)             # <<<<<<<<<<<<<<
  *                         if c_ij > 0:
  *                             for k in range(j + 1, self.num_edges):
  */
-                                  __pyx_v_c_ij = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_j);
+                                  __pyx_v_c_ij = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_j);
 
-                                  /* "pymochy.pyx":291
+                                  /* "pymochy.pyx":303
  *                     if i != j:
- *                         c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                         c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                         if c_ij > 0:             # <<<<<<<<<<<<<<
  *                             for k in range(j + 1, self.num_edges):
  *                                 if i != k:
@@ -23252,42 +23413,42 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
                                   __pyx_t_7 = (__pyx_v_c_ij > 0);
                                   if (__pyx_t_7) {
 
-                                    /* "pymochy.pyx":292
- *                         c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+                                    /* "pymochy.pyx":304
+ *                         c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                         if c_ij > 0:
  *                             for k in range(j + 1, self.num_edges):             # <<<<<<<<<<<<<<
  *                                 if i != k:
- *                                     c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                     c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  */
                                     __pyx_t_13 = __pyx_v_self->num_edges;
                                     __pyx_t_14 = __pyx_t_13;
                                     for (__pyx_t_15 = (__pyx_v_j + 1); __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
                                       __pyx_v_k = __pyx_t_15;
 
-                                      /* "pymochy.pyx":293
+                                      /* "pymochy.pyx":305
  *                         if c_ij > 0:
  *                             for k in range(j + 1, self.num_edges):
  *                                 if i != k:             # <<<<<<<<<<<<<<
- *                                     c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                     c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                     if i < j or c_jk == 0:
  */
                                       __pyx_t_7 = (__pyx_v_i != __pyx_v_k);
                                       if (__pyx_t_7) {
 
-                                        /* "pymochy.pyx":294
+                                        /* "pymochy.pyx":306
  *                             for k in range(j + 1, self.num_edges):
  *                                 if i != k:
- *                                     c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)             # <<<<<<<<<<<<<<
+ *                                     c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)             # <<<<<<<<<<<<<<
  *                                     if i < j or c_jk == 0:
- *                                         c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                         c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  */
-                                        __pyx_v_c_jk = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_j, __pyx_v_k);
+                                        __pyx_v_c_jk = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_j, __pyx_v_k);
 
-                                        /* "pymochy.pyx":295
+                                        /* "pymochy.pyx":307
  *                                 if i != k:
- *                                     c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                     c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                     if i < j or c_jk == 0:             # <<<<<<<<<<<<<<
- *                                         c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                         c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                         if c_ik > 0:
  */
                                         __pyx_t_16 = (__pyx_v_i < __pyx_v_j);
@@ -23301,54 +23462,54 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
                                         __pyx_L21_bool_binop_done:;
                                         if (__pyx_t_7) {
 
-                                          /* "pymochy.pyx":296
- *                                     c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+                                          /* "pymochy.pyx":308
+ *                                     c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                     if i < j or c_jk == 0:
- *                                         c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)             # <<<<<<<<<<<<<<
+ *                                         c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)             # <<<<<<<<<<<<<<
  *                                         if c_ik > 0:
- *                                             deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
+ *                                             deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
  */
-                                          __pyx_v_c_ik = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_k);
+                                          __pyx_v_c_ik = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_i, __pyx_v_k);
 
-                                          /* "pymochy.pyx":297
+                                          /* "pymochy.pyx":309
  *                                     if i < j or c_jk == 0:
- *                                         c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                         c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                         if c_ik > 0:             # <<<<<<<<<<<<<<
- *                                             deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
- *                                             deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+ *                                             deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+ *                                             deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  */
                                           __pyx_t_7 = (__pyx_v_c_ik > 0);
                                           if (__pyx_t_7) {
 
-                                            /* "pymochy.pyx":298
- *                                         c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+                                            /* "pymochy.pyx":310
+ *                                         c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                         if c_ik > 0:
- *                                             deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)             # <<<<<<<<<<<<<<
- *                                             deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+ *                                             deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)             # <<<<<<<<<<<<<<
+ *                                             deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  *                                             g_ijk = 0
  */
-                                            __pyx_v_deg_j = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_j, __pyx_v_j);
+                                            __pyx_v_deg_j = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_j, __pyx_v_j);
 
-                                            /* "pymochy.pyx":299
+                                            /* "pymochy.pyx":311
  *                                         if c_ik > 0:
- *                                             deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
- *                                             deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)             # <<<<<<<<<<<<<<
+ *                                             deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+ *                                             deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)             # <<<<<<<<<<<<<<
  *                                             g_ijk = 0
  *                                             for e in range(self.num_nodes):
  */
-                                            __pyx_v_deg_k = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors->common_neighbors, __pyx_v_self->num_edges, __pyx_v_k, __pyx_v_k);
+                                            __pyx_v_deg_k = __pyx_f_7pymochy_get_common_neighbor(__pyx_v_self->common_neighbors, __pyx_v_self->num_edges, __pyx_v_k, __pyx_v_k);
 
-                                            /* "pymochy.pyx":300
- *                                             deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
- *                                             deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+                                            /* "pymochy.pyx":312
+ *                                             deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+ *                                             deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  *                                             g_ijk = 0             # <<<<<<<<<<<<<<
  *                                             for e in range(self.num_nodes):
  *                                                 if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
  */
                                             __pyx_v_g_ijk = 0;
 
-                                            /* "pymochy.pyx":301
- *                                             deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+                                            /* "pymochy.pyx":313
+ *                                             deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  *                                             g_ijk = 0
  *                                             for e in range(self.num_nodes):             # <<<<<<<<<<<<<<
  *                                                 if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
@@ -23359,7 +23520,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
                                             for (__pyx_t_19 = 0; __pyx_t_19 < __pyx_t_18; __pyx_t_19+=1) {
                                               __pyx_v_e = __pyx_t_19;
 
-                                              /* "pymochy.pyx":302
+                                              /* "pymochy.pyx":314
  *                                             g_ijk = 0
  *                                             for e in range(self.num_nodes):
  *                                                 if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:             # <<<<<<<<<<<<<<
@@ -23383,7 +23544,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
                                               __pyx_L27_bool_binop_done:;
                                               if (__pyx_t_7) {
 
-                                                /* "pymochy.pyx":303
+                                                /* "pymochy.pyx":315
  *                                             for e in range(self.num_nodes):
  *                                                 if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
  *                                                     g_ijk = g_ijk + 1             # <<<<<<<<<<<<<<
@@ -23392,7 +23553,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
  */
                                                 __pyx_v_g_ijk = (__pyx_v_g_ijk + 1);
 
-                                                /* "pymochy.pyx":302
+                                                /* "pymochy.pyx":314
  *                                             g_ijk = 0
  *                                             for e in range(self.num_nodes):
  *                                                 if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:             # <<<<<<<<<<<<<<
@@ -23402,17 +23563,17 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
                                               }
                                             }
 
-                                            /* "pymochy.pyx":304
+                                            /* "pymochy.pyx":316
  *                                                 if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
  *                                                     g_ijk = g_ijk + 1
  *                                             motif_id = get_motif_id(deg_i, deg_j, deg_k, c_ij, c_ik, c_jk, g_ijk)             # <<<<<<<<<<<<<<
  *                                             motif_index = id_to_index[motif_id] - 1
  *                                             local_motif_counts[motif_index] = local_motif_counts[motif_index] + 1
  */
-                                            __pyx_t_17 = __pyx_f_7pymochy_get_motif_id(__pyx_v_deg_i, __pyx_v_deg_j, __pyx_v_deg_k, __pyx_v_c_ij, __pyx_v_c_ik, __pyx_v_c_jk, __pyx_v_g_ijk); if (unlikely(__pyx_t_17 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 304, __pyx_L9_error)
+                                            __pyx_t_17 = __pyx_f_7pymochy_get_motif_id(__pyx_v_deg_i, __pyx_v_deg_j, __pyx_v_deg_k, __pyx_v_c_ij, __pyx_v_c_ik, __pyx_v_c_jk, __pyx_v_g_ijk); if (unlikely(__pyx_t_17 == ((int)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 316, __pyx_L9_error)
                                             __pyx_v_motif_id = __pyx_t_17;
 
-                                            /* "pymochy.pyx":305
+                                            /* "pymochy.pyx":317
  *                                                     g_ijk = g_ijk + 1
  *                                             motif_id = get_motif_id(deg_i, deg_j, deg_k, c_ij, c_ik, c_jk, g_ijk)
  *                                             motif_index = id_to_index[motif_id] - 1             # <<<<<<<<<<<<<<
@@ -23421,7 +23582,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
  */
                                             __pyx_v_motif_index = ((__pyx_v_id_to_index[__pyx_v_motif_id]) - 1);
 
-                                            /* "pymochy.pyx":306
+                                            /* "pymochy.pyx":318
  *                                             motif_id = get_motif_id(deg_i, deg_j, deg_k, c_ij, c_ik, c_jk, g_ijk)
  *                                             motif_index = id_to_index[motif_id] - 1
  *                                             local_motif_counts[motif_index] = local_motif_counts[motif_index] + 1             # <<<<<<<<<<<<<<
@@ -23430,54 +23591,54 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
  */
                                             (__pyx_v_local_motif_counts[__pyx_v_motif_index]) = ((__pyx_v_local_motif_counts[__pyx_v_motif_index]) + 1);
 
-                                            /* "pymochy.pyx":297
+                                            /* "pymochy.pyx":309
  *                                     if i < j or c_jk == 0:
- *                                         c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                         c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                         if c_ik > 0:             # <<<<<<<<<<<<<<
- *                                             deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
- *                                             deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+ *                                             deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+ *                                             deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
  */
                                           }
 
-                                          /* "pymochy.pyx":295
+                                          /* "pymochy.pyx":307
  *                                 if i != k:
- *                                     c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                     c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                     if i < j or c_jk == 0:             # <<<<<<<<<<<<<<
- *                                         c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+ *                                         c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
  *                                         if c_ik > 0:
  */
                                         }
 
-                                        /* "pymochy.pyx":293
+                                        /* "pymochy.pyx":305
  *                         if c_ij > 0:
  *                             for k in range(j + 1, self.num_edges):
  *                                 if i != k:             # <<<<<<<<<<<<<<
- *                                     c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+ *                                     c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
  *                                     if i < j or c_jk == 0:
  */
                                       }
                                     }
 
-                                    /* "pymochy.pyx":291
+                                    /* "pymochy.pyx":303
  *                     if i != j:
- *                         c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                         c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                         if c_ij > 0:             # <<<<<<<<<<<<<<
  *                             for k in range(j + 1, self.num_edges):
  *                                 if i != k:
  */
                                   }
 
-                                  /* "pymochy.pyx":289
- *                 deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+                                  /* "pymochy.pyx":301
+ *                 deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
  *                 for j in range(self.num_edges):
  *                     if i != j:             # <<<<<<<<<<<<<<
- *                         c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+ *                         c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
  *                         if c_ij > 0:
  */
                                 }
                               }
 
-                              /* "pymochy.pyx":307
+                              /* "pymochy.pyx":319
  *                                             motif_index = id_to_index[motif_id] - 1
  *                                             local_motif_counts[motif_index] = local_motif_counts[motif_index] + 1
  *                 for i in range(30):             # <<<<<<<<<<<<<<
@@ -23487,7 +23648,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
                               for (__pyx_t_10 = 0; __pyx_t_10 < 30; __pyx_t_10+=1) {
                                 __pyx_v_i = __pyx_t_10;
 
-                                /* "pymochy.pyx":308
+                                /* "pymochy.pyx":320
  *                                             local_motif_counts[motif_index] = local_motif_counts[motif_index] + 1
  *                 for i in range(30):
  *                     self.motif_counts[i] += local_motif_counts[i]             # <<<<<<<<<<<<<<
@@ -23498,7 +23659,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
                                 (__pyx_v_self->motif_counts[__pyx_t_11]) = ((__pyx_v_self->motif_counts[__pyx_t_11]) + (__pyx_v_local_motif_counts[__pyx_v_i]));
                               }
 
-                              /* "pymochy.pyx":309
+                              /* "pymochy.pyx":321
  *                 for i in range(30):
  *                     self.motif_counts[i] += local_motif_counts[i]
  *                 free(local_motif_counts)             # <<<<<<<<<<<<<<
@@ -23613,9 +23774,9 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
           #endif
         }
 
-        /* "pymochy.pyx":283
+        /* "pymochy.pyx":295
+ *         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]
  *         if self.counted == 0:
- *             self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
  *             for i in prange(self.num_edges, nogil=True):             # <<<<<<<<<<<<<<
  *                 local_motif_counts = <long*> malloc(30 * sizeof(long))
  *                 for j in range(30):
@@ -23639,7 +23800,7 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
         }
     }
 
-    /* "pymochy.pyx":310
+    /* "pymochy.pyx":322
  *                     self.motif_counts[i] += local_motif_counts[i]
  *                 free(local_motif_counts)
  *             self.counted = 1             # <<<<<<<<<<<<<<
@@ -23647,57 +23808,57 @@ static PyArrayObject *__pyx_f_7pymochy_5Mochy_count(struct __pyx_obj_7pymochy_Mo
  */
     __pyx_v_self->counted = 1;
 
-    /* "pymochy.pyx":281
+    /* "pymochy.pyx":294
  *             int[128] id_to_index
  *         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]
  *         if self.counted == 0:             # <<<<<<<<<<<<<<
- *             self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
  *             for i in prange(self.num_edges, nogil=True):
+ *                 local_motif_counts = <long*> malloc(30 * sizeof(long))
  */
   }
 
-  /* "pymochy.pyx":311
+  /* "pymochy.pyx":323
  *                 free(local_motif_counts)
  *             self.counted = 1
  *         return np.array(self.motif_counts)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF((PyObject *)__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 311, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_carray_to_py_long(__pyx_v_self->motif_counts, 30); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 311, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = NULL;
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 323, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_carray_to_py_long(__pyx_v_self->motif_counts, 30); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = NULL;
   __pyx_t_9 = 0;
   #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_1)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_1);
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_4)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_4);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
       __pyx_t_9 = 1;
     }
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_t_4};
-    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_9, 1+__pyx_t_9);
-    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 311, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_2};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_9, 1+__pyx_t_9);
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 323, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 311, __pyx_L1_error)
-  __pyx_r = ((PyArrayObject *)__pyx_t_3);
-  __pyx_t_3 = 0;
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 323, __pyx_L1_error)
+  __pyx_r = ((PyArrayObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymochy.pyx":271
+  /* "pymochy.pyx":284
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int64_t, ndim=1] count(self):             # <<<<<<<<<<<<<<
@@ -23769,7 +23930,7 @@ static PyObject *__pyx_pf_7pymochy_5Mochy_4count(struct __pyx_obj_7pymochy_Mochy
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("count", 1);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_7pymochy_5Mochy_count(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_7pymochy_5Mochy_count(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -25434,7 +25595,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 76, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin___import__ = __Pyx_GetBuiltinName(__pyx_n_s_import); if (!__pyx_builtin___import__) __PYX_ERR(1, 100, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 141, __pyx_L1_error)
@@ -25491,7 +25652,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":984
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":984
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
@@ -25502,7 +25663,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* ".conda/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":990
+  /* "../../../usr/local/lib/python3.10/dist-packages/numpy/__init__.cython-30.pxd":990
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -25513,17 +25674,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "pymochy.pyx":251
+  /* "pymochy.pyx":264
  * 
  *         if node is NULL:
  *             motifs = np.empty((0, 4), dtype=np.int32)             # <<<<<<<<<<<<<<
  *         else:
  *             motifs = np.empty((node.index + 1, 4), dtype=np.int32)
  */
-  __pyx_tuple__11 = PyTuple_Pack(2, __pyx_int_0, __pyx_int_4); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(2, __pyx_int_0, __pyx_int_4); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_tuple__11); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_tuple__11); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
@@ -25643,29 +25804,29 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__26);
   __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(1, 3, __pyx_L1_error)
 
-  /* "pymochy.pyx":153
+  /* "pymochy.pyx":166
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int32_t, ndim=2] sample(self, int h = -1, int limit = -1):             # <<<<<<<<<<<<<<
  *         cdef:
  *             int i, j, k
  */
-  __pyx_tuple__28 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_h, __pyx_n_s_limit); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_tuple__28 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_h, __pyx_n_s_limit); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__28);
   __Pyx_GIVEREF(__pyx_tuple__28);
-  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_motif___pymochy_pyx, __pyx_n_s_sample, 153, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 153, __pyx_L1_error)
-  __pyx_tuple__30 = PyTuple_Pack(2, __pyx_int_neg_1, __pyx_int_neg_1); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_motif___pymochy_pyx, __pyx_n_s_sample, 166, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_tuple__30 = PyTuple_Pack(2, __pyx_int_neg_1, __pyx_int_neg_1); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__30);
   __Pyx_GIVEREF(__pyx_tuple__30);
 
-  /* "pymochy.pyx":271
+  /* "pymochy.pyx":284
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int64_t, ndim=1] count(self):             # <<<<<<<<<<<<<<
  *         cdef:
  *             int i, j, k
  */
-  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_motif___pymochy_pyx, __pyx_n_s_count, 271, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_motif___pymochy_pyx, __pyx_n_s_count, 284, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 284, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -25786,15 +25947,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_7pymochy_CommonNeighbors.get = (long (*)(struct __pyx_obj_7pymochy_CommonNeighbors *, int, int))__pyx_f_7pymochy_15CommonNeighbors_get;
   __pyx_vtable_7pymochy_CommonNeighbors.common_neighbors_matrix = (long *(*)(__Pyx_memviewslice))__pyx_f_7pymochy_15CommonNeighbors_common_neighbors_matrix;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_7pymochy_CommonNeighbors = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_7pymochy_CommonNeighbors_spec, NULL); if (unlikely(!__pyx_ptype_7pymochy_CommonNeighbors)) __PYX_ERR(0, 55, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_7pymochy_CommonNeighbors_spec, __pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_ptype_7pymochy_CommonNeighbors = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_7pymochy_CommonNeighbors_spec, NULL); if (unlikely(!__pyx_ptype_7pymochy_CommonNeighbors)) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_7pymochy_CommonNeighbors_spec, __pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   #else
   __pyx_ptype_7pymochy_CommonNeighbors = &__pyx_type_7pymochy_CommonNeighbors;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_7pymochy_CommonNeighbors->tp_print = 0;
@@ -25804,27 +25965,27 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_ptype_7pymochy_CommonNeighbors->tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_7pymochy_CommonNeighbors, __pyx_vtabptr_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_7pymochy_CommonNeighbors, __pyx_vtabptr_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_CommonNeighbors, (PyObject *) __pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_CommonNeighbors, (PyObject *) __pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_7pymochy_CommonNeighbors) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   #endif
   __pyx_vtabptr_7pymochy_Mochy = &__pyx_vtable_7pymochy_Mochy;
   __pyx_vtable_7pymochy_Mochy.sample = (PyArrayObject *(*)(struct __pyx_obj_7pymochy_Mochy *, int __pyx_skip_dispatch, struct __pyx_opt_args_7pymochy_5Mochy_sample *__pyx_optional_args))__pyx_f_7pymochy_5Mochy_sample;
   __pyx_vtable_7pymochy_Mochy.count = (PyArrayObject *(*)(struct __pyx_obj_7pymochy_Mochy *, int __pyx_skip_dispatch))__pyx_f_7pymochy_5Mochy_count;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_7pymochy_Mochy = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_7pymochy_Mochy_spec, NULL); if (unlikely(!__pyx_ptype_7pymochy_Mochy)) __PYX_ERR(0, 120, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_7pymochy_Mochy_spec, __pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_ptype_7pymochy_Mochy = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_7pymochy_Mochy_spec, NULL); if (unlikely(!__pyx_ptype_7pymochy_Mochy)) __PYX_ERR(0, 133, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_7pymochy_Mochy_spec, __pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
   #else
   __pyx_ptype_7pymochy_Mochy = &__pyx_type_7pymochy_Mochy;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_7pymochy_Mochy->tp_print = 0;
@@ -25834,13 +25995,13 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_ptype_7pymochy_Mochy->tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_7pymochy_Mochy, __pyx_vtabptr_7pymochy_Mochy) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_7pymochy_Mochy, __pyx_vtabptr_7pymochy_Mochy) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Mochy, (PyObject *) __pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Mochy, (PyObject *) __pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_7pymochy_Mochy) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
   #endif
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
@@ -26882,30 +27043,30 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "pymochy.pyx":153
+  /* "pymochy.pyx":166
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int32_t, ndim=2] sample(self, int h = -1, int limit = -1):             # <<<<<<<<<<<<<<
  *         cdef:
  *             int i, j, k
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7pymochy_5Mochy_3sample, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Mochy_sample, NULL, __pyx_n_s_pymochy, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7pymochy_5Mochy_3sample, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Mochy_sample, NULL, __pyx_n_s_pymochy, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__30);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7pymochy_Mochy, __pyx_n_s_sample, __pyx_t_7) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7pymochy_Mochy, __pyx_n_s_sample, __pyx_t_7) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_7pymochy_Mochy);
 
-  /* "pymochy.pyx":271
+  /* "pymochy.pyx":284
  *     @cdivision(True)
  *     @nonecheck(False)
  *     cpdef cnp.ndarray[cnp.int64_t, ndim=1] count(self):             # <<<<<<<<<<<<<<
  *         cdef:
  *             int i, j, k
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7pymochy_5Mochy_5count, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Mochy_count, NULL, __pyx_n_s_pymochy, __pyx_d, ((PyObject *)__pyx_codeobj__31)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7pymochy_5Mochy_5count, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Mochy_count, NULL, __pyx_n_s_pymochy, __pyx_d, ((PyObject *)__pyx_codeobj__31)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7pymochy_Mochy, __pyx_n_s_count, __pyx_t_7) < 0) __PYX_ERR(0, 271, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_7pymochy_Mochy, __pyx_n_s_count, __pyx_t_7) < 0) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_7pymochy_Mochy);
 
@@ -32548,6 +32709,18 @@ __pyx_fail:
         return (target_type) value;\
     }
 
+/* MemviewDtypeToObject */
+  static CYTHON_INLINE PyObject *__pyx_memview_get_short(const char *itemp) {
+    return (PyObject *) __Pyx_PyInt_From_short(*(short *) itemp);
+}
+static CYTHON_INLINE int __pyx_memview_set_short(const char *itemp, PyObject *obj) {
+    short value = __Pyx_PyInt_As_short(obj);
+    if (unlikely((value == (short)-1) && PyErr_Occurred()))
+        return 0;
+    *(short *) itemp = value;
+    return 1;
+}
+
 /* ObjectToMemviewSlice */
   static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dsds_int(PyObject *obj, int writable_flag) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -32580,18 +32753,6 @@ static CYTHON_INLINE int __pyx_memview_set_int(const char *itemp, PyObject *obj)
     if (unlikely((value == (int)-1) && PyErr_Occurred()))
         return 0;
     *(int *) itemp = value;
-    return 1;
-}
-
-/* MemviewDtypeToObject */
-  static CYTHON_INLINE PyObject *__pyx_memview_get_short(const char *itemp) {
-    return (PyObject *) __Pyx_PyInt_From_short(*(short *) itemp);
-}
-static CYTHON_INLINE int __pyx_memview_set_short(const char *itemp, PyObject *obj) {
-    short value = __Pyx_PyInt_As_short(obj);
-    if (unlikely((value == (short)-1) && PyErr_Occurred()))
-        return 0;
-    *(short *) itemp = value;
     return 1;
 }
 
@@ -33443,70 +33604,6 @@ raise_neg_overflow:
 }
 
 /* CIntToPy */
-  static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const long neg_one = (long) -1, const_zero = (long) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(long) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(long) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-#endif
-        }
-    } else {
-        if (sizeof(long) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-#endif
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-#if !CYTHON_COMPILING_IN_LIMITED_API && PY_VERSION_HEX < 0x030d0000
-        return _PyLong_FromByteArray(bytes, sizeof(long),
-                                     little, !is_unsigned);
-#else
-        PyObject *from_bytes, *result = NULL;
-        PyObject *py_bytes = NULL, *arg_tuple = NULL, *kwds = NULL, *order_str = NULL;
-        from_bytes = PyObject_GetAttrString((PyObject*)&PyLong_Type, "from_bytes");
-        if (!from_bytes) return NULL;
-        py_bytes = PyBytes_FromStringAndSize((char*)bytes, sizeof(long));
-        if (!py_bytes) goto limited_bad;
-        order_str = PyUnicode_FromString(little ? "little" : "big");
-        if (!order_str) goto limited_bad;
-        arg_tuple = PyTuple_Pack(2, py_bytes, order_str);
-        if (!arg_tuple) goto limited_bad;
-        if (!is_unsigned) {
-            kwds = PyDict_New();
-            if (!kwds) goto limited_bad;
-            if (PyDict_SetItemString(kwds, "signed", __Pyx_NewRef(Py_True))) goto limited_bad;
-        }
-        result = PyObject_Call(from_bytes, arg_tuple, kwds);
-        limited_bad:
-        Py_XDECREF(kwds);
-        Py_XDECREF(arg_tuple);
-        Py_XDECREF(order_str);
-        Py_XDECREF(py_bytes);
-        Py_XDECREF(from_bytes);
-        return result;
-#endif
-    }
-}
-
-/* CIntToPy */
   static CYTHON_INLINE PyObject* __Pyx_PyInt_From_short(short value) {
 #ifdef __Pyx_HAS_GCC_DIAGNOSTIC
 #pragma GCC diagnostic push
@@ -33841,6 +33938,70 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to short");
     return (short) -1;
+}
+
+/* CIntToPy */
+  static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+    const long neg_one = (long) -1, const_zero = (long) 0;
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic pop
+#endif
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(long) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(long) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(long) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+#if !CYTHON_COMPILING_IN_LIMITED_API && PY_VERSION_HEX < 0x030d0000
+        return _PyLong_FromByteArray(bytes, sizeof(long),
+                                     little, !is_unsigned);
+#else
+        PyObject *from_bytes, *result = NULL;
+        PyObject *py_bytes = NULL, *arg_tuple = NULL, *kwds = NULL, *order_str = NULL;
+        from_bytes = PyObject_GetAttrString((PyObject*)&PyLong_Type, "from_bytes");
+        if (!from_bytes) return NULL;
+        py_bytes = PyBytes_FromStringAndSize((char*)bytes, sizeof(long));
+        if (!py_bytes) goto limited_bad;
+        order_str = PyUnicode_FromString(little ? "little" : "big");
+        if (!order_str) goto limited_bad;
+        arg_tuple = PyTuple_Pack(2, py_bytes, order_str);
+        if (!arg_tuple) goto limited_bad;
+        if (!is_unsigned) {
+            kwds = PyDict_New();
+            if (!kwds) goto limited_bad;
+            if (PyDict_SetItemString(kwds, "signed", __Pyx_NewRef(Py_True))) goto limited_bad;
+        }
+        result = PyObject_Call(from_bytes, arg_tuple, kwds);
+        limited_bad:
+        Py_XDECREF(kwds);
+        Py_XDECREF(arg_tuple);
+        Py_XDECREF(order_str);
+        Py_XDECREF(py_bytes);
+        Py_XDECREF(from_bytes);
+        return result;
+#endif
+    }
 }
 
 /* CIntFromPy */

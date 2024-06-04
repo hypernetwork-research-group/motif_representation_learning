@@ -17,7 +17,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 import os
-os.environ['OMP_NUM_THREADS'] = '16'
+os.environ['OMP_NUM_THREADS'] = '128'
 
 def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int):
     print(dataset)

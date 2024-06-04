@@ -29,17 +29,6 @@ cdef inline int max(int a, int b) nogil:
 @wraparound(False)
 @cdivision(True)
 @nonecheck(False)
-cdef inline long get_common_neighbor(long* common_neighbors, int num_edges, int i, int j) noexcept nogil:
-    cdef:
-        int m, M
-    m = min(i, j)
-    M = max(i, j)
-    return common_neighbors[m * num_edges + M - ((m * (m + 1))//2)]
-
-@boundscheck(False)
-@wraparound(False)
-@cdivision(True)
-@nonecheck(False)
 cdef int get_motif_id(int deg_i, int deg_j, int deg_k, int c_ij, int c_ik, int c_jk, int g_ijk) nogil:
     cdef:
         int a, b, c, d, e, f, g
@@ -81,7 +70,12 @@ cdef class CommonNeighbors:
             int c = 0
         m = min(i, j)
         M = max(i, j)
-        return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]
+        if self.optimized == 1:
+            return self.common_neighbors[m * self.num_edges + M - ((m * (m + 1))//2)]
+        else:
+            for k in range(self.incidence_matrix.shape[0]):
+                c = c + self.incidence_matrix[k][i] * self.incidence_matrix[k][j]
+            return c
 
     @boundscheck(False)
     @wraparound(False)
@@ -110,6 +104,25 @@ cdef class CommonNeighbors:
                 common_neighbors[m * num_edges + M - ((m * (m + 1))/2)] = c
         return common_neighbors
 
+@boundscheck(False)
+@wraparound(False)
+@cdivision(True)
+@nonecheck(False)
+cdef inline long get_common_neighbor(CommonNeighbors common_neighbors, int num_edges, int i, int j) noexcept nogil:
+    cdef:
+        int m, M
+        int k
+        int c = 0
+        long* cn = common_neighbors.common_neighbors
+    m = min(i, j)
+    M = max(i, j)
+    if common_neighbors.optimized == 1:
+        return cn[m * num_edges + M - ((m * (m + 1))//2)]
+    else:
+        for k in range(common_neighbors.incidence_matrix.shape[0]):
+            c = c + common_neighbors.incidence_matrix[k][i] * common_neighbors.incidence_matrix[k][j]
+        return c
+
 # =============================================================================
 
 cdef struct Node:
@@ -136,12 +149,12 @@ cdef class Mochy:
         cdef:
             int i, j, k
         self.optimized = optimized
-        self.common_neighbors = None
         self.num_nodes = incidence_matrix.shape[0]
         self.num_edges = incidence_matrix.shape[1]
         self.counted = 0
         self.incidence_matrix = incidence_matrix
         self.incidence_matrix_ = <short*> malloc(incidence_matrix.shape[0] * incidence_matrix.shape[1] * sizeof(short))
+        self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
         for i in range(incidence_matrix.shape[0]):
             for j in range(incidence_matrix.shape[1]):
                 self.incidence_matrix_[i * self.num_edges + j] = incidence_matrix[i][j]
@@ -196,19 +209,19 @@ cdef class Mochy:
         
         for i in prange(self.num_edges, nogil=True):
             thread_id = threadid()
-            deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+            deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
             for j in range(self.num_edges):
                 if i != j:
-                    c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+                    c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
                     if c_ij > 0:
                         for k in range(j + 1, self.num_edges):
                             if i != k:
-                                c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+                                c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
                                 if i < j or c_jk == 0:
-                                    c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+                                    c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
                                     if c_ik > 0:
-                                        deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
-                                        deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+                                        deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+                                        deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
                                         g_ijk = 0
                                         for e in range(self.num_nodes):
                                             if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
@@ -279,24 +292,23 @@ cdef class Mochy:
             int[128] id_to_index
         id_to_index = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 23, 22, 24, 23, 25, 24, 26, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 23, 24, 25, 26, 21, 23, 23, 25, 22, 24, 24, 26, 27, 28, 28, 29, 28, 29, 29, 30, 1, 2, 2, 3, 2, 3, 3, 4, 5, 6, 6, 8, 7, 9, 9, 10, 5, 7, 6, 9, 6, 9, 8, 10, 11, 13, 12, 14, 13, 15, 14, 16, 5, 6, 7, 9, 6, 8, 9, 10, 11, 12, 13, 14, 13, 14, 15, 16, 11, 13, 13, 15, 12, 14, 14, 16, 17, 18, 18, 19, 18, 19, 19, 20]
         if self.counted == 0:
-            self.common_neighbors = CommonNeighbors(self.incidence_matrix, self.num_edges, self.optimized)
             for i in prange(self.num_edges, nogil=True):
                 local_motif_counts = <long*> malloc(30 * sizeof(long))
                 for j in range(30):
                     local_motif_counts[j] = 0
-                deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
+                deg_i = get_common_neighbor(self.common_neighbors, self.num_edges, i, i)
                 for j in range(self.num_edges):
                     if i != j:
-                        c_ij = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, j)
+                        c_ij = get_common_neighbor(self.common_neighbors, self.num_edges, i, j)
                         if c_ij > 0:
                             for k in range(j + 1, self.num_edges):
                                 if i != k:
-                                    c_jk = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, k)
+                                    c_jk = get_common_neighbor(self.common_neighbors, self.num_edges, j, k)
                                     if i < j or c_jk == 0:
-                                        c_ik = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, k)
+                                        c_ik = get_common_neighbor(self.common_neighbors, self.num_edges, i, k)
                                         if c_ik > 0:
-                                            deg_j = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, j, j)
-                                            deg_k = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, k, k)
+                                            deg_j = get_common_neighbor(self.common_neighbors, self.num_edges, j, j)
+                                            deg_k = get_common_neighbor(self.common_neighbors, self.num_edges, k, k)
                                             g_ijk = 0
                                             for e in range(self.num_nodes):
                                                 if self.incidence_matrix_[e * self.num_edges + i] and self.incidence_matrix_[e * self.num_edges + j] and self.incidence_matrix_[e * self.num_edges + k]:
