@@ -76,6 +76,7 @@ class HypergraphMotifConvE(nn.Module):
 import torch
 from utils import CustomEstimator
 from motif import motif_negative_sampling, edge_motif_interactions, node_node_interactions
+import logging
 
 from time import time
 
@@ -107,7 +108,7 @@ class HypergraphMotifConv(CustomEstimator):
             loss = criterion(y_pred_m, y_m)
             loss.backward()
             optimizer.step()
-            print(f"Epoch {epoch} - Loss: {loss.item()}")
+            logging.debug(f"Epoch {epoch} - Loss: {loss.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):
         self.model.eval()

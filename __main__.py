@@ -16,8 +16,10 @@ from utils import evaluate_estimator
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+import logging
+
 import os
-os.environ['OMP_NUM_THREADS'] = '128'
+os.environ['OMP_NUM_THREADS'] = '32'
 
 def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int):
     print(dataset)
@@ -28,7 +30,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
     for i in range(3): # Experiments iteration
         begin = time()
-        print(f"Experiment {i}")
+        logging.info(f"Experiment {i}")
         T_incidence_matrix, t_incidence_matrix = incidence_matrix_train_test_split(incidence_matrix, 0.8)
 
         model_metrics = { model_name: [] for model_name in models.keys()}
@@ -46,7 +48,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
         kf = KFold(n_splits=5)
         for f, (train_index, test_index) in enumerate(kf.split(T_incidence_matrix.T)): # k-fold cross validation
-            print(f"Fold {f}")
+            logging.info(f"Fold {f}")
             V_incidence_matrix, v_incidence_matrix = incidence_matrix_fold_extract(T_incidence_matrix, train_index, test_index)
 
             # Mochy is a class that allows to sample motifs from an incidence matrix
@@ -62,14 +64,14 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
             # Negative sampling
             v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta)
-            print(f"Negative sampling done in {time() - begin} seconds")
+            logging.debug(f"Negative sampling done in {time() - begin} seconds")
 
             for model_name, Model in models.items():
                 model = Model()
                 model.fit(V_incidence_matrix, F_motifs)
 
                 metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
-                print(model_name, metrics)
+                logging.debug(model_name, metrics)
                 model_metrics[model_name].append(metrics)
 
                 model_params[model_name].append(model.get_params()) # Save the model parameters
@@ -85,10 +87,10 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             metrics = evaluate_estimator(model, t_incidence_matrix, t_motifs, y_test_m, threshold)
 
             experiments_metrics[model_name].append(metrics)
-            print(model_name, metrics)
+            logging.debug(model_name, metrics)
         
         end = time()
-        print("Experiment time:", end - begin)
+        logging.debug("Experiment time:", end - begin)
 
     print("=====")
 
@@ -108,10 +110,13 @@ if __name__ == '__main__':
     dataset = EmailEnronFull()
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
+    logging.basicConfig(level=logging.INFO)
+
     models = dict()
     models['Hypergraph Motif Conv'] = HypergraphMotifConv
     models['Jaccard Coefficient'] = JaccardCoefficient
     models['Adamic Adar'] = AdamicAdar
     models['Common Neighors'] = CommonNeighors
 
-    main(dataset, models, 3, 10000, 0.5, 1)
+    for i in [2, 3, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]:
+        main(dataset, models, i, 10000, 0.5, 1)
