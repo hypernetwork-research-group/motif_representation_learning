@@ -58,7 +58,6 @@ class HypergraphMotifConvE(nn.Module):
     def motif_embeddings(self, X, motif_edge_index, sigmoid=False):
         y = X
         y = self.aggr_2(y[motif_edge_index[0]], motif_edge_index[1])
-        y = nn.functional.relu(y)
         y = self.dropout(y)
         y = self.linear_3(y)
         y_out = self.linear_out(y)
@@ -78,9 +77,7 @@ import torch
 from utils import CustomEstimator
 from motif import motif_negative_sampling, edge_motif_interactions, node_node_interactions
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-torch.set_default_device(device)
-print(f"Device: {device}")
+from time import time
 
 class HypergraphMotifConv(CustomEstimator):
 
@@ -97,7 +94,7 @@ class HypergraphMotifConv(CustomEstimator):
         optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
         criterion = torch.nn.BCEWithLogitsLoss()
         for epoch in range(epochs):
-
+            
             X_, motifs_, y_e, y_m = motif_negative_sampling(X, motifs, 0.5, 1)
             y_m = torch.tensor(y_m)
             nei = torch.tensor(np.array(X_.nonzero()))
