@@ -114,4 +114,4 @@ if __name__ == '__main__':
     models['Adamic Adar'] = AdamicAdar
     models['Common Neighors'] = CommonNeighors
 
-    main(dataset, models, 29, 25000, 0.5, 1)
+    main(dataset, models, 3, 10000, 0.5, 1)

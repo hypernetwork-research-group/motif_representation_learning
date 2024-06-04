@@ -65,7 +65,52 @@ cimport openmp
 @boundscheck(False)
 @wraparound(False)
 @nonecheck(False)
-def xmotif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, cnp.ndarray[DTYPE_int_t, ndim=2] motifs, float alpha, int beta):
+cdef xfloyd_warshall(double[:, :] adjacency_matrix):
+    cdef:
+        int N, k, i, j
+        double[:, :] dist
+    N = adjacency_matrix.shape[0]
+    dist = np.zeros((N, N), dtype=np.float64)
+    for i in prange(N, nogil=True):
+        for j in range(i, N):
+            dist[i, j] = adjacency_matrix[i, j]
+            dist[j, i] = adjacency_matrix[j, i]
+    for k in prange(N, nogil=True):
+        for i in range(N):
+            for j in range(N):
+                dist[i, j] = min(dist[i, j], dist[i, k] + dist[k, j])
+    return dist
+
+@boundscheck(False)
+@wraparound(False)
+@nonecheck(False)
+cdef xcompute_edge_distances(short[:, :] incidence_matrix):
+    cdef:
+        int n_edges, n_nodes, i, j, k
+        double[:, :] A
+        double[:, :] node_distances
+        double[:, :] edge_distances
+    n_edges = incidence_matrix.shape[1]
+    n_nodes = incidence_matrix.shape[0]
+    A = np.zeros((n_nodes, n_nodes), dtype=np.float64)
+    for i in prange(n_nodes, nogil=True):
+        for j in range(i + 1, n_nodes):
+            for k in range(n_nodes):
+                A[i, j] += incidence_matrix[i, k] * incidence_matrix[j, k]
+    A = np.where(A, 1, np.inf)
+    node_distances = xfloyd_warshall(A)
+    edge_distances = np.full((n_edges, n_nodes), np.inf, dtype=np.float64)
+    for i in prange(n_edges, nogil=True):
+        for j in range(n_nodes):
+            for k in range(n_nodes):
+                if incidence_matrix[k, i]:
+                    edge_distances[i, j] = min(edge_distances[i, j], node_distances[j, k])
+    return node_distances, edge_distances
+
+@boundscheck(False)
+@wraparound(False)
+@nonecheck(False)
+def xmotif_negative_sampling(short[:, :] incidence_matrix, int[:, :] motifs, float alpha, int beta):
     cdef:
         long[:] node_degrees
         double[:, :] node_distances, edge_distances
@@ -77,12 +122,13 @@ def xmotif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, 
         int num_threads = openmp.omp_get_max_threads()
         int _threadid
 
-    node_degrees = incidence_matrix.sum(axis=1)
-    node_distances, edge_distances = compute_edge_distances(incidence_matrix)
+    node_degrees = np.sum(incidence_matrix, axis=1)
+    node_distances, edge_distances = xcompute_edge_distances(incidence_matrix)
 
     for i in prange(num_motifs, nogil=True):
-        _threadid = threadid()
-        motif_size += 1
+        pass
+
+    return np.array(node_degrees), np.array(node_distances), np.array(edge_distances)
 
 @boundscheck(False)
 @wraparound(False)
