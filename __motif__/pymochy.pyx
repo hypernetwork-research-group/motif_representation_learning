@@ -171,9 +171,16 @@ cdef class Mochy:
         num_threads = openmp.omp_get_max_threads()
         head = <Node **> malloc(sizeof(Node*) * num_threads)
         tail = <Node **> malloc(sizeof(Node*) * num_threads)
+
+        # Initialize head and tail pointers
+        # Some compilers do no initialize pointers to NULL by default
+        for i in range(num_threads):
+            head[i] = NULL
+            tail[i] = NULL
+
         if self.counted == 0:
             self.count()
-
+        
         for i in range(30):
             c = self.motif_counts[i]
             if c == 0:
@@ -186,7 +193,7 @@ cdef class Mochy:
                     sample_probabilities[i] = 1
                 else:
                     sample_probabilities[i] = p
-
+        
         for i in prange(self.num_edges, nogil=True):
             thread_id = threadid()
             deg_i = get_common_neighbor(self.common_neighbors.common_neighbors, self.num_edges, i, i)
@@ -224,7 +231,6 @@ cdef class Mochy:
                                                 node.next = head[thread_id]
                                                 head[thread_id] = node
 
-
         node = NULL
 
         for i in range(num_threads - 1):
@@ -240,12 +246,12 @@ cdef class Mochy:
             tail[j].next = head[i]
             head[j].index += head[i].index + 1
             node = head[j]
-        
+
         if node is NULL:
             motifs = np.empty((0, 4), dtype=np.int32)
         else:
             motifs = np.empty((node.index + 1, 4), dtype=np.int32)
-
+        
         while node is not NULL:
             motifs[motifsloc][0] = node._id
             motifs[motifsloc][1] = node.i

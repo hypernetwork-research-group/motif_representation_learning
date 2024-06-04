@@ -16,6 +16,9 @@ from utils import evaluate_estimator
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+import os
+os.environ['OMP_NUM_THREADS'] = '16'
+
 def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int):
     print(dataset)
 
@@ -66,6 +69,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
                 model.fit(V_incidence_matrix, F_motifs)
 
                 metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
+                print(model_name, metrics)
                 model_metrics[model_name].append(metrics)
 
                 model_params[model_name].append(model.get_params()) # Save the model parameters
@@ -81,6 +85,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             metrics = evaluate_estimator(model, t_incidence_matrix, t_motifs, y_test_m, threshold)
 
             experiments_metrics[model_name].append(metrics)
+            print(model_name, metrics)
         
         end = time()
         print("Experiment time:", end - begin)
@@ -104,9 +109,9 @@ if __name__ == '__main__':
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
     models = dict()
+    models['Hypergraph Motif Conv'] = HypergraphMotifConv
     models['Jaccard Coefficient'] = JaccardCoefficient
     models['Adamic Adar'] = AdamicAdar
     models['Common Neighors'] = CommonNeighors
-    models['Hypergraph Motif Conv'] = HypergraphMotifConv
 
-    main(dataset, models, 29, 10000, 0.5, 1)
+    main(dataset, models, 29, 25000, 0.5, 1)

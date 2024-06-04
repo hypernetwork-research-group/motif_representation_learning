@@ -41,13 +41,13 @@ class HypergraphMotifConvE(nn.Module):
         y = self.node2vec_hypergraph_conv(edge_index)
         return y
     
-    def edge_embeddings(self, X, edge_index, edge_edge_index, edge_edge_weight = None, sigmoid=False):
+    def edge_embeddings(self, X, edge_index, edge_edge_index, sigmoid=False):
         y = X
         y = y.T @ y
         y = nn.functional.relu(y)
         y = self.aggr_1(y[edge_index[0]], edge_index[1])
         y = self.dropout(y)
-        y = self.hypergraph_edge_conv_1(y, edge_edge_index, edge_edge_weight)
+        y = self.hypergraph_edge_conv_1(y, edge_edge_index)
         y = nn.functional.relu(y)
         y = self.linear_2(y)
         y_out = self.edge_linear_out(y)
@@ -76,16 +76,22 @@ class HypergraphMotifConvE(nn.Module):
 
 import torch
 from utils import CustomEstimator
-from motif import motif_negative_sampling, compute_edge_indexes
+from motif import motif_negative_sampling, edge_motif_interactions, node_node_interactions
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+torch.set_default_device(device)
+print(f"Device: {device}")
 
 class HypergraphMotifConv(CustomEstimator):
 
     def fit(self, X: np.ndarray, motifs: np.ndarray):
-        X_ei, _, _ = compute_edge_indexes(X, motifs)
+        nni = torch.tensor(node_node_interactions(X))
+        eei = torch.tensor(node_node_interactions(X.T, 3))
 
-        X_ei = torch.tensor(X_ei)
+        self.eei = eei
 
-        self.model = HypergraphMotifConvE(X.shape[0], 64, 32, 1, X_ei)
+        self.model = HypergraphMotifConvE(X.shape[0], 64, 64, 1, nni)
+        self.model.train()
 
         epochs = 100
         optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
@@ -93,16 +99,27 @@ class HypergraphMotifConv(CustomEstimator):
         for epoch in range(epochs):
 
             X_, motifs_, y_e, y_m = motif_negative_sampling(X, motifs, 0.5, 1)
-            print(X_.shape, motifs_.shape)
-            nei, eei, emi = compute_edge_indexes(X_, motifs_, edge_threshold = 4)
-            print(nei.shape, eei.shape, emi.shape)
+            y_m = torch.tensor(y_m)
+            nei = torch.tensor(np.array(X_.nonzero()))
+            emi = torch.tensor(edge_motif_interactions(X_, motifs_))
 
-            # optimizer.zero_grad()
-            # y = self.model.node_embeddings(X_ei)
-            # _, y = self.model.edge_embeddings(y, X_ei, X_e_ei)
-            # _, y_pred_m = self.model.motif_embeddings(y, X_m_ei)
-            # optimizer.step()
-            print(f"Epoch {epoch}")
+            optimizer.zero_grad()
+            y = self.model.node_embeddings(nei)
+            y, y_pred_e = self.model.edge_embeddings(y, nei, eei)
+            _, y_pred_m = self.model.motif_embeddings(y, emi)
+            loss = criterion(y_pred_m, y_m)
+            loss.backward()
+            optimizer.step()
+            print(f"Epoch {epoch} - Loss: {loss.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):
-        return motifs.sum(axis=1) > 0
+        self.model.eval()
+        nei = torch.tensor(np.array(X.nonzero()))
+        eei = self.eei
+        emi = torch.tensor(edge_motif_interactions(X, motifs))
+
+        y = self.model.node_embeddings(nei)
+        y, y_pred_e = self.model.edge_embeddings(y, nei, eei)
+        _, y_pred_m = self.model.motif_embeddings(y, emi, sigmoid=True)
+        y_pred_m = y_pred_m.cpu().detach().numpy()
+        return y_pred_m

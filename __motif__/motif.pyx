@@ -77,9 +77,7 @@ def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, c
         list new_motifs = [], new_edges = []
         int edge_i, num_nodes
     node_degrees = incidence_matrix.sum(axis=1)
-    begin = time()
     node_distances, edge_distances = compute_edge_distances(incidence_matrix)
-    print("Elapsed time: ", time() - begin)
     edge_i = incidence_matrix.shape[1] - 1
     num_nodes = incidence_matrix.shape[0]
     num_motifs = motifs.shape[0]
@@ -159,14 +157,12 @@ from time import time
 @boundscheck(False)
 @wraparound(False)
 @nonecheck(False)
-def compute_edge_indexes(short[:, :] X, int[:, :] motifs, int nodes_threshold = 1, int edge_threshold = 1):
+def node_node_interactions(short[:, :] X, int nodes_threshold = 1):
     # Parse all the test data to tensors and compute edge indexes
     # Edge indexes are used to compute the convolutional operations
     cdef:
         int num_nodes = X.shape[0]
         int num_edges = X.shape[1]
-        int num_motifs = motifs.shape[0]
-        int motif_size = motifs.shape[1]
         int i, j
         int e, n, m
         int interactions, count
@@ -175,13 +171,8 @@ def compute_edge_indexes(short[:, :] X, int[:, :] motifs, int nodes_threshold = 
         int num_threads = openmp.omp_get_max_threads()
         int _threadid
         # node-node interactions
-        int[:, :, :] local_node_edge_index
-        int[:, :] node_edge_index
-        # edge-edge interactions
-        int[:, :, :] local_edge_edge_index
-        int[:, :] edge_edge_index
-        # edge-motif interactions
-        int[:, :] edge_motif_index
+        long[:, :, :] local_node_edge_index
+        long[:, :] node_edge_index
     # Compute node-node interactions
     interactions = 0
     for i in prange(num_nodes, nogil=True):
@@ -194,7 +185,7 @@ def compute_edge_indexes(short[:, :] X, int[:, :] motifs, int nodes_threshold = 
                         interactions += 2
                         break
     _interactions = np.zeros(num_threads, dtype=np.int32)
-    local_node_edge_index = np.zeros((num_threads, 2, interactions), dtype=np.int32)
+    local_node_edge_index = np.zeros((num_threads, 2, interactions), dtype=np.int64)
     for i in prange(num_nodes, nogil=True):
         _threadid = threadid()
         for j in range(i + 1, num_nodes):
@@ -210,52 +201,33 @@ def compute_edge_indexes(short[:, :] X, int[:, :] motifs, int nodes_threshold = 
                         local_node_edge_index[_threadid, 1, _interactions[_threadid]] = i
                         _interactions[_threadid] += 1
                         break
-    node_edge_index = np.zeros((2, interactions), dtype=np.int32)
+    node_edge_index = np.zeros((2, interactions), dtype=np.int64)
     interactions = 0
     for i in range(num_threads):
         node_edge_index[:, interactions:interactions + _interactions[i]] = local_node_edge_index[i, :, :_interactions[i]]
         interactions += _interactions[i]
-    # Compute edge-edge interactions
+    return np.array(node_edge_index)
+
+@boundscheck(False)
+@wraparound(False)
+@nonecheck(False)
+def edge_motif_interactions(short[:, :] X, int[:, :] motifs):
+    # Parse all the test data to tensors and compute edge indexes
+    # Edge indexes are used to compute the convolutional operations
+    cdef:
+        int num_motifs = motifs.shape[0]
+        int motif_size = motifs.shape[1]
+        int i
+        long e, m
+        int interactions
+        # edge-motif interactions
+        long[:, :] edge_motif_index
     interactions = 0
-    for i in prange(num_edges, nogil=True):
-        for j in range(i + 1, num_edges):
-            count = 0
-            for n in range(num_nodes):
-                if X[n, i] and X[n, j]:
-                    count = count + 1
-                    if count >= edge_threshold:
-                        interactions += 2
-                        break
-    _interactions = np.zeros(num_threads, dtype=np.int32)
-    local_edge_edge_index = np.zeros((num_threads, 2, interactions), dtype=np.int32)
-    for i in prange(num_edges, nogil=True):
-        for j in range(i + 1, num_edges):
-            count = 0
-            for n in range(num_nodes):
-                if X[n, i] and X[n, j]:
-                    count = count + 1
-                    if count >= edge_threshold:
-                        local_edge_edge_index[_threadid, 0, _interactions[_threadid]] = i
-                        local_edge_edge_index[_threadid, 1, _interactions[_threadid]] = j
-                        _interactions[_threadid] += 1
-                        local_edge_edge_index[_threadid, 0, _interactions[_threadid]] = j
-                        local_edge_edge_index[_threadid, 1, _interactions[_threadid]] = i
-                        _interactions[_threadid] += 1
-                        break
-    edge_edge_index = np.zeros((2, interactions), dtype=np.int32)
-    interactions = 0
-    for i in range(num_threads):
-        edge_edge_index[:, interactions:interactions + _interactions[i]] = local_edge_edge_index[i, :, :_interactions[i]]
-        interactions += _interactions[i]
-    # Compute edge-motif interactions
-    interactions = num_motifs * motif_size
-    edge_motif_index = np.zeros((2, interactions), dtype=np.int32)
-    interactions = 0
+    edge_motif_index = np.zeros((2, num_motifs * motif_size), dtype=np.int64)
     for m in range(num_motifs):
         for i in range(motif_size):
             e = motifs[m, i]
             edge_motif_index[0, interactions] = e
             edge_motif_index[1, interactions] = m
             interactions += 1
-    return np.array(node_edge_index), np.array(edge_edge_index), np.array(edge_motif_index)
-    
+    return np.array(edge_motif_index)
