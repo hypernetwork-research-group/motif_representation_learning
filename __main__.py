@@ -23,7 +23,7 @@ os.environ['OMP_NUM_THREADS'] = '32'
 
 def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int):
     print(dataset)
-    print(f"k = {i})")
+    print(f"k = {k})")
 
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
