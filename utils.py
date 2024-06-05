@@ -86,3 +86,22 @@ from sklearn.base import BaseEstimator
 class CustomEstimator(BaseEstimator):
 
     pass
+
+from torch.utils.data import Dataset
+
+class MotifIteratorDataset(Dataset):
+    def __init__(self, incidence_matrix, attributes):
+        """
+        incidence_matrix: Tensor che rappresenta la matrice di incidenza del grafo.
+        attributes: Tensor contenente attributi o etichette che necessitano di batching.
+        """
+        self.incidence_matrix = incidence_matrix
+        self.attributes = attributes
+
+    def __len__(self):
+        # La lunghezza del dataset è determinata dal numero di elementi in `attributes`
+        return len(self.attributes)
+
+    def __getitem__(self, idx):
+        # Restituisce la matrice di incidenza completa e l'elemento degli attributi all'indice idx
+        return self.incidence_matrix, self.attributes[idx]

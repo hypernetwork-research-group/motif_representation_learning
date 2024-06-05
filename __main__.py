@@ -19,18 +19,22 @@ import matplotlib.pyplot as plt
 import logging
 
 import os
-os.environ['OMP_NUM_THREADS'] = '32'
+os.environ['OMP_NUM_THREADS'] = '128'
+
+from clearml import Task
 
 def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int):
     print(dataset)
     print(f"k = {k})")
 
+    task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME} k={k}")
+
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
+    print(incidence_matrix.shape)
 
     experiments_metrics = { model_name: [] for model_name in models.keys()}
 
     for i in range(3): # Experiments iteration
-        begin = time()
         logging.info(f"Experiment {i}")
         T_incidence_matrix, t_incidence_matrix = incidence_matrix_train_test_split(incidence_matrix, 0.8)
 
@@ -65,11 +69,10 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
             # Negative sampling
             v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta)
-            logging.debug(f"Negative sampling done in {time() - begin} seconds")
 
             for model_name, Model in models.items():
                 model = Model()
-                model.fit(V_incidence_matrix, F_motifs)
+                model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, v_motifs, y_validation_m)
 
                 metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
                 logging.debug(model_name, metrics)
@@ -89,26 +92,23 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
             experiments_metrics[model_name].append(metrics)
             logging.debug(model_name, metrics)
-        
-        end = time()
-        logging.debug("Experiment time:", end - begin)
 
     print("=====")
 
     for model_name, metrics in experiments_metrics.items():
-        print(model_name)
+        logging.info(model_name)
         roc_auc = [metric['roc_auc'] for metric in metrics]
-        print("ROC AUC:", f"{np.min(roc_auc):.2}", "<", f"{np.mean(roc_auc):.2}", "+-", f"{np.std(roc_auc):.2}", "<", f"{np.max(roc_auc):.2}")
+        logging.info("ROC AUC:", f"{np.min(roc_auc):.2}", "<", f"{np.mean(roc_auc):.2}", "+-", f"{np.std(roc_auc):.2}", "<", f"{np.max(roc_auc):.2}")
         accuracy = [metric['accuracy'] for metric in metrics]
-        print("Accuracy:", f"{np.min(accuracy):.2}", "<", f"{np.mean(accuracy):.2}", "+-", f"{np.std(accuracy):.2}", "<", f"{np.max(accuracy):.2}")
+        logging.info("Accuracy:", f"{np.min(accuracy):.2}", "<", f"{np.mean(accuracy):.2}", "+-", f"{np.std(accuracy):.2}", "<", f"{np.max(accuracy):.2}")
         f1 = [metric['f1'] for metric in metrics]
-        print("F1:", f"{np.min(f1):.2}", "<", f"{np.mean(f1):.2}", "+-", f"{np.std(f1):.2}", "<", f"{np.max(f1):.2}")
+        logging.info("F1:", f"{np.min(f1):.2}", "<", f"{np.mean(f1):.2}", "+-", f"{np.std(f1):.2}", "<", f"{np.max(f1):.2}")
         threshold = [metric['threshold'] for metric in metrics]
-        print("Threshold:", f"{np.min(threshold):.2}", "<", f"{np.mean(threshold):.2}", "+-", f"{np.std(threshold):.2}", "<", f"{np.max(threshold):.2}")
-        print("=====")
+        logging.info("Threshold:", f"{np.min(threshold):.2}", "<", f"{np.mean(threshold):.2}", "+-", f"{np.std(threshold):.2}", "<", f"{np.max(threshold):.2}")
+        logging.info("=====")
 
 if __name__ == '__main__':
-    dataset = ContactHighSchool()
+    dataset = ContactPrimarySchool()
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
     logging.basicConfig(level=logging.INFO)

@@ -4,7 +4,7 @@ from utils import CustomEstimator
 
 class JaccardCoefficient(CustomEstimator):
 
-    def fit(self, X: np.ndarray, motifs: np.ndarray):
+    def fit(self, X: np.ndarray, *args, **kwargs):
         X_ = X
         A = X_ @ X_.T # Compute the clique expansion of the hypergraph
         D = np.diag(np.diag(A))

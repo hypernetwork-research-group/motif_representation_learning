@@ -3,7 +3,7 @@ from utils import CustomEstimator
 
 class AdamicAdar(CustomEstimator):
 
-    def fit(self, X: np.ndarray, motifs: np.ndarray):
+    def fit(self, X: np.ndarray, *args, **kwargs):
         X_ = X
         D = np.diag(X_.sum(axis=1))
         A = (X_ @ X_.T) - D
