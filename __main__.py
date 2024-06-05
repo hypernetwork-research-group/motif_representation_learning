@@ -23,6 +23,7 @@ os.environ['OMP_NUM_THREADS'] = '32'
 
 def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int):
     print(dataset)
+    print(f"k = {i})")
 
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
@@ -48,7 +49,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
         kf = KFold(n_splits=5)
         for f, (train_index, test_index) in enumerate(kf.split(T_incidence_matrix.T)): # k-fold cross validation
-            logging.info(f"Fold {f}")
+            logging.debug(f"Fold {f}")
             V_incidence_matrix, v_incidence_matrix = incidence_matrix_fold_extract(T_incidence_matrix, train_index, test_index)
 
             # Mochy is a class that allows to sample motifs from an incidence matrix
@@ -107,7 +108,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         print("=====")
 
 if __name__ == '__main__':
-    dataset = EmailEnronFull()
+    dataset = ContactHighSchool()
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
     logging.basicConfig(level=logging.INFO)
