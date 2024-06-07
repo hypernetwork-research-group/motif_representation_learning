@@ -49,13 +49,12 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         T_motifs = T_mochy.sample(h=k, limit=limit)[:, 1:]
         t_motifs = t_motifs[~np.isin(t_motifs, T_motifs).all(axis=1)]
 
-        logging.info(f"Experiment {i}")
-        logging.info(f"Training motifs: {T_motifs.shape[0]}/{T_motif_count[k]}")
-        logging.info(f"Test motifs: {t_motifs.shape[0]}/{t_motif_count[k]}")
+        logging.debug(f"Training motifs: {T_motifs.shape[0]}/{T_motif_count[k]}")
+        logging.debug(f"Test motifs: {t_motifs.shape[0]}/{t_motif_count[k]}")
 
         kf = KFold(n_splits=5)
         for f, (train_index, test_index) in enumerate(kf.split(T_incidence_matrix.T)): # k-fold cross validation
-            logging.info(f"Fold {f}")
+            logging.debug(f"Fold {f}")
             V_incidence_matrix, v_incidence_matrix = incidence_matrix_fold_extract(T_incidence_matrix, train_index, test_index)
 
             # Mochy is a class that allows to sample motifs from an incidence matrix
@@ -69,8 +68,8 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             f_motifs = v_mochy.sample(h=k, limit=limit)[:, 1:]              # All the motifs in the fold
             v_motifs = f_motifs[~np.isin(f_motifs, F_motifs).all(axis=1)]   # Validation motifs are the motifs that are not in the training motifs
 
-            logging.info(f"Training motifs: {F_motifs.shape[0]}/{F_motif_count[k]}")
-            logging.info(f"Validation motifs: {v_motifs.shape[0]}/{f_motif_count[k]}")
+            logging.debug(f"Training motifs: {F_motifs.shape[0]}/{F_motif_count[k]}")
+            logging.debug(f"Validation motifs: {v_motifs.shape[0]}/{f_motif_count[k]}")
 
             # Negative sampling
             v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta)
@@ -80,7 +79,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
                 model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, v_motifs, y_validation_m)
 
                 metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
-                logging.info(f"{model_name} {metrics}")
+                logging.debug(f"{model_name} {metrics}")
                 model_metrics[model_name].append(metrics)
 
                 model_params[model_name].append(model.get_params()) # Save the model parameters
@@ -94,7 +93,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
             threshold = np.mean([metrics['threshold'] for metrics in model_metrics[model_name]])
             metrics = evaluate_estimator(model, t_incidence_matrix, t_motifs, y_test_m, threshold)
-            logging.info(f"{model_name} {metrics}")
+            logging.debug(f"{model_name} {metrics}")
 
             experiments_metrics[model_name].append(metrics)
 
