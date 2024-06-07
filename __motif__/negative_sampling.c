@@ -17920,6 +17920,7 @@ static int __pyx_pf_17negative_sampling_15NegativeSampler___cinit__(struct __pyx
  * 
  *     def sample(self):             # <<<<<<<<<<<<<<
  *         pass
+ * 
  */
 
 /* Python wrapper */
@@ -19590,6 +19591,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     def sample(self):             # <<<<<<<<<<<<<<
  *         pass
+ * 
  */
   __pyx_tuple__21 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
@@ -20704,6 +20706,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     def sample(self):             # <<<<<<<<<<<<<<
  *         pass
+ * 
  */
   __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_17negative_sampling_15NegativeSampler_3sample, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_NegativeSampler_sample, NULL, __pyx_n_s_negative_sampling, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);

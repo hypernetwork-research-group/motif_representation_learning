@@ -73,6 +73,8 @@ def evaluate_estimator(estimator: BaseEstimator, incidence_matrix, motifs, y_tru
     y_pred_m = estimator.predict(incidence_matrix, motifs)
     if threshold is None:
         threshold = sensivity_specifity_cutoff(y_true, y_pred_m)
+        if threshold == np.inf:
+            threshold = 0.5
     metrics = {
         'roc_auc': roc_auc_score(y_true, y_pred_m),
         'accuracy': accuracy_score(y_true, y_pred_m > threshold),

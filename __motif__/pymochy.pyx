@@ -275,6 +275,8 @@ cdef class Mochy:
             node = node.next
             free(temp_node)
 
+        free(head)
+        free(tail)
         return np.array(motifs)
 
     @boundscheck(False)

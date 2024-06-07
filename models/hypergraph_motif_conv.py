@@ -49,8 +49,8 @@ class HypergraphMotifConvE(nn.Module):
         y = self.aggr_1(y[edge_index[0]], edge_index[1])
         y = self.dropout(y)
         y = self.hypergraph_edge_conv_1(y, edge_edge_index)
-        y = nn.functional.relu(y)
         y = self.linear_2(y)
+        y = nn.functional.relu(y)
         y_out = self.edge_linear_out(y)
         if sigmoid:
             y_out = nn.functional.sigmoid(y_out)
@@ -80,6 +80,7 @@ import logging
 from clearml import Logger
 from utils import MotifIteratorDataset
 from torch.utils.data import DataLoader
+from sklearn.metrics import roc_auc_score
 
 class HypergraphMotifConv(CustomEstimator):
 
@@ -137,6 +138,8 @@ class HypergraphMotifConv(CustomEstimator):
                     _, y_pred_m = self.model.motif_embeddings(y, emi)
                     loss = criterion(y_pred_m, torch.tensor(y_validation_m))
                     current_logger.report_scalar(title="Loss", series="Validation", iteration=epoch, value=loss.item())
+                    roc_auc = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
+                    current_logger.report_scalar(title="ROC AUC", series="Validation", iteration=epoch, value=roc_auc)
                     logging.debug(f"Validation Loss: {loss.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):

@@ -19,15 +19,13 @@ import matplotlib.pyplot as plt
 import logging
 
 import os
-os.environ['OMP_NUM_THREADS'] = '128'
+os.environ['OMP_NUM_THREADS'] = '32'
 
 from clearml import Task
 
 def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int):
     print(dataset)
     print(f"k = {k})")
-
-    task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME} k={k}")
 
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
     print(incidence_matrix.shape)
@@ -51,9 +49,13 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         T_motifs = T_mochy.sample(h=k, limit=limit)[:, 1:]
         t_motifs = t_motifs[~np.isin(t_motifs, T_motifs).all(axis=1)]
 
+        logging.info(f"Experiment {i}")
+        logging.info(f"Training motifs: {T_motifs.shape[0]}/{T_motif_count[k]}")
+        logging.info(f"Test motifs: {t_motifs.shape[0]}/{t_motif_count[k]}")
+
         kf = KFold(n_splits=5)
         for f, (train_index, test_index) in enumerate(kf.split(T_incidence_matrix.T)): # k-fold cross validation
-            logging.debug(f"Fold {f}")
+            logging.info(f"Fold {f}")
             V_incidence_matrix, v_incidence_matrix = incidence_matrix_fold_extract(T_incidence_matrix, train_index, test_index)
 
             # Mochy is a class that allows to sample motifs from an incidence matrix
@@ -67,6 +69,9 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             f_motifs = v_mochy.sample(h=k, limit=limit)[:, 1:]              # All the motifs in the fold
             v_motifs = f_motifs[~np.isin(f_motifs, F_motifs).all(axis=1)]   # Validation motifs are the motifs that are not in the training motifs
 
+            logging.info(f"Training motifs: {F_motifs.shape[0]}/{F_motif_count[k]}")
+            logging.info(f"Validation motifs: {v_motifs.shape[0]}/{f_motif_count[k]}")
+
             # Negative sampling
             v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta)
 
@@ -75,7 +80,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
                 model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, v_motifs, y_validation_m)
 
                 metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
-                logging.debug(model_name, metrics)
+                logging.info(f"{model_name} {metrics}")
                 model_metrics[model_name].append(metrics)
 
                 model_params[model_name].append(model.get_params()) # Save the model parameters
@@ -85,30 +90,31 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         # Test the models
         for model_name, Model in models.items():
             model = Model()
-            model.fit(T_incidence_matrix, T_motifs)
+            model.fit(T_incidence_matrix, T_motifs, t_incidence_matrix, t_motifs, y_test_m)
 
             threshold = np.mean([metrics['threshold'] for metrics in model_metrics[model_name]])
             metrics = evaluate_estimator(model, t_incidence_matrix, t_motifs, y_test_m, threshold)
+            logging.info(f"{model_name} {metrics}")
 
             experiments_metrics[model_name].append(metrics)
-            logging.debug(model_name, metrics)
 
     print("=====")
 
     for model_name, metrics in experiments_metrics.items():
-        logging.info(model_name)
+        print(model_name)
         roc_auc = [metric['roc_auc'] for metric in metrics]
-        logging.info("ROC AUC:", f"{np.min(roc_auc):.2}", "<", f"{np.mean(roc_auc):.2}", "+-", f"{np.std(roc_auc):.2}", "<", f"{np.max(roc_auc):.2}")
+        print("ROC AUC:", f"{np.min(roc_auc):.2}", "<", f"{np.mean(roc_auc):.2}", "+-", f"{np.std(roc_auc):.2}", "<", f"{np.max(roc_auc):.2}")
         accuracy = [metric['accuracy'] for metric in metrics]
-        logging.info("Accuracy:", f"{np.min(accuracy):.2}", "<", f"{np.mean(accuracy):.2}", "+-", f"{np.std(accuracy):.2}", "<", f"{np.max(accuracy):.2}")
+        print("Accuracy:", f"{np.min(accuracy):.2}", "<", f"{np.mean(accuracy):.2}", "+-", f"{np.std(accuracy):.2}", "<", f"{np.max(accuracy):.2}")
         f1 = [metric['f1'] for metric in metrics]
-        logging.info("F1:", f"{np.min(f1):.2}", "<", f"{np.mean(f1):.2}", "+-", f"{np.std(f1):.2}", "<", f"{np.max(f1):.2}")
+        print("F1:", f"{np.min(f1):.2}", "<", f"{np.mean(f1):.2}", "+-", f"{np.std(f1):.2}", "<", f"{np.max(f1):.2}")
         threshold = [metric['threshold'] for metric in metrics]
-        logging.info("Threshold:", f"{np.min(threshold):.2}", "<", f"{np.mean(threshold):.2}", "+-", f"{np.std(threshold):.2}", "<", f"{np.max(threshold):.2}")
-        logging.info("=====")
+        print("Threshold:", f"{np.min(threshold):.2}", "<", f"{np.mean(threshold):.2}", "+-", f"{np.std(threshold):.2}", "<", f"{np.max(threshold):.2}")
+        print("=====")
 
 if __name__ == '__main__':
-    dataset = ContactPrimarySchool()
+    dataset = NDCClassesFull()
+    task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME}")
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
     logging.basicConfig(level=logging.INFO)
