@@ -4,11 +4,11 @@
 {
     "distutils": {
         "depends": [
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/arrayobject.h",
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/arrayscalars.h",
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ndarrayobject.h",
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ndarraytypes.h",
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ufuncobject.h"
+            "/Users/valeriodipasquale/Documents/Development/Projects/Python/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/arrayobject.h",
+            "/Users/valeriodipasquale/Documents/Development/Projects/Python/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/arrayscalars.h",
+            "/Users/valeriodipasquale/Documents/Development/Projects/Python/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ndarrayobject.h",
+            "/Users/valeriodipasquale/Documents/Development/Projects/Python/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ndarraytypes.h",
+            "/Users/valeriodipasquale/Documents/Development/Projects/Python/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/ufuncobject.h"
         ],
         "extra_compile_args": [
             "-O3",
@@ -20,7 +20,7 @@
             "-fopenmp"
         ],
         "include_dirs": [
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include"
+            "/Users/valeriodipasquale/Documents/Development/Projects/Python/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include"
         ],
         "name": "pymochy",
         "sources": [

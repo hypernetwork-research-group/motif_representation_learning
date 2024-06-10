@@ -7,11 +7,11 @@ from models.adamic_adar import AdamicAdar
 from models.common_neighbors import CommonNeighors
 from models.hypergraph_motif_conv import HypergraphMotifConv
 from datasets import Dataset
-from time import time
 from sklearn.model_selection import KFold
 from sklearn.base import BaseEstimator
 from utils import incidence_matrix_train_test_split, incidence_matrix_fold_extract
 from utils import evaluate_estimator
+from rich.logging import RichHandler
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -117,6 +117,7 @@ if __name__ == '__main__':
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
     logging.basicConfig(level=logging.INFO)
+    logging.getLogger().addHandler(RichHandler())
 
     models = dict()
     models['Hypergraph Motif Conv'] = HypergraphMotifConv

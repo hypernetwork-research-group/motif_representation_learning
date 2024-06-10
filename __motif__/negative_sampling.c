@@ -4,7 +4,7 @@
 {
     "distutils": {
         "depends": [
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/npy_math.h"
+            "/Users/valeriodipasquale/Documents/Development/Projects/Python/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include/numpy/npy_math.h"
         ],
         "extra_compile_args": [
             "-O3",
@@ -16,7 +16,7 @@
             "-fopenmp"
         ],
         "include_dirs": [
-            "/home/valerio/Documenti/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include"
+            "/Users/valeriodipasquale/Documents/Development/Projects/Python/motif_representation_learning/.conda/lib/python3.10/site-packages/numpy/core/include"
         ],
         "name": "negative_sampling",
         "sources": [
