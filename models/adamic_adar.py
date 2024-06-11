@@ -24,7 +24,7 @@ class AdamicAdar(CustomEstimator):
                         adamic_adar[i, j] = np.sum(inv_log_degrees[common_neighbors])
         
         # Normalize the adamic adar scores
-        adamic_adar = (adamic_adar - adamic_adar.min()) / (adamic_adar.max() - adamic_adar.min())
+        self.c = np.ceil(np.linalg.norm(adamic_adar, np.inf))
 
         self.adamic_adar = adamic_adar
 
@@ -36,6 +36,7 @@ class AdamicAdar(CustomEstimator):
             y_pred_e[i] = aa.mean()
         y_pred_e = y_pred_e.reshape(-1, 1)
         y_pred_m = y_pred_e[motifs].prod(axis=1)
+        y_pred_m = y_pred_m / self.c
         return y_pred_m
 
     def _more_tags(self):

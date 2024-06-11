@@ -20,7 +20,7 @@ class JaccardCoefficient(CustomEstimator):
         jaccard = np.where(np.isnan(jaccard), 0, jaccard)
 
         # Normalize the jaccard scores
-        jaccard = (jaccard - jaccard.min()) / (jaccard.max() - jaccard.min())
+        self.c = np.ceil(np.linalg.norm(jaccard, np.inf))
 
         self.jaccard = jaccard
 
@@ -34,8 +34,9 @@ class JaccardCoefficient(CustomEstimator):
             y_pred_e[i] = jc.mean()
         y_pred_e = y_pred_e.reshape(-1, 1)
         y_pred_m = y_pred_e[motifs].prod(axis=1)
+        y_pred_m = y_pred_m / self.c
         return y_pred_m
 
     def _more_tags(self):
         return {'requires_y': False}
-    
+

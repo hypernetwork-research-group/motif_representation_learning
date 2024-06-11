@@ -33,7 +33,7 @@ class HypergraphMotifConvE(nn.Module):
         self.linear_2 = nn.Linear(channels_2, channels_2)
         self.edge_linear_out = nn.Linear(channels_2, channels_out)
 
-        self.aggr_2 = torch_geometric.nn.aggr.MaxAggregation()
+        self.aggr_2 = torch_geometric.nn.aggr.MinAggregation()
         self.linear_3 = nn.Linear(channels_2, channels_3)
 
         self.linear_out = nn.Linear(channels_3, channels_out)
@@ -41,16 +41,16 @@ class HypergraphMotifConvE(nn.Module):
     def node_embeddings(self, edge_index):
         y = self.node2vec_hypergraph_conv(edge_index)
         return y
-    
+
     def edge_embeddings(self, X, edge_index, edge_edge_index, sigmoid=False):
         y = X
         y = y.T @ y
-        y = nn.functional.relu(y)
+        y = nn.functional.leaky_relu(y)
         y = self.aggr_1(y[edge_index[0]], edge_index[1])
         y = self.dropout(y)
         y = self.hypergraph_edge_conv_1(y, edge_edge_index)
         y = self.linear_2(y)
-        y = nn.functional.relu(y)
+        y = nn.functional.leaky_relu(y)
         y_out = self.edge_linear_out(y)
         if sigmoid:
             y_out = nn.functional.sigmoid(y_out)
@@ -87,7 +87,7 @@ class HypergraphMotifConv(CustomEstimator):
     def __init__(self, batch_size=1000) -> None:
         self.batch_size = batch_size
 
-    def fit(self, X: np.ndarray, motifs: np.ndarray, X_validation, motifs_validation, y_validation_m):
+    def fit(self, X: np.ndarray, motifs: np.ndarray, X_validation, y_validation_e, motifs_validation, y_validation_m):
         num_nodes = X.shape[0]
         nni = torch.tensor(node_node_interactions(X))
         eei = torch.tensor(node_node_interactions(X.T, 3))
@@ -107,7 +107,8 @@ class HypergraphMotifConv(CustomEstimator):
             dataset = MotifIteratorDataset(torch.tensor(X), torch.tensor(motifs))
             training_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
 
-            loss_sum = 0
+            loss_e_sum = 0
+            loss_m_sum = 0
             for batch in training_loader:
                 X_batch = batch[0][0]
                 motifs_batch = batch[1]
@@ -121,12 +122,15 @@ class HypergraphMotifConv(CustomEstimator):
                 y = self.model.node_embeddings(nei)
                 y, y_pred_e = self.model.edge_embeddings(y, nei, eei)
                 _, y_pred_m = self.model.motif_embeddings(y, emi)
-                loss = criterion(y_pred_m, y_m)
-                loss.backward()
-                loss_sum += loss.item()
+                loss_e = criterion(y_pred_e, torch.tensor(y_e))
+                loss_m = criterion(y_pred_m, y_m)
+                loss_m.backward()
+                loss_m_sum += loss_m.item()
+                loss_e_sum += loss_e.item()
                 optimizer.step()
-                logging.debug(f"Epoch {epoch} - Loss: {loss.item()}")
-            current_logger.report_scalar(title="Loss", series="Train", iteration=epoch, value=loss_sum / len(training_loader))
+                logging.debug(f"Epoch {epoch} - Loss_m: {loss_m.item()}")
+            current_logger.report_scalar(title="Loss_m", series="Train", iteration=epoch, value=loss_m_sum / len(training_loader))
+            current_logger.report_scalar(title="Loss_e", series="Train", iteration=epoch, value=loss_e_sum / len(training_loader))
 
             if epoch % 2 == 0:
                 with torch.no_grad():
@@ -136,11 +140,15 @@ class HypergraphMotifConv(CustomEstimator):
                     y = self.model.node_embeddings(nei)
                     y, y_pred_e = self.model.edge_embeddings(y, nei, eei)
                     _, y_pred_m = self.model.motif_embeddings(y, emi)
-                    loss = criterion(y_pred_m, torch.tensor(y_validation_m))
-                    current_logger.report_scalar(title="Loss", series="Validation", iteration=epoch, value=loss.item())
-                    roc_auc = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
-                    current_logger.report_scalar(title="ROC AUC", series="Validation", iteration=epoch, value=roc_auc)
-                    logging.debug(f"Validation Loss: {loss.item()}")
+                    loss_m = criterion(y_pred_m, torch.tensor(y_validation_m))
+                    loss_e = criterion(y_pred_e, torch.tensor(y_validation_e))
+                    current_logger.report_scalar(title="Loss_m", series="Validation", iteration=epoch, value=loss_m.item())
+                    current_logger.report_scalar(title="Loss_e", series="Validation", iteration=epoch, value=loss_e.item())
+                    roc_auc_m = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
+                    roc_auc_e = roc_auc_score(y_validation_e, y_pred_e.cpu().detach().numpy())
+                    current_logger.report_scalar(title="ROC AUC", series="Validation_m", iteration=epoch, value=roc_auc_m)
+                    current_logger.report_scalar(title="ROC AUC", series="Validation_e", iteration=epoch, value=roc_auc_e)
+                    logging.debug(f"Validation Loss_m: {loss_m.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):
         self.model.eval()

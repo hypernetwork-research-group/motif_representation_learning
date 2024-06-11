@@ -14,7 +14,8 @@ class CommonNeighors(CustomEstimator):
         common_neighbors = A @ A
         self.common_neighbors = common_neighbors - np.diag(np.diag(common_neighbors)) # Remove the diagonal
         # Normalize the common neighbors scores
-        self.common_neighbors = (self.common_neighbors - self.common_neighbors.min()) / (self.common_neighbors.max() - self.common_neighbors.min())
+        # self.common_neighbors = (self.common_neighbors - self.common_neighbors.min()) / (self.common_neighbors.max() - self.common_neighbors.min())
+        self.c = np.ceil(np.linalg.norm(self.common_neighbors, np.inf))
         return self
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):
@@ -26,6 +27,7 @@ class CommonNeighors(CustomEstimator):
             y_pred_e[i] = cn.mean()
         y_pred_e = y_pred_e.reshape(-1, 1)
         y_pred_m = y_pred_e[motifs].prod(axis=1)
+        y_pred_m = y_pred_m / self.c
         return y_pred_m
 
     def _more_tags(self):

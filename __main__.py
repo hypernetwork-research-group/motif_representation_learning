@@ -1,11 +1,13 @@
 import numpy as np
 from pymochy import Mochy
 from motif import motif_negative_sampling
-from datasets import EmailEnronFull, EmailEuFull, ContactHighSchool, ContactPrimarySchool, NDCClassesFull, TagsAskUbuntu, TagsMathSx
+from datasets import EmailEnronFull, ContactHighSchool, ContactPrimarySchool, CongressBillsFull, TagsMathSx
 from models.jaccard_coefficient import JaccardCoefficient
 from models.adamic_adar import AdamicAdar
 from models.common_neighbors import CommonNeighors
 from models.hypergraph_motif_conv import HypergraphMotifConv
+from models.node2vec_hypergcn import Node2VecHyperGCN
+from models.hpra import HPRA
 from datasets import Dataset
 from sklearn.model_selection import KFold
 from sklearn.base import BaseEstimator
@@ -76,7 +78,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
             for model_name, Model in models.items():
                 model = Model()
-                model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, v_motifs, y_validation_m)
+                model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, y_validation_e, v_motifs, y_validation_m)
 
                 metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
                 logging.debug(f"{model_name} {metrics}")
@@ -89,11 +91,11 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         # Test the models
         for model_name, Model in models.items():
             model = Model()
-            model.fit(T_incidence_matrix, T_motifs, t_incidence_matrix, t_motifs, y_test_m)
+            model.fit(T_incidence_matrix, T_motifs, t_incidence_matrix, y_test_e, t_motifs, y_test_m)
 
             threshold = np.mean([metrics['threshold'] for metrics in model_metrics[model_name]])
             metrics = evaluate_estimator(model, t_incidence_matrix, t_motifs, y_test_m, threshold)
-            logging.debug(f"{model_name} {metrics}")
+            logging.info(f"{model_name} {metrics}")
 
             experiments_metrics[model_name].append(metrics)
 
@@ -112,7 +114,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         print("=====")
 
 if __name__ == '__main__':
-    dataset = NDCClassesFull()
+    dataset = EmailEnronFull()
     task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME}")
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
@@ -120,7 +122,9 @@ if __name__ == '__main__':
     logging.getLogger().addHandler(RichHandler())
 
     models = dict()
-    models['Hypergraph Motif Conv'] = HypergraphMotifConv
+    # models['Hypergraph Motif Conv'] = HypergraphMotifConv
+    models['Node2Vec HyperGCN'] = Node2VecHyperGCN
+    models['HPRA'] = HPRA
     models['Jaccard Coefficient'] = JaccardCoefficient
     models['Adamic Adar'] = AdamicAdar
     models['Common Neighors'] = CommonNeighors
