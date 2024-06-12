@@ -2,17 +2,15 @@ import numpy as np
 import torch
 from torch import nn
 import torch_geometric
-from torch_geometric.nn import Node2Vec, HypergraphConv
+from torch_geometric.nn import Node2Vec as N2V
 from utils import CustomEstimator
 
-class _Node2VecHyperGCN(nn.Module):
+class _Node2Vec(nn.Module):
 
-    def __init__(self, in_features: int, out_features: int, edge_index: torch.Tensor, num_nodes: int):
-        super(_Node2VecHyperGCN, self).__init__()
-
+    def __init__(self, in_features:int, out_features: int, edge_index: torch.Tensor, num_nodes: int):
+        super(_Node2Vec, self).__init__()
         self.dropout = nn.Dropout(0.5)
-        self.node2vec = Node2Vec(edge_index, embedding_dim=in_features, walk_length=80, context_size=80, walks_per_node=10, num_negative_samples=1, p=0.5, q=2, sparse=False, num_nodes=num_nodes)
-        self.hypergraph_node_conv_1 = HypergraphConv(in_features, in_features, attention_mode="edge")
+        self.node2vec = N2V(edge_index, embedding_dim=in_features, walk_length=80, context_size=80, walks_per_node=10, num_negative_samples=1, p=0.5, q=2, sparse=False, num_nodes=num_nodes)
         self.linear = nn.Linear(in_features, out_features)
         self.aggr_1 = torch_geometric.nn.aggr.MeanAggregation()
         self.aggr_2 = torch_geometric.nn.aggr.MinAggregation()
@@ -20,10 +18,10 @@ class _Node2VecHyperGCN(nn.Module):
     def forward(self, edge_index: torch.Tensor, emi: torch.Tensor, sigmoid: bool = False) -> torch.Tensor:
         y = self.node2vec()
         y = self.dropout(y)
-        y = self.hypergraph_node_conv_1(y, edge_index)
         y = nn.functional.leaky_relu(y)
         y = y.T @ y
         y = self.linear(y)
+        y = nn.functional.leaky_relu(y)
         y = self.aggr_1(y[edge_index[0]], edge_index[1])
         y = self.aggr_2(y[emi[0]], emi[1])
         if sigmoid:
@@ -37,7 +35,7 @@ import logging
 from clearml import Logger
 from sklearn.metrics import roc_auc_score
 
-class Node2VecHyperGCN(CustomEstimator):
+class Node2Vec(CustomEstimator):
 
     def __init__(self, batch_size=1000) -> None:
         self.batch_size = batch_size
@@ -48,7 +46,7 @@ class Node2VecHyperGCN(CustomEstimator):
         emi_validation = torch.tensor(edge_motif_interactions(X, motifs_validation))
 
         current_logger = Logger.current_logger()
-        self.model = _Node2VecHyperGCN(X.shape[0], 1, nni, num_nodes)
+        self.model = _Node2Vec(X.shape[0], 1, nni, num_nodes)
         optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         criterion = nn.BCEWithLogitsLoss()
         epochs = 300
@@ -77,7 +75,7 @@ class Node2VecHyperGCN(CustomEstimator):
                 loss_m_sum += loss_m.item()
                 optimizer.step()
                 logging.debug(f"Epoch {epoch} - Loss: {loss_m.item()}")
-            current_logger.report_scalar(title="Loss M", series="N2VHGC Train", iteration=epoch, value=loss_m_sum / len(training_loader))
+            current_logger.report_scalar(title="Loss M", series="N2V Train", iteration=epoch, value=loss_m_sum / len(training_loader))
 
             if epoch % 2 == 0:
                 with torch.no_grad():
@@ -86,9 +84,9 @@ class Node2VecHyperGCN(CustomEstimator):
                     y_pred_m = self.model(nei, emi_validation)
                     loss = criterion(y_pred_m, torch.tensor(y_validation_m))
                     y_pred_m = nn.functional.sigmoid(y_pred_m)
-                    current_logger.report_scalar(title="Loss M", series="N2VHGC Validation", iteration=epoch, value=loss.item())
+                    current_logger.report_scalar(title="Loss M", series="N2V Validation", iteration=epoch, value=loss.item())
                     roc_auc = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
-                    current_logger.report_scalar(title="ROC AUC", series="N2VHGC Validation", iteration=epoch, value=roc_auc)
+                    current_logger.report_scalar(title="ROC AUC", series="N2V Validation", iteration=epoch, value=roc_auc)
                     logging.debug(f"Validation Loss: {loss.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray) -> np.ndarray:

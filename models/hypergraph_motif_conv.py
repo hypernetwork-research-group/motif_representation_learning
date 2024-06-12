@@ -17,7 +17,9 @@ class Node2VecHypergraphConv(nn.Module): # Da testare se da le stesse performanc
         y = self.node2vec()
         y = self.hypergraph_node_conv(y, edge_index)
         y = nn.functional.leaky_relu(y)
+        y = y.T @ y
         y = self.linear(y)
+        y = nn.functional.leaky_relu(y) # TODO: Remove this
         return y
 
 class HypergraphMotifConvE(nn.Module):
@@ -44,8 +46,6 @@ class HypergraphMotifConvE(nn.Module):
 
     def edge_embeddings(self, X, edge_index, edge_edge_index, sigmoid=False):
         y = X
-        y = y.T @ y
-        y = nn.functional.leaky_relu(y)
         y = self.aggr_1(y[edge_index[0]], edge_index[1])
         y = self.dropout(y)
         y = self.hypergraph_edge_conv_1(y, edge_edge_index)
@@ -98,7 +98,7 @@ class HypergraphMotifConv(CustomEstimator):
         self.model.train()
         current_logger = Logger.current_logger()
 
-        epochs = 100
+        epochs = 200
         optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
         criterion = torch.nn.BCEWithLogitsLoss()
         for epoch in range(epochs):
@@ -129,8 +129,8 @@ class HypergraphMotifConv(CustomEstimator):
                 loss_e_sum += loss_e.item()
                 optimizer.step()
                 logging.debug(f"Epoch {epoch} - Loss_m: {loss_m.item()}")
-            current_logger.report_scalar(title="Loss_m", series="Train", iteration=epoch, value=loss_m_sum / len(training_loader))
-            current_logger.report_scalar(title="Loss_e", series="Train", iteration=epoch, value=loss_e_sum / len(training_loader))
+            current_logger.report_scalar(title="Loss M", series="HGMRL-m Train", iteration=epoch, value=loss_m_sum / len(training_loader))
+            current_logger.report_scalar(title="Loss E", series="HGMRL-e Train", iteration=epoch, value=loss_e_sum / len(training_loader))
 
             if epoch % 2 == 0:
                 with torch.no_grad():
@@ -142,12 +142,12 @@ class HypergraphMotifConv(CustomEstimator):
                     _, y_pred_m = self.model.motif_embeddings(y, emi)
                     loss_m = criterion(y_pred_m, torch.tensor(y_validation_m))
                     loss_e = criterion(y_pred_e, torch.tensor(y_validation_e))
-                    current_logger.report_scalar(title="Loss_m", series="Validation", iteration=epoch, value=loss_m.item())
-                    current_logger.report_scalar(title="Loss_e", series="Validation", iteration=epoch, value=loss_e.item())
+                    current_logger.report_scalar(title="Loss M", series="HGMRL-m Validation", iteration=epoch, value=loss_m.item())
+                    current_logger.report_scalar(title="Loss E", series="HGMRL-e Validation", iteration=epoch, value=loss_e.item())
                     roc_auc_m = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
                     roc_auc_e = roc_auc_score(y_validation_e, y_pred_e.cpu().detach().numpy())
-                    current_logger.report_scalar(title="ROC AUC", series="Validation_m", iteration=epoch, value=roc_auc_m)
-                    current_logger.report_scalar(title="ROC AUC", series="Validation_e", iteration=epoch, value=roc_auc_e)
+                    current_logger.report_scalar(title="ROC AUC", series="HGMRL-m", iteration=epoch, value=roc_auc_m)
+                    current_logger.report_scalar(title="ROC AUC", series="HGMRL-e", iteration=epoch, value=roc_auc_e)
                     logging.debug(f"Validation Loss_m: {loss_m.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):

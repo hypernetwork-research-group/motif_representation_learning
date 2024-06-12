@@ -7,7 +7,9 @@ from models.adamic_adar import AdamicAdar
 from models.common_neighbors import CommonNeighors
 from models.hypergraph_motif_conv import HypergraphMotifConv
 from models.node2vec_hypergcn import Node2VecHyperGCN
+from models.node2vec import Node2Vec
 from models.hpra import HPRA
+from models.villain import VilLain
 from datasets import Dataset
 from sklearn.model_selection import KFold
 from sklearn.base import BaseEstimator
@@ -19,9 +21,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 import logging
+from clearml import Logger
 
 import os
-os.environ['OMP_NUM_THREADS'] = '32'
+os.environ['OMP_NUM_THREADS'] = '128'
 
 from clearml import Task
 
@@ -33,6 +36,8 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
     print(incidence_matrix.shape)
 
     experiments_metrics = { model_name: [] for model_name in models.keys()}
+
+    current_logger = Logger.current_logger()
 
     for i in range(3): # Experiments iteration
         logging.info(f"Experiment {i}")
@@ -122,12 +127,14 @@ if __name__ == '__main__':
     logging.getLogger().addHandler(RichHandler())
 
     models = dict()
+    models['VilLain'] = VilLain
+    # models['Node2Vec'] = Node2Vec
+    # models['Node2Vec HyperGCN'] = Node2VecHyperGCN
     # models['Hypergraph Motif Conv'] = HypergraphMotifConv
-    models['Node2Vec HyperGCN'] = Node2VecHyperGCN
-    models['HPRA'] = HPRA
-    models['Jaccard Coefficient'] = JaccardCoefficient
-    models['Adamic Adar'] = AdamicAdar
-    models['Common Neighors'] = CommonNeighors
+    # models['HPRA'] = HPRA
+    # models['Jaccard Coefficient'] = JaccardCoefficient
+    # models['Adamic Adar'] = AdamicAdar
+    # models['Common Neighors'] = CommonNeighors
 
     for i in [2, 3, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]:
         main(dataset, models, i, 10000, 0.5, 1)
