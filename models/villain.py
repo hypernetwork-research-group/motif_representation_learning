@@ -46,7 +46,7 @@ class VilLain(CustomEstimator):
 
     def fit(self, X: np.ndarray):
         self.node_embeds = np.empty((X.shape[0], 0))
-        for num_labels in [2, 4, 5, 6, 7, 8]:
+        for num_labels in [2, 3, 4, 5, 6, 7, 8]:
             dim = 128
             num_step=4
             num_step_gen=100

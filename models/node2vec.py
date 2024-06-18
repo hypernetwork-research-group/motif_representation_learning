@@ -22,11 +22,12 @@ class _Node2Vec(nn.Module):
         y = y.T @ y
         y = self.linear(y)
         y = nn.functional.leaky_relu(y)
-        y = self.aggr_1(y[edge_index[0]], edge_index[1])
-        y = self.aggr_2(y[emi[0]], emi[1])
+        y_e = self.aggr_1(y[edge_index[0]], edge_index[1])
+        y_m = self.aggr_2(y_e[emi[0]], emi[1])
         if sigmoid:
-            y = nn.functional.sigmoid(y)
-        return y
+            y_e = nn.functional.sigmoid(y_e)
+            y_m = nn.functional.sigmoid(y_m)
+        return y_e, y_m
 
 from utils import MotifIteratorDataset
 from torch.utils.data import DataLoader
@@ -56,6 +57,7 @@ class Node2Vec(CustomEstimator):
             dataset = MotifIteratorDataset(torch.tensor(X), torch.tensor(motifs))
             training_loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
 
+            loss_e_sum = 0
             loss_m_sum = 0
             for batch in training_loader:
                 X_batch = batch[0][0]
@@ -67,26 +69,35 @@ class Node2Vec(CustomEstimator):
                 nei = torch.tensor(np.array(X_.nonzero()))
 
                 optimizer.zero_grad()
-                y_pred_m = self.model(nei, emi_)
+                y_pred_e, y_pred_m = self.model(nei, emi_)
 
+                loss_e = criterion(y_pred_e, y_e)
                 loss_m = criterion(y_pred_m, y_m)
 
-                loss_m.backward()
+                loss = loss_e
+
+                loss.backward()
+                loss_e_sum += loss_e.item()
                 loss_m_sum += loss_m.item()
                 optimizer.step()
-                logging.debug(f"Epoch {epoch} - Loss: {loss_m.item()}")
+                logging.debug(f"Epoch {epoch} - Loss: {loss.item()}")
+            current_logger.report_scalar(title="Loss E", series="N2V Train", iteration=epoch, value=loss_e_sum / len(training_loader))
             current_logger.report_scalar(title="Loss M", series="N2V Train", iteration=epoch, value=loss_m_sum / len(training_loader))
 
             if epoch % 2 == 0:
                 with torch.no_grad():
                     self.model.eval()
                     nei = torch.tensor(np.array(X_validation.nonzero()))                    
-                    y_pred_m = self.model(nei, emi_validation)
-                    loss = criterion(y_pred_m, torch.tensor(y_validation_m))
-                    y_pred_m = nn.functional.sigmoid(y_pred_m)
-                    current_logger.report_scalar(title="Loss M", series="N2V Validation", iteration=epoch, value=loss.item())
-                    roc_auc = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
-                    current_logger.report_scalar(title="ROC AUC", series="N2V Validation", iteration=epoch, value=roc_auc)
+                    y_pred_e, y_pred_m = self.model(nei, emi_validation)
+                    loss_e = criterion(y_pred_e, torch.tensor(y_validation_e))
+                    loss_m = criterion(y_pred_m, torch.tensor(y_validation_m))
+                    y_pred_e, y_pred_m = nn.functional.sigmoid(y_pred_e), nn.functional.sigmoid(y_pred_m)
+                    current_logger.report_scalar(title="Loss E", series="N2V Validation", iteration=epoch, value=loss_e.item())
+                    current_logger.report_scalar(title="Loss M", series="N2V Validation", iteration=epoch, value=loss_m.item())
+                    roc_auc_e = roc_auc_score(y_validation_e, y_pred_e.cpu().detach().numpy())
+                    roc_auc_m = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
+                    current_logger.report_scalar(title="ROC AUC", series="N2V Validation", iteration=epoch, value=roc_auc_e)
+                    current_logger.report_scalar(title="ROC AUC", series="N2V Validation", iteration=epoch, value=roc_auc_m)
                     logging.debug(f"Validation Loss: {loss.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray) -> np.ndarray:

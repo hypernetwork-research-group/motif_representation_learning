@@ -138,5 +138,5 @@ if __name__ == '__main__':
     models['Adamic Adar'] = AdamicAdar
     models['Common Neighors'] = CommonNeighors
 
-    for i in [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]:
+    for i in [2,  3,  5,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]:
         main(dataset, models, i, 10000, 0.5, 1)
