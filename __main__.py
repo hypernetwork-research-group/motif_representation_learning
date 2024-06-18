@@ -6,6 +6,7 @@ from models.adamic_adar import AdamicAdar
 from models.jaccard_coefficient import JaccardCoefficient
 from models.common_neighbors import CommonNeighors
 from models.hypergraph_motif_conv import HypergraphMotifConv
+from models.hgmrl_villain import HypergraphMotifConvVilLain
 from models.node2vec_hypergcn import Node2VecHyperGCN
 from models.node2vec import Node2Vec
 from models.hpra import HPRA
@@ -128,9 +129,10 @@ if __name__ == '__main__':
 
     models = dict()
     models['VilLain'] = VilLainSLP
+    models['Hypergraph Motif Conv VilLain'] = HypergraphMotifConvVilLain
+    models['Hypergraph Motif Conv'] = HypergraphMotifConv
     models['Node2Vec'] = Node2Vec
     models['Node2Vec HyperGCN'] = Node2VecHyperGCN
-    models['Hypergraph Motif Conv'] = HypergraphMotifConv
     models['HPRA'] = HPRA
     models['Jaccard Coefficient'] = JaccardCoefficient
     models['Adamic Adar'] = AdamicAdar

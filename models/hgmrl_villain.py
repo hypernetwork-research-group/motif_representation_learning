@@ -5,30 +5,16 @@ from torch import nn
 import torch_geometric.nn.aggr
 from torch_geometric.nn import Node2Vec, HypergraphConv, GCNConv
 
-class Node2VecHypergraphConv(nn.Module): # Da testare se da le stesse performance
-
-    def __init__(self, channels, edge_index, num_nodes) -> None:
-        super().__init__()
-        self.node2vec = Node2Vec(edge_index, embedding_dim=channels, walk_length=80, context_size=80, walks_per_node=10, num_negative_samples=1, p=0.5, q=2, sparse=False, num_nodes=num_nodes)
-        self.hypergraph_node_conv = HypergraphConv(channels, channels, attention_mode="edge")
-        self.linear = nn.Linear(channels, channels)
-
-    def forward(self, edge_index):
-        y = self.node2vec()
-        y = self.hypergraph_node_conv(y, edge_index)
-        y = nn.functional.leaky_relu(y)
-        y = y.T @ y
-        y = self.linear(y)
-        y = nn.functional.leaky_relu(y) # TODO: Remove this
-        return y
-
 class HypergraphMotifConvE(nn.Module):
 
-    def __init__(self, channels_1, channels_2, channels_3, channels_out, edge_index, num_nodes) -> None:
+    def __init__(self, channels_1, channels_2, channels_3, channels_out) -> None:
         super().__init__()
         self.dropout = nn.Dropout(0.5)
 
-        self.node2vec_hypergraph_conv = Node2VecHypergraphConv(channels_1, edge_index, num_nodes)
+        self.villain = VilLain(channels_1)
+
+        self.hypergraph_node_conv = HypergraphConv(channels_1, channels_1, attention_mode="edge")
+        self.linear = nn.Linear(channels_1, channels_1)
 
         self.aggr_1 = torch_geometric.nn.MeanAggregation()
         self.hypergraph_edge_conv_1 = GCNConv(channels_1, channels_2)
@@ -41,7 +27,13 @@ class HypergraphMotifConvE(nn.Module):
         self.linear_out = nn.Linear(channels_3, channels_out)
     
     def node_embeddings(self, edge_index):
-        y = self.node2vec_hypergraph_conv(edge_index)
+        y = torch.tensor(self.villain.node_embeds)
+        y = self.dropout(y)
+        y = self.hypergraph_node_conv(y, edge_index)
+        y = nn.functional.leaky_relu(y)
+        y = y.T @ y
+        y = self.linear(y)
+        y = nn.functional.leaky_relu(y) # TODO: Remove this
         return y
 
     def edge_embeddings(self, X, edge_index, edge_edge_index, sigmoid=False):
@@ -81,20 +73,22 @@ from clearml import Logger
 from utils import MotifIteratorDataset
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score
+from models.villain import VilLain
 
-class HypergraphMotifConv(CustomEstimator):
+class HypergraphMotifConvVilLain(CustomEstimator):
 
     def __init__(self, batch_size=1000) -> None:
         self.batch_size = batch_size
 
     def fit(self, X: np.ndarray, motifs: np.ndarray, X_validation, y_validation_e, motifs_validation, y_validation_m):
-        num_nodes = X.shape[0]
-        nni = torch.tensor(node_node_interactions(X))
         eei = torch.tensor(node_node_interactions(X.T, 3))
 
         self.eei = eei
 
-        self.model = HypergraphMotifConvE(X.shape[0], 64, 64, 1, nni, num_nodes)
+        self.model = HypergraphMotifConvE(X.shape[0], 64, 64, 1)
+
+        self.model.villain.fit(X)
+
         self.model.train()
         current_logger = Logger.current_logger()
 
@@ -146,8 +140,8 @@ class HypergraphMotifConv(CustomEstimator):
                     current_logger.report_scalar(title="Loss E", series="HGMRL-e Validation", iteration=epoch, value=loss_e.item())
                     roc_auc_m = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
                     roc_auc_e = roc_auc_score(y_validation_e, y_pred_e.cpu().detach().numpy())
-                    current_logger.report_scalar(title="ROC AUC", series="HGMRL-m", iteration=epoch, value=roc_auc_m)
-                    current_logger.report_scalar(title="ROC AUC E", series="HGMRL-e", iteration=epoch, value=roc_auc_e)
+                    current_logger.report_scalar(title="ROC AUC", series="HGMRL-VilLain-m", iteration=epoch, value=roc_auc_m)
+                    current_logger.report_scalar(title="ROC AUC E", series="HGMRL-VilLain-e", iteration=epoch, value=roc_auc_e)
                     logging.debug(f"Validation Loss_m: {loss_m.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):

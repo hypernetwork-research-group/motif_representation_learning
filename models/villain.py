@@ -11,6 +11,7 @@ from utils import MotifIteratorDataset
 from torch.utils.data import DataLoader
 from clearml import Logger
 from sklearn.metrics import roc_auc_score
+from sklearn.decomposition import PCA
 
 class Linear(nn.Module):
 
@@ -23,82 +24,100 @@ class Linear(nn.Module):
         self.aggr_2 = torch_geometric.nn.aggr.MulAggregation()
 
     def forward(self, X: torch.Tensor, nei, emi, sigmoid=False) -> torch.Tensor:
+        # Initial dropout
         y = self.dropout(X)
-        y = self.linear_1(y)
-        y = nn.functional.leaky_relu(y)
-        y = self.linear_2(y)
-        y = nn.functional.leaky_relu(y)
+        # Edges
         y_e = self.aggr_1(y[nei[0]], nei[1])
+        y_e = self.linear_1(y_e)
+        y_e = nn.functional.leaky_relu(y_e)
+        y_e = self.linear_2(y_e)
+        # Motifs
         y_m = self.aggr_2(y_e[emi[0]], emi[1])
+        # Out
         if sigmoid:
-            y = nn.functional.sigmoid(y)
+            y_e = nn.functional.sigmoid(y_e)
+            y_m = nn.functional.sigmoid(y_m)
         return y_e, y_m
 
-from sklearn.linear_model import LogisticRegression
+class VilLain(CustomEstimator):
+
+    def __init__(self, n_features):
+        self.n_features = n_features
+
+    def fit(self, X: np.ndarray):
+        self.node_embeds = np.empty((X.shape[0], 0))
+        for num_labels in [2, 4, 5, 6, 7, 8]:
+            dim = 128
+            num_step=4
+            num_step_gen=100
+            lr=0.01
+            epochs = 5000
+            num_subspace = math.ceil(dim / num_labels)
+            nei = torch.tensor(np.array(X.nonzero()))
+            V_idx = nei[0]
+            E_idx = nei[1]
+            V, E = torch.max(V_idx) + 1, torch.max(E_idx) + 1
+            self.model = model(V_idx, E_idx, V, E, num_subspace, num_labels, num_step, num_step_gen)
+            best_loss, best_model = 1e10, None
+            pre_loss, patience = 1e10, 20
+
+            optimizer = torch.optim.AdamW(self.model.parameters(), lr=lr, weight_decay=0)
+
+            for epoch in range(1, epochs + 1):
+                self.model.train()
+
+                loss_local, loss_global = self.model()
+                loss = loss_local + loss_global
+
+                optimizer.zero_grad()
+                loss.backward()
+                torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
+                optimizer.step()
+
+                # if epoch % 10 == 0:
+                    # print('{}\t{}\t{}'.format(epoch, loss_local.item(), loss_global.item()))
+                
+                if epoch <= 100:
+                    continue
+
+                if loss.item() < best_loss:
+                    self.model.eval()
+                    best_loss = loss.item()
+                    best_model = copy.deepcopy(self.model.state_dict())
+
+                diff = abs(loss.item() - pre_loss) / abs(pre_loss)
+                if diff < 0.002:
+                    cnt_wait += 1
+                else:
+                    cnt_wait = 0
+
+                if cnt_wait == patience:
+                    break
+
+                pre_loss = loss.item()
+
+            self.model.load_state_dict(best_model)
+            self.model.eval()
+            node_embeds = np.array(self.model.get_node_embeds())
+            self.node_embeds = np.concatenate((self.node_embeds, node_embeds), axis=1)
+        pca = PCA(n_components=self.n_features)
+        self.node_embeds = pca.fit_transform(self.node_embeds)
+        self.node_embeds = self.node_embeds.astype(np.float32)
 
 class VilLainSLP(CustomEstimator):
 
     def fit(self, X: np.ndarray, motifs: np.ndarray, X_validation, y_validation_e, motifs_validation, y_validation_m):
         current_logger = Logger.current_logger()
-        dim = 128
-        num_labels = 6
-        num_step=4
-        num_step_gen=100
-        lr=0.01
-        epochs = 5000
-        num_subspace = math.ceil(dim / num_labels)
-        nei = torch.tensor(np.array(X.nonzero()))
-        V_idx = nei[0]
-        E_idx = nei[1]
-        V, E = torch.max(V_idx) + 1, torch.max(E_idx) + 1
-        self.model = model(V_idx, E_idx, V, E, num_subspace, num_labels, num_step, num_step_gen)
-        best_loss, best_model = 1e10, None
-        pre_loss, patience = 1e10, 20
+        self.villain = VilLain(X.shape[0])
+        self.villain.fit(X)
 
-        optimizer = torch.optim.AdamW(self.model.parameters(), lr=lr, weight_decay=0)
-
-        for epoch in range(1, epochs + 1):
-            self.model.train()
-
-            loss_local, loss_global = self.model()
-            loss = loss_local + loss_global
-
-            optimizer.zero_grad()
-            loss.backward()
-            torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
-            optimizer.step()
-
-            # if epoch % 10 == 0:
-                # print('{}\t{}\t{}'.format(epoch, loss_local.item(), loss_global.item()))
-            
-            if epoch <= 100:
-                continue
-
-            if loss.item() < best_loss:
-                self.model.eval()
-                best_loss = loss.item()
-                best_model = copy.deepcopy(self.model.state_dict())
-
-            diff = abs(loss.item() - pre_loss) / abs(pre_loss)
-            if diff < 0.002:
-                cnt_wait += 1
-            else:
-                cnt_wait = 0
-                    
-            if cnt_wait == patience:
-                break
-                
-            pre_loss = loss.item()
-
-        self.model.load_state_dict(best_model)
-        self.model.eval()
-        node_embeds = self.model.get_node_embeds()
+        node_embeds = torch.tensor(self.villain.node_embeds)
 
         nei_validation = torch.tensor(np.array(X_validation.nonzero()))
         emi_validation = torch.tensor(edge_motif_interactions(X_validation, motifs_validation))
 
-        epochs = 100
-        self.linear = Linear(num_subspace * num_labels, 1)
+        epochs = 200
+        self.linear = Linear(X.shape[0], 1)
         optimizer_linear = torch.optim.Adam(self.linear.parameters(), lr=0.01)
         criterion = nn.BCEWithLogitsLoss()
         for epoch in range(epochs):
@@ -126,14 +145,14 @@ class VilLainSLP(CustomEstimator):
                 loss_e = criterion(y_pred_e, y_e)
                 loss_m = criterion(y_pred_m, y_m)
 
-                loss = loss_e
+                loss = loss_e + loss_m
 
                 loss.backward()
 
                 loss_e_sum += loss_e.item()
                 loss_m_sum += loss_m.item()
                 optimizer_linear.step()
- 
+
             current_logger.report_scalar("Loss E", "ViLlain Train", iteration = epoch, value = loss_e_sum / len(training_loader))
             current_logger.report_scalar("Loss M", "ViLlain Train", iteration = epoch, value = loss_m_sum / len(training_loader))
 
@@ -151,9 +170,8 @@ class VilLainSLP(CustomEstimator):
                     current_logger.report_scalar("ROC AUC", "ViLlain Validation", iteration = epoch, value = auc_m)
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):
-        self.model.eval()
         self.linear.eval()
-        node_embeds = self.model.get_node_embeds()
+        node_embeds = torch.tensor(self.villain.node_embeds)
         nei = torch.tensor(np.array(X.nonzero()))
         emi = torch.tensor(edge_motif_interactions(X, motifs))
         y_pred_e, y_m = self.linear(node_embeds, nei, emi, sigmoid=True)
