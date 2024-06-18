@@ -1,15 +1,15 @@
 import numpy as np
 from pymochy import Mochy
 from motif import motif_negative_sampling
-from datasets import EmailEnronFull, ContactHighSchool, ContactPrimarySchool, CongressBillsFull, TagsMathSx
-from models.jaccard_coefficient import JaccardCoefficient
+from datasets import EmailEnronFull, ContactHighSchool, ContactPrimarySchool, CongressBillsFull # Cora, Citeseer
 from models.adamic_adar import AdamicAdar
+from models.jaccard_coefficient import JaccardCoefficient
 from models.common_neighbors import CommonNeighors
 from models.hypergraph_motif_conv import HypergraphMotifConv
 from models.node2vec_hypergcn import Node2VecHyperGCN
 from models.node2vec import Node2Vec
 from models.hpra import HPRA
-from models.villain import VilLain
+from models.villain import VilLainSLP
 from datasets import Dataset
 from sklearn.model_selection import KFold
 from sklearn.base import BaseEstimator
@@ -100,7 +100,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
             threshold = np.mean([metrics['threshold'] for metrics in model_metrics[model_name]])
             metrics = evaluate_estimator(model, t_incidence_matrix, t_motifs, y_test_m, threshold)
-            logging.info(f"{model_name} {metrics}")
+            logging.debug(f"{model_name} {metrics}")
 
             experiments_metrics[model_name].append(metrics)
 
@@ -127,14 +127,14 @@ if __name__ == '__main__':
     logging.getLogger().addHandler(RichHandler())
 
     models = dict()
-    models['VilLain'] = VilLain
-    # models['Node2Vec'] = Node2Vec
-    # models['Node2Vec HyperGCN'] = Node2VecHyperGCN
-    # models['Hypergraph Motif Conv'] = HypergraphMotifConv
-    # models['HPRA'] = HPRA
-    # models['Jaccard Coefficient'] = JaccardCoefficient
-    # models['Adamic Adar'] = AdamicAdar
-    # models['Common Neighors'] = CommonNeighors
+    models['VilLain'] = VilLainSLP
+    models['Node2Vec'] = Node2Vec
+    models['Node2Vec HyperGCN'] = Node2VecHyperGCN
+    models['Hypergraph Motif Conv'] = HypergraphMotifConv
+    models['HPRA'] = HPRA
+    models['Jaccard Coefficient'] = JaccardCoefficient
+    models['Adamic Adar'] = AdamicAdar
+    models['Common Neighors'] = CommonNeighors
 
-    for i in [2, 3, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]:
+    for i in [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]:
         main(dataset, models, i, 10000, 0.5, 1)
