@@ -3,7 +3,7 @@ from Cython.Build import cythonize
 import numpy
 import os
 
-os.environ["CC"] = "gcc-14"
+os.environ["CC"] = "gcc"
 os.environ["CXX"] = "clang++"
 
 extensions = [
