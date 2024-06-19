@@ -25,7 +25,7 @@ import logging
 from clearml import Logger
 
 import os
-os.environ['OMP_NUM_THREADS'] = '128'
+os.environ['OMP_NUM_THREADS'] = '8'
 
 from clearml import Task
 
