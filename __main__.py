@@ -119,9 +119,10 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         print("Threshold:", f"{np.min(threshold):.2}", "<", f"{np.mean(threshold):.2}", "+-", f"{np.std(threshold):.2}", "<", f"{np.max(threshold):.2}")
         print("=====")
 
+import argparse
+
 if __name__ == '__main__':
     dataset = EmailEnronFull()
-    task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME}")
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
     logging.basicConfig(level=logging.INFO)
@@ -138,5 +139,12 @@ if __name__ == '__main__':
     models['Adamic Adar'] = AdamicAdar
     models['Common Neighors'] = CommonNeighors
 
-    for i in [2,  3,  5,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]:
-        main(dataset, models, i, 10000, 0.5, 1)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-k", type=int, required=True)
+
+    args = parser.parse_args()
+
+    k = args.k
+
+    task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME} {k}")
+    main(dataset, models, k, 10000, 0.5, 1)
