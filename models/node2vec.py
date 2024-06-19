@@ -65,6 +65,7 @@ class Node2Vec(CustomEstimator):
 
                 X_, motifs_, y_e, y_m = motif_negative_sampling(X_batch.cpu().detach().numpy(), motifs_batch.cpu().detach().numpy(), 0.5, 1)
                 emi_ = torch.tensor(edge_motif_interactions(X_, motifs_))
+                y_e = torch.tensor(y_e)
                 y_m = torch.tensor(y_m)
                 nei = torch.tensor(np.array(X_.nonzero()))
 
