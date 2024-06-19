@@ -105,6 +105,6 @@ class Node2Vec(CustomEstimator):
         self.model.eval()
         nei = torch.tensor(np.array(X.nonzero()))
         emi = torch.tensor(edge_motif_interactions(X, motifs))
-        y_pred_m = self.model(nei, emi, sigmoid=True)
+        y_pred_e, y_pred_m = self.model(nei, emi, sigmoid=True)
         return y_pred_m.cpu().detach().numpy()
     
