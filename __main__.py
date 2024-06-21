@@ -129,6 +129,8 @@ if __name__ == '__main__':
     parser.add_argument("-k", type=int, required=True)
     parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'congress_bills'])
 
+    args = parser.parse_args()
+
     if args.dataset == 'email_enron':
         dataset = EmailEnronFull()
     elif args.dataset == 'contact_high_school':
@@ -151,8 +153,6 @@ if __name__ == '__main__':
     models['Jaccard Coefficient'] = JaccardCoefficient
     models['Adamic Adar'] = AdamicAdar
     models['Common Neighors'] = CommonNeighors
-
-    args = parser.parse_args()
 
     k = args.k
 
