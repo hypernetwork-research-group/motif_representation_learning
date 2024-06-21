@@ -84,13 +84,16 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
             for model_name, Model in models.items():
                 model = Model()
-                model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, y_validation_e, v_motifs, y_validation_m)
+                try:
+                    model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, y_validation_e, v_motifs, y_validation_m)
 
-                metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
-                logging.debug(f"{model_name} {metrics}")
-                model_metrics[model_name].append(metrics)
+                    metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
+                    logging.debug(f"{model_name} {metrics}")
+                    model_metrics[model_name].append(metrics)
 
-                model_params[model_name].append(model.get_params()) # Save the model parameters
+                    model_params[model_name].append(model.get_params()) # Save the model parameters
+                except Exception as e:
+                    logging.error(f"{model_name} {e}")
 
         t_incidence_matrix, t_motifs, y_test_e, y_test_m = motif_negative_sampling(t_incidence_matrix, t_motifs, alpha, beta)
 

@@ -130,9 +130,13 @@ def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, c
             if (new_motif == m).all():
                 continue
             new_motifs.append(new_motif)
-
-    new_incidence_matrix = np.hstack((incidence_matrix, np.array(new_edges).T))
-    motifs_ = np.vstack((motifs, np.array(new_motifs)), dtype=DTYPE_int)
+    
+    if len(new_edges):
+        new_incidence_matrix = np.hstack((incidence_matrix, np.array(new_edges).T))
+        motifs_ = np.vstack((motifs, np.array(new_motifs)), dtype=DTYPE_int)
+    else:
+        new_incidence_matrix = incidence_matrix
+        motifs_ = motifs
     y_e = np.vstack((np.ones((incidence_matrix.shape[1], 1)), np.zeros((len(new_edges), 1))), dtype=DTYPE)
     y_m = np.vstack((np.ones((motifs.shape[0], 1)), np.zeros((len(new_motifs), 1))), dtype=DTYPE)
 
