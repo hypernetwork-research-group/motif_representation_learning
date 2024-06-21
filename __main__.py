@@ -122,7 +122,17 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 import argparse
 
 if __name__ == '__main__':
-    dataset = EmailEnronFull()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-k", type=int, required=True)
+    parser.add_argument('--dataset', type=str, options=['email_enron', 'contact_high_school', 'congress_bills'])
+
+    if args.dataset == 'email_enron':
+        dataset = EmailEnronFull()
+    elif args.dataset == 'contact_high_school':
+        dataset = ContactHighSchool()
+    elif args.dataset == 'congress_bills':
+        dataset = CongressBillsFull()
+
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
     logging.basicConfig(level=logging.INFO)
@@ -138,9 +148,6 @@ if __name__ == '__main__':
     models['Jaccard Coefficient'] = JaccardCoefficient
     models['Adamic Adar'] = AdamicAdar
     models['Common Neighors'] = CommonNeighors
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-k", type=int, required=True)
 
     args = parser.parse_args()
 
