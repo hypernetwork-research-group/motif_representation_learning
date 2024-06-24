@@ -60,40 +60,40 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         logging.debug(f"Training motifs: {T_motifs.shape[0]}/{T_motif_count[k]}")
         logging.debug(f"Test motifs: {t_motifs.shape[0]}/{t_motif_count[k]}")
 
-        kf = KFold(n_splits=5)
-        for f, (train_index, test_index) in enumerate(kf.split(T_incidence_matrix.T)): # k-fold cross validation
-            logging.debug(f"Fold {f}")
-            V_incidence_matrix, v_incidence_matrix = incidence_matrix_fold_extract(T_incidence_matrix, train_index, test_index)
+        # kf = KFold(n_splits=5)
+        # for f, (train_index, test_index) in enumerate(kf.split(T_incidence_matrix.T)): # k-fold cross validation
+        #     logging.debug(f"Fold {f}")
+        #     V_incidence_matrix, v_incidence_matrix = incidence_matrix_fold_extract(T_incidence_matrix, train_index, test_index)
 
-            # Mochy is a class that allows to sample motifs from an incidence matrix
-            V_mochy = Mochy(V_incidence_matrix)
-            v_mochy = Mochy(v_incidence_matrix)
+        #     # Mochy is a class that allows to sample motifs from an incidence matrix
+        #     V_mochy = Mochy(V_incidence_matrix)
+        #     v_mochy = Mochy(v_incidence_matrix)
 
-            F_motif_count = V_mochy.count()
-            f_motif_count = v_mochy.count()
+        #     F_motif_count = V_mochy.count()
+        #     f_motif_count = v_mochy.count()
 
-            F_motifs = V_mochy.sample(h=k, limit=limit)[:, 1:]              # Training motifs
-            f_motifs = v_mochy.sample(h=k, limit=limit)[:, 1:]              # All the motifs in the fold
-            v_motifs = f_motifs[~np.isin(f_motifs, F_motifs).all(axis=1)]   # Validation motifs are the motifs that are not in the training motifs
+        #     F_motifs = V_mochy.sample(h=k, limit=limit)[:, 1:]              # Training motifs
+        #     f_motifs = v_mochy.sample(h=k, limit=limit)[:, 1:]              # All the motifs in the fold
+        #     v_motifs = f_motifs[~np.isin(f_motifs, F_motifs).all(axis=1)]   # Validation motifs are the motifs that are not in the training motifs
 
-            logging.debug(f"Training motifs: {F_motifs.shape[0]}/{F_motif_count[k]}")
-            logging.debug(f"Validation motifs: {v_motifs.shape[0]}/{f_motif_count[k]}")
+        #     logging.debug(f"Training motifs: {F_motifs.shape[0]}/{F_motif_count[k]}")
+        #     logging.debug(f"Validation motifs: {v_motifs.shape[0]}/{f_motif_count[k]}")
 
-            # Negative sampling
-            v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta)
+        #     # Negative sampling
+        #     v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta)
 
-            for model_name, Model in models.items():
-                model = Model()
-                try:
-                    model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, y_validation_e, v_motifs, y_validation_m)
+        #     for model_name, Model in models.items():
+        #         model = Model()
+        #         try:
+        #             model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, y_validation_e, v_motifs, y_validation_m)
 
-                    metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
-                    logging.debug(f"{model_name} {metrics}")
-                    model_metrics[model_name].append(metrics)
+        #             metrics = evaluate_estimator(model, v_incidence_matrix, v_motifs, y_validation_m)
+        #             logging.debug(f"{model_name} {metrics}")
+        #             model_metrics[model_name].append(metrics)
 
-                    model_params[model_name].append(model.get_params()) # Save the model parameters
-                except Exception as e:
-                    logging.error(f"{model_name} {e}")
+        #             model_params[model_name].append(model.get_params()) # Save the model parameters
+        #         except Exception as e:
+        #             logging.error(f"{model_name} {e}")
 
         t_incidence_matrix, t_motifs, y_test_e, y_test_m = motif_negative_sampling(t_incidence_matrix, t_motifs, alpha, beta)
 
