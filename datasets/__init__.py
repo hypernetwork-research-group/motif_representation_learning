@@ -120,3 +120,34 @@ class TagsMathSx(Dataset):
 
     DATASET_NAME = 'tags-math-sx'
     HAS_NODE_LABELS = True
+
+class Cora(Dataset):
+
+    DATASET_NAME = 'cora'
+    HAS_NODE_LABELS = False
+
+class Citeseer(Dataset):
+
+    DATASET_NAME = 'citeseer'
+    HAS_NODE_LABELS = False
+
+
+class Amazon(Dataset):
+
+    DATASET_NAME = 'amazon'
+    HAS_NODE_LABELS = False
+
+class DBLP(Dataset):
+
+    DATASET_NAME = 'dblp'
+    HAS_NODE_LABELS = False
+
+class PubMed(Dataset):
+
+    DATASET_NAME = 'pubmed'
+    HAS_NODE_LABELS = False
+
+class Trivago(Dataset):
+
+    DATASET_NAME = 'trivago'
+    HAS_NODE_LABELS = False
