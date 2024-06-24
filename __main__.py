@@ -102,7 +102,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             model = Model()
             model.fit(T_incidence_matrix, T_motifs, t_incidence_matrix, y_test_e, t_motifs, y_test_m)
 
-            threshold = np.mean([metrics['threshold'] for metrics in model_metrics[model_name]])
+            threshold = 0.5
             metrics = evaluate_estimator(model, t_incidence_matrix, t_motifs, y_test_m, threshold)
             logging.debug(f"{model_name} {metrics}")
 
