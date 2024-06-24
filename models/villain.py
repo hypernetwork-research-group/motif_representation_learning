@@ -85,7 +85,7 @@ class VilLain(CustomEstimator):
                     best_loss = loss.item()
                     best_model = copy.deepcopy(self.model.state_dict())
 
-                diff = abs(loss.item() - pre_loss) / abs(pre_loss)
+                diff = abs(loss.item() - pre_loss + 1e-10) / abs(pre_loss + 1e-10)
                 if diff < 0.002:
                     cnt_wait += 1
                 else:
