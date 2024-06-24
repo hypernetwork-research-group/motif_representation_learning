@@ -1,7 +1,7 @@
 import numpy as np
 from pymochy import Mochy
 from motif import motif_negative_sampling
-from datasets import EmailEnronFull, ContactHighSchool, ContactPrimarySchool, CongressBillsFull # Cora, Citeseer
+from datasets import EmailEnronFull, ContactHighSchool, ContactPrimarySchool, CongressBillsFull, Cora, Citeseer
 from models.adamic_adar import AdamicAdar
 from models.jaccard_coefficient import JaccardCoefficient
 from models.common_neighbors import CommonNeighors
@@ -127,7 +127,7 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-k", type=int, required=True)
-    parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'congress_bills'])
+    parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'congress_bills', 'cora', 'citeseer'])
 
     args = parser.parse_args()
 
@@ -137,6 +137,10 @@ if __name__ == '__main__':
         dataset = ContactHighSchool()
     elif args.dataset == 'congress_bills':
         dataset = CongressBillsFull()
+    elif args.dataset == 'cora':
+        dataset = Cora()
+    elif args.dataset == 'citeseer':
+        dataset = Citeseer()
 
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
