@@ -160,5 +160,5 @@ if __name__ == '__main__':
 
     k = args.k
 
-    task = Task.init(project_name="Hypergraph Motif Conv Ravello", task_name=f"{dataset.DATASET_NAME} {k}")
+    task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME} {k}")
     main(dataset, models, k, 10000, 0.5, 1)
