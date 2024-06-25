@@ -47,7 +47,7 @@ class VilLain(CustomEstimator):
     def fit(self, X: np.ndarray):
         self.node_embeds = np.empty((X.shape[0], 0))
         for num_labels in [2, 3, 4, 5, 6, 7, 8]:
-            dim = 128
+            dim = 256
             num_step=4
             num_step_gen=100
             lr=0.01
@@ -85,7 +85,7 @@ class VilLain(CustomEstimator):
                     best_loss = loss.item()
                     best_model = copy.deepcopy(self.model.state_dict())
 
-                diff = abs(loss.item() - pre_loss) / abs(pre_loss)
+                diff = abs(loss.item() - pre_loss + 1e-10) / abs(pre_loss + 1e-10)
                 if diff < 0.002:
                     cnt_wait += 1
                 else:
@@ -100,6 +100,7 @@ class VilLain(CustomEstimator):
             self.model.eval()
             node_embeds = np.array(self.model.get_node_embeds())
             self.node_embeds = np.concatenate((self.node_embeds, node_embeds), axis=1)
+        print(self.node_embeds.shape, self.n_features, X.shape[0])
         pca = PCA(n_components=self.n_features)
         self.node_embeds = pca.fit_transform(self.node_embeds)
         self.node_embeds = self.node_embeds.astype(np.float32)
