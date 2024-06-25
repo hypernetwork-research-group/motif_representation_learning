@@ -127,7 +127,7 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-k", type=int, required=True)
-    parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'congress_bills'])
+    parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'congress_bills', 'cora'])
     parser.add_argument('--limit', type=int, default=2500)
 
     args = parser.parse_args()
@@ -138,6 +138,8 @@ if __name__ == '__main__':
         dataset = ContactHighSchool()
     elif args.dataset == 'congress_bills':
         dataset = CongressBillsFull()
+    elif args.dataset == 'cora':
+        dataset = Cora()
 
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
