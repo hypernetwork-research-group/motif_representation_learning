@@ -128,6 +128,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-k", type=int, required=True)
     parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'congress_bills'])
+    parser.add_argument('--limit', type=int, default=2500)
 
     args = parser.parse_args()
 
@@ -140,8 +141,10 @@ if __name__ == '__main__':
 
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
-    logging.basicConfig(level=logging.INFO)
-    logging.getLogger().addHandler(RichHandler())
+    logging.basicConfig(
+        level=logging.INFO,
+        handlers=[RichHandler()]
+    )
 
     models = dict()
     models['VilLain'] = VilLainSLP
@@ -155,6 +158,7 @@ if __name__ == '__main__':
     models['Common Neighors'] = CommonNeighors
 
     k = args.k
+    limit = args.limit
 
     task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME} {k}")
-    main(dataset, models, k, 10000, 0.5, 1)
+    main(dataset, models, k, limit, 0.5, 1)
