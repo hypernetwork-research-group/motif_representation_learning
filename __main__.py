@@ -128,7 +128,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-k", type=int, required=True)
     parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'congress_bills', 'cora'])
-    parser.add_argument('--limit', type=int, default=2500)
+    parser.add_argument('--limit', type=int, default=10000)
 
     args = parser.parse_args()
 
