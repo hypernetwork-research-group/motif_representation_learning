@@ -127,7 +127,7 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-k", type=int, required=True)
-    parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'congress_bills', 'cora'])
+    parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'contact_primary_school', 'congress_bills', 'cora'])
     parser.add_argument('--limit', type=int, default=10000)
 
     args = parser.parse_args()
@@ -136,6 +136,8 @@ if __name__ == '__main__':
         dataset = EmailEnronFull()
     elif args.dataset == 'contact_high_school':
         dataset = ContactHighSchool()
+    elif args.dataset == 'contact_primary_school':
+        dataset = ContactPrimarySchool()
     elif args.dataset == 'congress_bills':
         dataset = CongressBillsFull()
     elif args.dataset == 'cora':
