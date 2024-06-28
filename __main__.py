@@ -128,7 +128,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-k", type=int, required=True)
     parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'contact_primary_school', 'congress_bills', 'cora'])
-    parser.add_argument('--limit', type=int, default=10000)
+    parser.add_argument('--limit', type=int, default=375)
 
     args = parser.parse_args()
 
@@ -151,15 +151,15 @@ if __name__ == '__main__':
     )
 
     models = dict()
-    models['VilLain'] = VilLainSLP
+    # models['VilLain'] = VilLainSLP
     models['Hypergraph Motif Conv VilLain'] = HypergraphMotifConvVilLain
     models['Hypergraph Motif Conv'] = HypergraphMotifConv
-    models['Node2Vec'] = Node2Vec
-    models['Node2Vec HyperGCN'] = Node2VecHyperGCN
-    models['HPRA'] = HPRA
-    models['Jaccard Coefficient'] = JaccardCoefficient
-    models['Adamic Adar'] = AdamicAdar
-    models['Common Neighors'] = CommonNeighors
+    # models['Node2Vec'] = Node2Vec
+    # models['Node2Vec HyperGCN'] = Node2VecHyperGCN
+    # models['HPRA'] = HPRA
+    # models['Jaccard Coefficient'] = JaccardCoefficient
+    # models['Adamic Adar'] = AdamicAdar
+    # models['Common Neighors'] = CommonNeighors
 
     k = args.k
     limit = args.limit
