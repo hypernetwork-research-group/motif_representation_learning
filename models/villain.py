@@ -45,15 +45,18 @@ class VilLain(CustomEstimator):
         self.n_features = n_features
 
     def fit(self, X: np.ndarray):
-        self.node_embeds = np.empty((X.shape[0], 0))
+        missing_nodes = np.where(np.sum(X, axis=1) == 0)[0]
+        # Add singleton edge for missing nodes
+        X_ = np.concatenate((X, np.eye(X.shape[0])[missing_nodes]), axis=1)
+        self.node_embeds = np.empty((X_.shape[0], 0))
         for num_labels in [2, 3, 4, 5, 6, 7, 8]:
-            dim = 256
+            dim = math.ceil(X_.shape[0] / 8) # Verificare se funziona
             num_step=4
             num_step_gen=100
             lr=0.01
             epochs = 5000
             num_subspace = math.ceil(dim / num_labels)
-            nei = torch.tensor(np.array(X.nonzero()))
+            nei = torch.tensor(np.array(X_.nonzero()))
             V_idx = nei[0]
             E_idx = nei[1]
             V, E = torch.max(V_idx) + 1, torch.max(E_idx) + 1
@@ -100,7 +103,7 @@ class VilLain(CustomEstimator):
             self.model.eval()
             node_embeds = np.array(self.model.get_node_embeds())
             self.node_embeds = np.concatenate((self.node_embeds, node_embeds), axis=1)
-        print(self.node_embeds.shape, self.n_features, X.shape[0])
+        print(self.node_embeds.shape, self.n_features, X_.shape[0])
         pca = PCA(n_components=self.n_features)
         self.node_embeds = pca.fit_transform(self.node_embeds)
         self.node_embeds = self.node_embeds.astype(np.float32)
