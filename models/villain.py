@@ -47,6 +47,8 @@ class VilLain(CustomEstimator):
     def fit(self, X: np.ndarray):
         missing_nodes = np.where(np.sum(X, axis=1) == 0)[0]
         # Add singleton edge for missing nodes
+        print(X.shape)
+        print(np.eye(X.shape[0])[missing_nodes]).shape)
         X_ = np.concatenate((X, np.eye(X.shape[0])[missing_nodes]), axis=0)
         self.node_embeds = np.empty((X_.shape[0], 0))
         for num_labels in [2, 3, 4, 5, 6, 7, 8]:
