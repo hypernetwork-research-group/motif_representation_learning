@@ -49,7 +49,7 @@ class VilLain(CustomEstimator):
         # Add singleton edge for missing nodes
         print(X.shape)
         print(np.eye(X.shape[0])[missing_nodes].shape)
-        X_ = np.hstack((X, np.eye(X.shape[0])[missing_nodes]).T)
+        X_ = np.hstack((X, np.eye(X.shape[0])[missing_nodes].T))
         print(X_.shape)
         self.node_embeds = np.empty((X_.shape[0], 0))
         for num_labels in [2, 3, 4, 5, 6, 7, 8]:
