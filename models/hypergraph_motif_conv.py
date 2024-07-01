@@ -99,7 +99,7 @@ class HypergraphMotifConv(CustomEstimator):
         current_logger = Logger.current_logger()
 
         epochs = 200
-        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
+        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.0001)
         criterion = torch.nn.BCEWithLogitsLoss()
         for epoch in range(epochs):
             self.model.train()
