@@ -17,6 +17,7 @@ from sklearn.base import BaseEstimator
 from utils import incidence_matrix_train_test_split, incidence_matrix_fold_extract
 from utils import evaluate_estimator
 from rich.logging import RichHandler
+import pickle
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -107,6 +108,14 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             logging.debug(f"{model_name} {metrics}")
 
             experiments_metrics[model_name].append(metrics)
+
+            pickle.dump(model, open(f"{dataset.DATASET_NAME}_{model_name}_{k}_{i}.pkl", "wb"))
+        pickle.dump(T_incidence_matrix, open(f"{dataset.DATASET_NAME}_T_{k}_{i}.pkl", "wb"))
+        pickle.dump(T_motifs, open(f"{dataset.DATASET_NAME}_T_motifs_{k}_{i}.pkl", "wb"))
+        pickle.dump(t_incidence_matrix, open(f"{dataset.DATASET_NAME}_t_{k}_{i}.pkl", "wb"))
+        pickle.dump(t_motifs, open(f"{dataset.DATASET_NAME}_t_motifs_{k}_{i}.pkl", "wb"))
+        pickle.dump(y_test_e, open(f"{dataset.DATASET_NAME}_y_test_e_{k}_{i}.pkl", "wb"))
+        pickle.dump(y_test_m, open(f"{dataset.DATASET_NAME}_y_test_m_{k}_{i}.pkl", "wb"))
 
     # print("=====")
 
