@@ -179,5 +179,5 @@ if __name__ == '__main__':
     k = args.k
     limit = args.limit
 
-    task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME} {k}")
+    task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME} {k} {args.mode}")
     main(dataset, models, k, limit, 0.5, 1)
