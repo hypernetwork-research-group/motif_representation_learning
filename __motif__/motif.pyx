@@ -68,7 +68,7 @@ cimport openmp
 @boundscheck(False)
 @wraparound(False)
 @nonecheck(False)
-def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, cnp.ndarray[DTYPE_int_t, ndim=2] motifs, float alpha, int beta):
+def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, cnp.ndarray[DTYPE_int_t, ndim=2] motifs, float alpha, int beta, str mode = "rank"):
     cdef:
         cnp.ndarray[cnp.int64_t, ndim=1] node_degrees
         cnp.ndarray[cnp.float64_t, ndim=2] node_distances, edge_distances
@@ -110,8 +110,14 @@ def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, c
 
             # Execution time without this instruction is around 154 ms
             # This instruction needs ~200 ms
-            # replaced_nodes = np.random.choice(num_nodes, nodes_to_replace.shape[0], replace=False, p=p) # Randomly select nodes to replace, using the probability distribution p (stocastic sampling)
-            replaced_nodes = p.argsort()[::-1][:nodes_to_replace.shape[0]] # Select nodes using the order of p (greedy sampling)
+            if mode == "random":
+                replaced_nodes = np.random.choice(num_nodes, nodes_to_replace.shape[0], replace=False) # Randomly select nodes to replace
+            elif mode == "prob":
+                replaced_nodes = np.random.choice(num_nodes, nodes_to_replace.shape[0], replace=False, p=p) # Randomly select nodes to replace, using the probability distribution p (stocastic sampling)
+            elif mode == "rank":
+                replaced_nodes = p.argsort()[::-1][:nodes_to_replace.shape[0]] # Select nodes using the order of p (greedy sampling)
+            else:
+                raise ValueError("Invalid mode")
 
             # # # This block needs ~120 ms - Execution time without this block is around 358 ms
             new_motif = np.zeros_like(m)
