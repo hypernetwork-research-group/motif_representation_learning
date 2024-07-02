@@ -74,6 +74,7 @@ from utils import MotifIteratorDataset
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score
 from models.villain import VilLain
+import os
 
 class HypergraphMotifConvVilLain(CustomEstimator):
 
@@ -107,7 +108,7 @@ class HypergraphMotifConvVilLain(CustomEstimator):
                 X_batch = batch[0][0]
                 motifs_batch = batch[1]
 
-                X_, motifs_, y_e, y_m = motif_negative_sampling(X_batch.cpu().detach().numpy(), motifs_batch.cpu().detach().numpy(), 0.5, 1)
+                X_, motifs_, y_e, y_m = motif_negative_sampling(X_batch.cpu().detach().numpy(), motifs_batch.cpu().detach().numpy(), 0.5, 1, mode=os.environ['NGTV_MODE'])
                 y_m = torch.tensor(y_m)
                 nei = torch.tensor(np.array(X_.nonzero()))
                 emi = torch.tensor(edge_motif_interactions(X_, motifs_))

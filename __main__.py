@@ -18,6 +18,7 @@ from utils import incidence_matrix_train_test_split, incidence_matrix_fold_extra
 from utils import evaluate_estimator
 from rich.logging import RichHandler
 import pickle
+import os
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -81,7 +82,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
     #         logging.debug(f"Validation motifs: {v_motifs.shape[0]}/{f_motif_count[k]}")
 
     #         # Negative sampling
-    #         v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta)
+    #         v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta, mode=os.environ['NGTV_MODE'])
 
     #         for model_name, Model in models.items():
     #             model = Model()
@@ -96,7 +97,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
     #             except Exception as e:
     #                 logging.error(f"{model_name} {e}")
 
-        t_incidence_matrix, t_motifs, y_test_e, y_test_m = motif_negative_sampling(t_incidence_matrix, t_motifs, alpha, beta)
+        t_incidence_matrix, t_motifs, y_test_e, y_test_m = motif_negative_sampling(t_incidence_matrix, t_motifs, alpha, beta, mode=os.environ['NGTV_MODE'])
 
         # Test the models
         for model_name, Model in models.items():
@@ -138,6 +139,7 @@ if __name__ == '__main__':
     parser.add_argument("-k", type=int, required=True)
     parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'contact_primary_school', 'congress_bills', 'cora', 'pubmed'])
     parser.add_argument('--limit', type=int, default=10000)
+    parser.add_argument('--mode', type=str, choices=['rank', 'random', 'prob'], default='rank')
 
     args = parser.parse_args()
 
@@ -160,6 +162,8 @@ if __name__ == '__main__':
         level=logging.INFO,
         handlers=[RichHandler()]
     )
+
+    os.environ['NGTV_MODE'] = args.mode
 
     models = dict()
     models['VilLain'] = VilLainSLP

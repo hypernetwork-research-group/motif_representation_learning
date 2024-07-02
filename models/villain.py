@@ -109,6 +109,8 @@ class VilLain(CustomEstimator):
         self.node_embeds = pca.fit_transform(self.node_embeds)
         self.node_embeds = self.node_embeds.astype(np.float32)
 
+import os
+
 class VilLainSLP(CustomEstimator):
 
     def fit(self, X: np.ndarray, motifs: np.ndarray, X_validation, y_validation_e, motifs_validation, y_validation_m):
@@ -137,7 +139,7 @@ class VilLainSLP(CustomEstimator):
                 X_batch = batch[0][0]
                 motifs_batch = batch[1]
 
-                X_, motifs_, y_e, y_m = motif_negative_sampling(X_batch.cpu().detach().numpy(), motifs_batch.cpu().detach().numpy(), 0.5, 1)
+                X_, motifs_, y_e, y_m = motif_negative_sampling(X_batch.cpu().detach().numpy(), motifs_batch.cpu().detach().numpy(), 0.5, 1, mode=os.environ['NGTV_MODE'])
                 nei = torch.tensor(np.array(X_.nonzero()))
                 emi = torch.tensor(edge_motif_interactions(X_, motifs_))
                 y_e = torch.tensor(y_e)
