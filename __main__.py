@@ -155,6 +155,8 @@ if __name__ == '__main__':
         dataset = Cora()
     elif args.dataset == 'pubmed':
         dataset = PubMed()
+    elif args.dataset == 'citeseer':
+        dataset = Citeseer()
 
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
