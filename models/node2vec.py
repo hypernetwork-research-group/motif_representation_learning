@@ -49,7 +49,7 @@ class Node2Vec(CustomEstimator):
 
         current_logger = Logger.current_logger()
         self.model = _Node2Vec(X.shape[0], 1, nni, num_nodes)
-        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
+        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.0001)
         criterion = nn.BCEWithLogitsLoss()
         epochs = 300
         for epoch in range(epochs):
