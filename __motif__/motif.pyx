@@ -92,13 +92,16 @@ def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, c
         motif_im = incidence_matrix[:, m].T
         motif_unique_nodes = (motif_im.sum(axis=0) > 0).nonzero()[0].astype(DTYPE_int)
 
-        motif_distances = edge_distances[m].min(axis=0)
-        motif_distances += 1
-        motif_distances[motif_distances != np.inf] = motif_distances[motif_distances != np.inf].max() - motif_distances[motif_distances != np.inf] + 1 # Invert the distances
-        motif_distances[motif_distances == np.inf] = 0 # Set the unreachable nodes score to 0
-        p_dist = motif_distances / motif_distances.sum() # Compute the probability distribution, the lower the distance the higher the probability
-        p_deg = node_degrees / node_degrees.sum()
-        p = p_dist + p_deg
+        if mode != "random":
+            motif_distances = edge_distances[m].min(axis=0)
+            motif_distances += 1
+            motif_distances[motif_distances != np.inf] = motif_distances[motif_distances != np.inf].max() - motif_distances[motif_distances != np.inf] + 1 # Invert the distances
+            motif_distances[motif_distances == np.inf] = 0 # Set the unreachable nodes score to 0
+            p_dist = motif_distances / motif_distances.sum() # Compute the probability distribution, the lower the distance the higher the probability
+            p_deg = node_degrees / node_degrees.sum()
+            p = p_dist + p_deg
+        else:
+            p = np.ones(num_nodes)
         p[motif_unique_nodes] = 0 # Exclude nodes already in the motif
         p /= p.sum()
         
