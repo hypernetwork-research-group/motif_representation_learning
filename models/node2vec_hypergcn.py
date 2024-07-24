@@ -38,6 +38,8 @@ import logging
 from clearml import Logger
 from sklearn.metrics import roc_auc_score
 import os
+import pickle
+import random
 
 class Node2VecHyperGCN(CustomEstimator):
 
@@ -51,7 +53,7 @@ class Node2VecHyperGCN(CustomEstimator):
 
         current_logger = Logger.current_logger()
         self.model = _Node2VecHyperGCN(X.shape[0], 1, nni, num_nodes)
-        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.0001)
+        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
         criterion = nn.BCEWithLogitsLoss()
         epochs = 300
         for epoch in range(epochs):
@@ -85,8 +87,8 @@ class Node2VecHyperGCN(CustomEstimator):
                 loss_m_sum += loss_m.item()
                 optimizer.step()
                 logging.debug(f"Epoch {epoch} - Loss: {loss.item()}")
-            current_logger.report_scalar(title="Loss E", series="N2VHGC Train", iteration=epoch, value=loss_e_sum / len(training_loader))
-            current_logger.report_scalar(title="Loss M", series="N2VHGC Train", iteration=epoch, value=loss_m_sum / len(training_loader))
+            # current_logger.report_scalar(title="Loss E", series="N2VHGC Train", iteration=epoch, value=loss_e_sum / len(training_loader))
+            # current_logger.report_scalar(title="Loss M", series="N2VHGC Train", iteration=epoch, value=loss_m_sum / len(training_loader))
 
             if epoch % 2 == 0:
                 with torch.no_grad():
@@ -96,12 +98,12 @@ class Node2VecHyperGCN(CustomEstimator):
                     loss_e = criterion(y_pred_e, torch.tensor(y_validation_e))
                     loss_m = criterion(y_pred_m, torch.tensor(y_validation_m))
                     y_pred_e, y_pred_m = nn.functional.sigmoid(y_pred_e), nn.functional.sigmoid(y_pred_m)
-                    current_logger.report_scalar(title="Loss E", series="N2VHGC Validation", iteration=epoch, value=loss_e.item())
-                    current_logger.report_scalar(title="Loss M", series="N2VHGC Validation", iteration=epoch, value=loss_m.item())
+                    # current_logger.report_scalar(title="Loss E", series="N2VHGC Validation", iteration=epoch, value=loss_e.item())
+                    # current_logger.report_scalar(title="Loss M", series="N2VHGC Validation", iteration=epoch, value=loss_m.item())
                     roc_auc_e = roc_auc_score(y_validation_e, y_pred_e.cpu().detach().numpy())
                     roc_auc_m = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
-                    current_logger.report_scalar(title="ROC AUC E", series="N2VHGC Validation", iteration=epoch, value=roc_auc_e)
-                    current_logger.report_scalar(title="ROC AUC", series="N2VHGC Validation", iteration=epoch, value=roc_auc_m)
+                    # current_logger.report_scalar(title="ROC AUC E", series="N2VHGC Validation", iteration=epoch, value=roc_auc_e)
+                    # current_logger.report_scalar(title="ROC AUC", series="N2VHGC Validation", iteration=epoch, value=roc_auc_m)
                     logging.debug(f"Validation Loss: {loss.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray) -> np.ndarray:
@@ -110,4 +112,3 @@ class Node2VecHyperGCN(CustomEstimator):
         emi = torch.tensor(edge_motif_interactions(X, motifs))
         y_pred_e, y_pred_m = self.model(nei, emi, sigmoid=True)
         return y_pred_m.cpu().detach().numpy()
-    

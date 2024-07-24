@@ -12,6 +12,8 @@ from torch.utils.data import DataLoader
 from clearml import Logger
 from sklearn.metrics import roc_auc_score
 from sklearn.decomposition import PCA
+import pickle
+import random
 
 class Linear(nn.Module):
 
@@ -160,8 +162,8 @@ class VilLainSLP(CustomEstimator):
                 loss_m_sum += loss_m.item()
                 optimizer_linear.step()
 
-            current_logger.report_scalar("Loss E", "ViLlain Train", iteration = epoch, value = loss_e_sum / len(training_loader))
-            current_logger.report_scalar("Loss M", "ViLlain Train", iteration = epoch, value = loss_m_sum / len(training_loader))
+            # current_logger.report_scalar("Loss E", "ViLlain Train", iteration = epoch, value = loss_e_sum / len(training_loader))
+            # current_logger.report_scalar("Loss M", "ViLlain Train", iteration = epoch, value = loss_m_sum / len(training_loader))
 
             if epoch % 2 == 0:
                 with torch.no_grad():
@@ -169,12 +171,12 @@ class VilLainSLP(CustomEstimator):
                     y_pred_e, y_pred_m = self.linear(node_embeds, nei_validation, emi_validation, sigmoid=True)
                     loss_e = criterion(y_pred_e, torch.tensor(y_validation_e))
                     loss_m = criterion(torch.tensor(y_validation_m), y_pred_m)
-                    current_logger.report_scalar("Loss M", "ViLlain Validation", iteration = epoch, value = loss_m.item())
-                    current_logger.report_scalar("Loss E", "ViLlain Validation", iteration = epoch, value = loss_m.item())
+                    # current_logger.report_scalar("Loss M", "ViLlain Validation", iteration = epoch, value = loss_m.item())
+                    # current_logger.report_scalar("Loss E", "ViLlain Validation", iteration = epoch, value = loss_m.item())
                     auc_e = roc_auc_score(y_validation_e, y_pred_e)
-                    current_logger.report_scalar("ROC AUC E", "ViLlain Validation", iteration = epoch, value = auc_e)
+                    # current_logger.report_scalar("ROC AUC E", "ViLlain Validation", iteration = epoch, value = auc_e)
                     auc_m = roc_auc_score(y_validation_m, y_pred_m)
-                    current_logger.report_scalar("ROC AUC", "ViLlain Validation", iteration = epoch, value = auc_m)
+                    # current_logger.report_scalar("ROC AUC", "ViLlain Validation", iteration = epoch, value = auc_m)
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):
         self.linear.eval()

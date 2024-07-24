@@ -28,6 +28,9 @@ class JaccardCoefficient(CustomEstimator):
         y_pred_e = np.zeros(X.shape[1])
         # edge_list = [np.where(hyperedge)[0] for hyperedge in X.T]
         for i, e in enumerate(X.T):
+            if e.sum() <= 1:
+                y_pred_e[i] = 0
+                continue
             edge_indexes = np.array(list(combinations(list(e.nonzero()[0]), 2))).T
             jc = self.jaccard[edge_indexes[0, :], edge_indexes[1, :]]
             jc = np.where(np.isnan(jc), 0, jc)

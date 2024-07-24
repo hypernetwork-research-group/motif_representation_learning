@@ -82,6 +82,7 @@ from utils import MotifIteratorDataset
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score
 import os
+import pickle
 
 class HypergraphMotifConv(CustomEstimator):
 
@@ -100,7 +101,7 @@ class HypergraphMotifConv(CustomEstimator):
         current_logger = Logger.current_logger()
 
         epochs = 200
-        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.0001)
+        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
         criterion = torch.nn.BCEWithLogitsLoss()
         for epoch in range(epochs):
             self.model.train()
@@ -130,8 +131,8 @@ class HypergraphMotifConv(CustomEstimator):
                 loss_e_sum += loss_e.item()
                 optimizer.step()
                 logging.debug(f"Epoch {epoch} - Loss_m: {loss_m.item()}")
-            current_logger.report_scalar(title="Loss M", series="HGMRL-m Train", iteration=epoch, value=loss_m_sum / len(training_loader))
-            current_logger.report_scalar(title="Loss E", series="HGMRL-e Train", iteration=epoch, value=loss_e_sum / len(training_loader))
+            # current_logger.report_scalar(title="Loss M", series="HGMRL-m Train", iteration=epoch, value=loss_m_sum / len(training_loader))
+            # current_logger.report_scalar(title="Loss E", series="HGMRL-e Train", iteration=epoch, value=loss_e_sum / len(training_loader))
 
             if epoch % 2 == 0:
                 with torch.no_grad():
@@ -143,12 +144,12 @@ class HypergraphMotifConv(CustomEstimator):
                     _, y_pred_m = self.model.motif_embeddings(y, emi)
                     loss_m = criterion(y_pred_m, torch.tensor(y_validation_m))
                     loss_e = criterion(y_pred_e, torch.tensor(y_validation_e))
-                    current_logger.report_scalar(title="Loss M", series="HGMRL-m Validation", iteration=epoch, value=loss_m.item())
-                    current_logger.report_scalar(title="Loss E", series="HGMRL-e Validation", iteration=epoch, value=loss_e.item())
+                    # current_logger.report_scalar(title="Loss M", series="HGMRL-m Validation", iteration=epoch, value=loss_m.item())
+                    # current_logger.report_scalar(title="Loss E", series="HGMRL-e Validation", iteration=epoch, value=loss_e.item())
                     roc_auc_m = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
                     roc_auc_e = roc_auc_score(y_validation_e, y_pred_e.cpu().detach().numpy())
-                    current_logger.report_scalar(title="ROC AUC", series="HGMRL-m", iteration=epoch, value=roc_auc_m)
-                    current_logger.report_scalar(title="ROC AUC E", series="HGMRL-e", iteration=epoch, value=roc_auc_e)
+                    # current_logger.report_scalar(title="ROC AUC", series="HGMRL-m", iteration=epoch, value=roc_auc_m)
+                    # current_logger.report_scalar(title="ROC AUC E", series="HGMRL-e", iteration=epoch, value=roc_auc_e)
                     logging.debug(f"Validation Loss_m: {loss_m.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray):
@@ -158,7 +159,12 @@ class HypergraphMotifConv(CustomEstimator):
         emi = torch.tensor(edge_motif_interactions(X, motifs))
 
         y = self.model.node_embeddings(nei)
+        # pickle.dump(y, open(f"{os.environ['N_EXPERIMENT']}_{os.environ['NGTV_MODE']}_hgmrl_node_embeddings.pkl", "wb"))
         y, y_pred_e = self.model.edge_embeddings(y, nei, eei)
-        _, y_pred_m = self.model.motif_embeddings(y, emi, sigmoid=True)
+        # pickle.dump(y, open(f"{os.environ['N_EXPERIMENT']}_{os.environ['NGTV_MODE']}_hgmrl_edge_embeddings.pkl", "wb"))
+        # pickle.dump(y_pred_e, open(f"{os.environ['N_EXPERIMENT']}_{os.environ['NGTV_MODE']}_hgmrl_edge_predictions.pkl", "wb"))
+        y, y_pred_m = self.model.motif_embeddings(y, emi, sigmoid=True)
+        # pickle.dump(y, open(f"{os.environ['N_EXPERIMENT']}_{os.environ['NGTV_MODE']}_hgmrl_motif_embeddings.pkl", "wb"))
+        # pickle.dump(y_pred_m, open(f"{os.environ['N_EXPERIMENT']}_{os.environ['NGTV_MODE']}_hgmrl_motif_predictions.pkl", "wb"))
         y_pred_m = y_pred_m.cpu().detach().numpy()
         return y_pred_m
