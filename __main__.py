@@ -1,7 +1,7 @@
 import numpy as np
 from pymochy import Mochy
 from motif import motif_negative_sampling
-from datasets import EmailEnronFull, ContactHighSchool, ContactPrimarySchool, CongressBillsFull, Cora, Citeseer, PubMed
+from datasets import EmailEnronFull, ContactHighSchool, ContactPrimarySchool, Cora
 from models.adamic_adar import AdamicAdar
 from models.jaccard_coefficient import JaccardCoefficient
 from models.common_neighbors import CommonNeighors

@@ -60,26 +60,10 @@ class Dataset(ABC):
     def edge_index(self):
         return self.incidence_matrix().nonzero()
 
-
-class EmailEnron(Dataset):
-
-    DATASET_NAME = 'email-Enron'
-    HAS_NODE_LABELS = True
-
 class EmailEnronFull(Dataset):
 
     DATASET_NAME = 'email-Enron-full'
     HAS_NODE_LABELS = True
-
-class EmailEu(Dataset):
-
-    DATASET_NAME = 'email-Eu'
-    HAS_NODE_LABELS = False
-
-class EmailEuFull(Dataset):
-
-    DATASET_NAME = 'email-Eu-full'
-    HAS_NODE_LABELS = False
 
 class ContactHighSchool(Dataset):
 
@@ -91,63 +75,7 @@ class ContactPrimarySchool(Dataset):
     DATASET_NAME = 'contact-primary-school'
     HAS_NODE_LABELS = False
 
-class NDCClasses(Dataset):
-
-    DATASET_NAME = 'NDC-classes'
-    HAS_NODE_LABELS = True
-
-class NDCClassesFull(Dataset):
-
-    DATASET_NAME = 'NDC-classes-full'
-    HAS_NODE_LABELS = True
-
-class CongressBills(Dataset):
-
-    DATASET_NAME = 'congress-bills'
-    HAS_NODE_LABELS = True
-
-class CongressBillsFull(Dataset):
-    
-    DATASET_NAME = 'congress-bills-full'
-    HAS_NODE_LABELS = True
-
-class TagsAskUbuntu(Dataset):
-
-    DATASET_NAME = 'tags-ask-ubuntu'
-    HAS_NODE_LABELS = True
-
-class TagsMathSx(Dataset):
-
-    DATASET_NAME = 'tags-math-sx'
-    HAS_NODE_LABELS = True
-
 class Cora(Dataset):
 
     DATASET_NAME = 'cora'
-    HAS_NODE_LABELS = False
-
-class Citeseer(Dataset):
-
-    DATASET_NAME = 'citeseer'
-    HAS_NODE_LABELS = False
-
-
-class Amazon(Dataset):
-
-    DATASET_NAME = 'amazon'
-    HAS_NODE_LABELS = False
-
-class DBLP(Dataset):
-
-    DATASET_NAME = 'dblp'
-    HAS_NODE_LABELS = False
-
-class PubMed(Dataset):
-
-    DATASET_NAME = 'pubmed'
-    HAS_NODE_LABELS = False
-
-class Trivago(Dataset):
-
-    DATASET_NAME = 'trivago'
     HAS_NODE_LABELS = False
