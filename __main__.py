@@ -20,11 +20,7 @@ from rich.logging import RichHandler
 import pickle
 import os
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 import logging
-from clearml import Logger
 
 import os
 os.environ['OMP_NUM_THREADS'] = '128'
@@ -106,11 +102,8 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
         t_incidence_matrix, t_motifs, y_test_e, y_test_m = motif_negative_sampling(t_incidence_matrix, t_motifs, alpha, beta, mode=os.environ['NGTV_MODE'])
 
-        # pickle.dump((T_incidence_matrix, T_motifs, t_incidence_matrix, t_motifs, y_test_e, y_test_m), open(f"experiment_{os.environ['NGTV_MODE']}_{i}.pkl", "wb"))
-
         os.environ['N_EXPERIMENT'] = f'{i}'
 
-        # Test the models
         for model_name, Model in models.items():
             model = Model()
             model.fit(T_incidence_matrix, T_motifs, t_incidence_matrix, y_test_e, t_motifs, y_test_m)
@@ -121,7 +114,6 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
             experiments_metrics[model_name].append(metrics)
 
-    # print("=====")
 
     for model_name, metrics in experiments_metrics.items():
         print(model_name)
@@ -184,5 +176,4 @@ if __name__ == '__main__':
     k = args.k
     limit = args.limit
 
-    # task = Task.init(project_name="Hypergraph Motif Conv", task_name=f"{dataset.DATASET_NAME} {k} {args.mode}")
     main(dataset, models, k, limit, 0.5, 1)

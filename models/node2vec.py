@@ -34,10 +34,7 @@ from utils import MotifIteratorDataset
 from torch.utils.data import DataLoader
 from motif import motif_negative_sampling, edge_motif_interactions, node_node_interactions
 import logging
-from clearml import Logger
-from sklearn.metrics import roc_auc_score
 import os
-import random
 
 class Node2Vec(CustomEstimator):
 
@@ -49,7 +46,6 @@ class Node2Vec(CustomEstimator):
         nni = torch.tensor(node_node_interactions(X))
         emi_validation = torch.tensor(edge_motif_interactions(X, motifs_validation))
 
-        current_logger = Logger.current_logger()
         self.model = _Node2Vec(X.shape[0], 1, nni, num_nodes)
         optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
         criterion = nn.BCEWithLogitsLoss()
@@ -85,8 +81,6 @@ class Node2Vec(CustomEstimator):
                 loss_m_sum += loss_m.item()
                 optimizer.step()
                 logging.debug(f"Epoch {epoch} - Loss: {loss.item()}")
-            # current_logger.report_scalar(title="Loss E", series="N2V Train", iteration=epoch, value=loss_e_sum / len(training_loader))
-            # current_logger.report_scalar(title="Loss M", series="N2V Train", iteration=epoch, value=loss_m_sum / len(training_loader))
 
             if epoch % 2 == 0:
                 with torch.no_grad():
@@ -96,12 +90,6 @@ class Node2Vec(CustomEstimator):
                     loss_e = criterion(y_pred_e, torch.tensor(y_validation_e))
                     loss_m = criterion(y_pred_m, torch.tensor(y_validation_m))
                     y_pred_e, y_pred_m = nn.functional.sigmoid(y_pred_e), nn.functional.sigmoid(y_pred_m)
-                    # current_logger.report_scalar(title="Loss E", series="N2V Validation", iteration=epoch, value=loss_e.item())
-                    # current_logger.report_scalar(title="Loss M", series="N2V Validation", iteration=epoch, value=loss_m.item())
-                    roc_auc_e = roc_auc_score(y_validation_e, y_pred_e.cpu().detach().numpy())
-                    roc_auc_m = roc_auc_score(y_validation_m, y_pred_m.cpu().detach().numpy())
-                    # current_logger.report_scalar(title="ROC AUC", series="N2V Validation", iteration=epoch, value=roc_auc_e)
-                    # current_logger.report_scalar(title="ROC AUC", series="N2V Validation", iteration=epoch, value=roc_auc_m)
                     logging.debug(f"Validation Loss: {loss.item()}")
 
     def predict(self, X: np.ndarray, motifs: np.ndarray) -> np.ndarray:
