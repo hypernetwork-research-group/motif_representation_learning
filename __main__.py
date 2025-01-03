@@ -47,7 +47,6 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
         while True:
             T_incidence_matrix, t_incidence_matrix = incidence_matrix_train_test_split(incidence_matrix, 0.8)
 
-
             t_mochy = Mochy(t_incidence_matrix)
             T_mochy = Mochy(T_incidence_matrix)
             
@@ -132,7 +131,7 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-k", type=int, required=True)
-    parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'contact_primary_school', 'congress_bills', 'cora', 'pubmed'])
+    parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'contact_primary_school', 'cora'])
     parser.add_argument('--limit', type=int, default=10000)
     parser.add_argument('--mode', type=str, choices=['rank', 'random', 'prob'], default='rank')
 

@@ -25,6 +25,9 @@ Build all the Cython code for the motif counting and the negative sampling.
 In order to run the experiment of h-motif prediction on the $k=2$ motif of the *email-Enron* dataset and the ranking based negative sampling, run the following command:
 
 `python3 . -k 2 --dataset email_enron --mode rank`
+`python3 . -k 2 --dataset cora --mode rank`
+`python3 . -k 2 --dataset contact_high_school --mode rank`
+`python3 . -k 2 --dataset contact_primary_school --mode rank`
 
 In the same way as for the original [MoCHy](https://github.com/geon0325/MoCHy) implementation, the number associated to the h-motif (k) does not directly correspond to the h-motif index. Following table describes the number that should be used to refer to a specific h-motif index.
 
