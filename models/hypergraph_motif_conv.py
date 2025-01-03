@@ -82,7 +82,6 @@ from utils import MotifIteratorDataset
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score
 import os
-import pickle
 
 class HypergraphMotifConv(CustomEstimator):
 
