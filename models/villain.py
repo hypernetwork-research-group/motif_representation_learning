@@ -53,7 +53,7 @@ class VilLain(CustomEstimator):
         print(X_.shape)
         self.node_embeds = np.empty((X_.shape[0], 0))
         for num_labels in [2, 3, 4, 5, 6, 7, 8]:
-            dim = math.ceil(X_.shape[0] / 7) # Verificare se funziona
+            dim = math.ceil(X_.shape[0] / 7)
             num_step=4
             num_step_gen=100
             lr=0.01
