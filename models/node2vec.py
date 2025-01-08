@@ -36,6 +36,8 @@ from motif import motif_negative_sampling, edge_motif_interactions, node_node_in
 import logging
 import os
 
+from tqdm.auto import tqdm
+
 class Node2Vec(CustomEstimator):
 
     def __init__(self, batch_size=1000) -> None:
@@ -50,7 +52,7 @@ class Node2Vec(CustomEstimator):
         optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
         criterion = nn.BCEWithLogitsLoss()
         epochs = 300
-        for epoch in range(epochs):
+        for epoch in tqdm(range(epochs)):
             self.model.train()
 
             dataset = MotifIteratorDataset(torch.tensor(X), torch.tensor(motifs))
