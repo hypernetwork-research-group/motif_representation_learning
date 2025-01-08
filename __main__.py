@@ -66,7 +66,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
 
         kf = KFold(n_splits=5)
         for f, (train_index, test_index) in enumerate(kf.split(T_incidence_matrix.T)): # k-fold cross validation
-            logging.debug(f"Fold {f}")
+            logging.info(f"Fold {f}")
             V_incidence_matrix, v_incidence_matrix = incidence_matrix_fold_extract(T_incidence_matrix, train_index, test_index)
 
             # Mochy is a class that allows to sample motifs from an incidence matrix
@@ -87,6 +87,7 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta, mode=os.environ['NGTV_MODE'])
 
             for model_name, Model in models.items():
+                logging.info(f"Model {model_name}")
                 model = Model()
                 try:
                     model.fit(V_incidence_matrix, F_motifs, v_incidence_matrix, y_validation_e, v_motifs, y_validation_m)
@@ -112,7 +113,6 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             logging.info(f"{model_name} {metrics}")
 
             experiments_metrics[model_name].append(metrics)
-
 
     for model_name, metrics in experiments_metrics.items():
         print(model_name)
@@ -162,11 +162,11 @@ if __name__ == '__main__':
     os.environ['NGTV_MODE'] = args.mode
 
     models = dict()
+    models['Node2Vec'] = Node2Vec
     models['Hypergraph Motif Conv VilLain'] = HypergraphMotifConvVilLain
     models['Jaccard Coefficient'] = JaccardCoefficient
     models['Hypergraph Motif Conv'] = HypergraphMotifConv
     models['VilLain'] = VilLainSLP
-    models['Node2Vec'] = Node2Vec
     models['Node2Vec HyperGCN'] = Node2VecHyperGCN
     models['HPRA'] = HPRA
     models['Adamic Adar'] = AdamicAdar
