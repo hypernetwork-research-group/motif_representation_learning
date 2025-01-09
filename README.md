@@ -28,7 +28,7 @@ its superior performance and robustness in predicting h-motifs.
 
 ## How to Run HGMRL
 
-### Direct Install
+### Manually Install
 
 Install all the requirements specified in the *requirements.txt* file.
 
@@ -56,7 +56,11 @@ Build all the Cython code for the motif counting and the negative sampling.
 If you prefer, you can use Docker to set up and run the project.
 
 ```bash
-docker build -t hgmrl .
+# on arm
+docker build --build-arg platform=linux/aarch64 -t hgmrl .
+# on x86
+docker build --build-arg var_name=linux/amd64 -t hgmrl .
+
 docker run -it hgmrl
 ```
 
@@ -77,7 +81,7 @@ options:
 
 ## How to reproduce the experiments
 
-In order to run the experiment of h-motif prediction on the $k=2$ motif of the *email-Enron* dataset and the ranking based negative sampling, run the following command:
+In order to run the experiment of h-motif prediction on the $k=2$ motif of *email-Enron*, *cora*, *contact-High-School* and *contact-Primary-School* datasets with the ranking based negative sampling, run the following command:
 
 ```bash
 python3 . -k 2 --dataset email_enron --mode rank
