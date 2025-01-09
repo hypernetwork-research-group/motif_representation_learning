@@ -36,10 +36,15 @@ Install all the requirements specified in the *requirements.txt* file.
 
 Then install Pytorch and PyTorch and PyTorch Geometric libraries.
 
+**CUDA 12.1**
+
 ```bash
-python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-python3 -m pip install torch_geometric
-python3 -m pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.3.0+cpu.html
+conda install pytorch==2.4.0 pytorch-cuda=12.1 -c pytorch -c nvidia -y
+conda install pyg -c pyg -y
+conda install pytorch-scatter -c pyg -y
+conda run -n .conda python3 -m pip install -r requirements.txt
+conda run -n .conda python3 -m pip install torch_cluster -f https://data.pyg.org/whl/torch-2.4.0+cu121.html
+conda run -n .conda python3 setup.py build_ext --inplace
 ```
 
 Build all the Cython code for the motif counting and the negative sampling.
