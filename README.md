@@ -57,9 +57,9 @@ If you prefer, you can use Docker to set up and run the project.
 
 ```bash
 # on arm
-docker build --build-arg platform=linux/aarch64 -t hgmrl .
+docker build --build-arg PLAT=linux/aarch64 -t hgmrl .
 # on x86
-docker build --build-arg var_name=linux/amd64 -t hgmrl .
+docker build --build-arg PLAT=linux/amd64 -t hgmrl .
 
 docker run -it hgmrl
 ```
@@ -92,11 +92,15 @@ python3 . -k 2 --dataset contact_primary_school --mode rank
 
 In the same way as for the original [MoCHy](https://github.com/geon0325/MoCHy) implementation, the number associated to the h-motif (k) does not directly correspond to the h-motif index. Following table describes the number that should be used to refer to a specific h-motif index.
 
-| k   | 2 | 3 | 5 | 7 | 8 | 9 | . | . | . |
-|-----|---|---|---|---|---|---|---|---|---|
-| h-motif index | 1 | 2 | 3 | 4 | 5 | 6 | . | . | . |
+| k   | 2 | 3 | 5 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 |
+|-----|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| h-motif index | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 |
 
 ## Data format
+
+contact-High-School, contact-Primary-School and email-Enron datasets are from the *Simplicial closure and higher-order link prediction.
+Austin R. Benson, Rediet Abebe, Michael T. Schaub, Ali Jadbabaie, and Jon Kleinberg.
+Proceedings of the National Academy of Sciences (PNAS), 2018* repository.
 
 Hypergraph data are stored inside the `datasets/__datsets__` folder, each consisting of 3 main files:
 
@@ -139,3 +143,7 @@ example-times.txt
 10
 15
 21
+
+## License
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/hypernetwork-research-group/motif_representation_learning">Hypergraph Motifs Representation Learning</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/hypernetwork-research-group">Alessia Antelmi, Gennaro Cordasco, Daniele De Vinco, Valerio Di Pasquale, Mirko Polato, Carmine Spagnuolo</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
