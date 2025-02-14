@@ -28,6 +28,8 @@ its superior performance and robustness in predicting h-motifs.
 
 ## How to Run HGMRL
 
+We used the Python version 3.10.14 to run the experiments.
+
 ### Manually Install
 
 Install all the requirements specified in the *requirements.txt* file.
