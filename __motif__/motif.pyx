@@ -68,7 +68,7 @@ cimport openmp
 @boundscheck(False)
 @wraparound(False)
 @nonecheck(False)
-def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, cnp.ndarray[DTYPE_int_t, ndim=2] motifs, float alpha, int beta, str mode = "rank"):
+def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, cnp.ndarray[DTYPE_int_t, ndim=2] motifs, float alpha, int beta, str mode = "rank", str heur = "default"):
     cdef:
         cnp.ndarray[cnp.int64_t, ndim=1] node_degrees
         cnp.ndarray[cnp.float64_t, ndim=2] node_distances, edge_distances
@@ -79,12 +79,23 @@ def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, c
         cnp.ndarray[DTYPE_int_t, ndim=1] new_motif
         cnp.ndarray[DTYPE_t, ndim=2] y_e, y_m
         list new_motifs = [], new_edges = []
-        int edge_i, num_nodes, num_motifs
+        int edge_i, num_nodes, num_motifs, num_edges
         int m_i, b
-    node_degrees = incidence_matrix.sum(axis=1)
-    node_distances, edge_distances = compute_edge_distances(incidence_matrix)
-    edge_i = incidence_matrix.shape[1] - 1
     num_nodes = incidence_matrix.shape[0]
+    num_edges = incidence_matrix.shape[1]
+    node_degrees = incidence_matrix.sum(axis=1)
+    if heur == "default":
+        node_distances, edge_distances = compute_edge_distances(incidence_matrix)
+    elif heur == "cn":
+        node_distances = np.where(incidence_matrix @ incidence_matrix.T, 1., 0.)
+        node_distances = (node_distances @ node_distances.T) / (node_distances.sum(axis=0)+1e-6) 
+
+        edge_distances = np.zeros((num_nodes, num_edges), dtype=np.float64).T
+        for i, e in enumerate(incidence_matrix.T.astype(np.bool_)):
+            edge_distances[i] = node_distances[e].max(axis=0)
+    else:
+        raise ValueError("Invalid heuristic")
+    edge_i = incidence_matrix.shape[1] - 1
     num_motifs = motifs.shape[0]
     for m_i in range(num_motifs):
         m = motifs[m_i]
@@ -93,10 +104,14 @@ def motif_negative_sampling(cnp.ndarray[cnp.int16_t, ndim=2] incidence_matrix, c
         motif_unique_nodes = (motif_im.sum(axis=0) > 0).nonzero()[0].astype(DTYPE_int)
 
         if mode != "random":
-            motif_distances = edge_distances[m].min(axis=0)
-            motif_distances += 1
-            motif_distances[motif_distances != np.inf] = motif_distances[motif_distances != np.inf].max() - motif_distances[motif_distances != np.inf] + 1 # Invert the distances
-            motif_distances[motif_distances == np.inf] = 0 # Set the unreachable nodes score to 0
+            if heur == "default":                
+                motif_distances = edge_distances[m].min(axis=0)
+                motif_distances += 1
+                motif_distances[motif_distances != np.inf] = motif_distances[motif_distances != np.inf].max() - motif_distances[motif_distances != np.inf] + 1 # Invert the distances
+                motif_distances[motif_distances == np.inf] = 0 # Set the unreachable nodes score to 0
+            else:
+                motif_distances = edge_distances[m].max(axis=0)
+
             p_dist = motif_distances / motif_distances.sum() # Compute the probability distribution, the lower the distance the higher the probability
             p_deg = node_degrees / node_degrees.sum()
             p = p_dist + p_deg

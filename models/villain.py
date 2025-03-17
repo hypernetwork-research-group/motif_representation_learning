@@ -141,7 +141,7 @@ class VilLainSLP(CustomEstimator):
                 X_batch = batch[0][0]
                 motifs_batch = batch[1]
 
-                X_, motifs_, y_e, y_m = motif_negative_sampling(X_batch.cpu().detach().numpy(), motifs_batch.cpu().detach().numpy(), 0.5, 1, mode=os.environ['NGTV_MODE'])
+                X_, motifs_, y_e, y_m = motif_negative_sampling(X_batch.cpu().detach().numpy(), motifs_batch.cpu().detach().numpy(), 0.5, 1, mode=os.environ['NGTV_MODE'], heur=os.environ['NGTV_HEUR'])
                 nei = torch.tensor(np.array(X_.nonzero()))
                 emi = torch.tensor(edge_motif_interactions(X_, motifs_))
                 y_e = torch.tensor(y_e)

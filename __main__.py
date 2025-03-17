@@ -19,6 +19,7 @@ from utils import evaluate_estimator
 from rich.logging import RichHandler
 import pickle
 import os
+from time import time
 
 import logging
 
@@ -27,7 +28,7 @@ os.environ['OMP_NUM_THREADS'] = '128'
 
 from clearml import Task
 
-def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int):
+def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int, alpha: float, beta: int, heur: str):
     print(dataset)
     print(f"k = {k})")
 
@@ -84,9 +85,10 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             logging.debug(f"Validation motifs: {v_motifs.shape[0]}/{f_motif_count[k]}")
 
             # Negative sampling
-            v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta, mode=os.environ['NGTV_MODE'])
+            v_incidence_matrix, v_motifs, y_validation_e, y_validation_m = motif_negative_sampling(v_incidence_matrix, v_motifs, alpha, beta, mode=os.environ['NGTV_MODE'], heur=os.environ['NGTV_HEUR'])
 
             for model_name, Model in models.items():
+                begin = time()
                 logging.info(f"Model {model_name}")
                 model = Model()
                 try:
@@ -99,12 +101,20 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
                     model_params[model_name].append(model.get_params()) # Save the model parameters
                 except Exception as e:
                     logging.error(f"{model_name} {e}")
+                end = time()
+                elapsed = end - begin
+                logging.info(f"{model_name} fold {f} elapsed time {elapsed}")
 
-        t_incidence_matrix, t_motifs, y_test_e, y_test_m = motif_negative_sampling(t_incidence_matrix, t_motifs, alpha, beta, mode=os.environ['NGTV_MODE'])
+        begin = time()
+        t_incidence_matrix, t_motifs, y_test_e, y_test_m = motif_negative_sampling(t_incidence_matrix, t_motifs, alpha, beta, mode=os.environ['NGTV_MODE'], heur=os.environ['NGTV_HEUR'])
+        end = time()
+        logging.info(f"Negative Sampling elapsed time {end - begin}")
 
         os.environ['N_EXPERIMENT'] = f'{i}'
 
         for model_name, Model in models.items():
+            logging.info(f"Evaluating {model_name}")
+            begin = time()
             model = Model()
             model.fit(T_incidence_matrix, T_motifs, t_incidence_matrix, y_test_e, t_motifs, y_test_m)
 
@@ -113,6 +123,9 @@ def main(dataset: Dataset, models: dict[str, BaseEstimator], k: int, limit: int,
             logging.info(f"{model_name} {metrics}")
 
             experiments_metrics[model_name].append(metrics)
+            end = time()
+            elapsed = end - begin
+            logging.info(f"{model_name} training elapsed time {elapsed}")
 
     for model_name, metrics in experiments_metrics.items():
         print(model_name)
@@ -134,6 +147,7 @@ if __name__ == '__main__':
     parser.add_argument('--dataset', type=str, choices=['email_enron', 'contact_high_school', 'contact_primary_school', 'cora'])
     parser.add_argument('--limit', type=int, default=10000)
     parser.add_argument('--mode', type=str, choices=['rank', 'random', 'prob'], default='rank')
+    parser.add_argument('--heur', type=str, choices=['default', 'cn', 'jc', 'rwr'], default='default')
 
     args = parser.parse_args()
 
@@ -160,6 +174,7 @@ if __name__ == '__main__':
     )
 
     os.environ['NGTV_MODE'] = args.mode
+    os.environ['NGTV_HEUR'] = args.heur
 
     models = dict()
     models['Node2Vec'] = Node2Vec
@@ -175,4 +190,4 @@ if __name__ == '__main__':
     k = args.k
     limit = args.limit
 
-    main(dataset, models, k, limit, 0.5, 1)
+    main(dataset, models, k, limit, 0.5, 1, args.heur)
