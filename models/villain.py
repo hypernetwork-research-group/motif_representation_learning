@@ -47,6 +47,9 @@ class VilLain(CustomEstimator):
         self.n_features = n_features
 
     def fit(self, X: np.ndarray):
+
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
         missing_nodes = np.where(np.sum(X, axis=1) == 0)[0]
         # Add singleton edge for missing nodes
         X_ = np.hstack((X, np.eye(X.shape[0])[missing_nodes].T))
@@ -60,10 +63,10 @@ class VilLain(CustomEstimator):
             epochs = 5000
             num_subspace = math.ceil(dim / num_labels)
             nei = torch.tensor(np.array(X_.nonzero()))
-            V_idx = nei[0]
-            E_idx = nei[1]
+            V_idx = nei[0].to(device)
+            E_idx = nei[1].to(device)
             V, E = torch.max(V_idx) + 1, torch.max(E_idx) + 1
-            self.model = model(V_idx, E_idx, V, E, num_subspace, num_labels, num_step, num_step_gen)
+            self.model = model(V_idx, E_idx, V, E, num_subspace, num_labels, num_step, num_step_gen).to(device)
             best_loss, best_model = 1e10, None
             pre_loss, patience = 1e10, 20
 
