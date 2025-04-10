@@ -48,7 +48,10 @@ class Node2Vec(CustomEstimator):
         nni = torch.tensor(node_node_interactions(X))
         emi_validation = torch.tensor(edge_motif_interactions(X, motifs_validation))
 
-        self.model = _Node2Vec(X.shape[0], 1, nni, num_nodes)
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        logging.info(f"Using {device} device")
+
+        self.model = _Node2Vec(X.shape[0], 1, nni, num_nodes).to(device)
         optimizer = torch.optim.Adam(self.model.parameters(), lr=0.01)
         criterion = nn.BCEWithLogitsLoss()
         epochs = 300
@@ -65,10 +68,10 @@ class Node2Vec(CustomEstimator):
                 motifs_batch = batch[1]
 
                 X_, motifs_, y_e, y_m = motif_negative_sampling(X_batch.cpu().detach().numpy(), motifs_batch.cpu().detach().numpy(), 0.5, 1, mode=os.environ['NGTV_MODE'], heur=os.environ['NGTV_HEUR'])
-                emi_ = torch.tensor(edge_motif_interactions(X_, motifs_))
-                y_e = torch.tensor(y_e)
-                y_m = torch.tensor(y_m)
-                nei = torch.tensor(np.array(X_.nonzero()))
+                emi_ = torch.tensor(edge_motif_interactions(X_, motifs_), device=device)
+                y_e = torch.tensor(y_e, device=device)
+                y_m = torch.tensor(y_m, device=device)
+                nei = torch.tensor(np.array(X_.nonzero()), device=device)
 
                 optimizer.zero_grad()
                 y_pred_e, y_pred_m = self.model(nei, emi_)
@@ -87,10 +90,10 @@ class Node2Vec(CustomEstimator):
             if epoch % 2 == 0:
                 with torch.no_grad():
                     self.model.eval()
-                    nei = torch.tensor(np.array(X_validation.nonzero()))                    
-                    y_pred_e, y_pred_m = self.model(nei, emi_validation)
-                    loss_e = criterion(y_pred_e, torch.tensor(y_validation_e))
-                    loss_m = criterion(y_pred_m, torch.tensor(y_validation_m))
+                    nei = torch.tensor(np.array(X_validation.nonzero()), device=device)                    
+                    y_pred_e, y_pred_m = self.model(nei, emi_validation.to(device))
+                    loss_e = criterion(y_pred_e, torch.tensor(y_validation_e, device=device))
+                    loss_m = criterion(y_pred_m, torch.tensor(y_validation_m, device=device))
                     y_pred_e, y_pred_m = nn.functional.sigmoid(y_pred_e), nn.functional.sigmoid(y_pred_m)
                     logging.debug(f"Validation Loss: {loss.item()}")
 

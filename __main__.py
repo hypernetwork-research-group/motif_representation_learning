@@ -157,14 +157,8 @@ if __name__ == '__main__':
         dataset = ContactHighSchool()
     elif args.dataset == 'contact_primary_school':
         dataset = ContactPrimarySchool()
-    elif args.dataset == 'congress_bills':
-        dataset = CongressBillsFull()
     elif args.dataset == 'cora':
         dataset = Cora()
-    elif args.dataset == 'pubmed':
-        dataset = PubMed()
-    elif args.dataset == 'citeseer':
-        dataset = Citeseer()
 
     incidence_matrix = dataset.incidence_matrix(lambda e: len(e) > 1)
 
